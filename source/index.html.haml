@@ -1,21 +1,55 @@
 ---
-pageable: true
-per_page: 10
+layout: false
+title: "Build stuff, sucka"
 ---
-- if paginate && num_pages > 1
-  %p Page %{page_number} of #{num_pages}
+!!! 5
 
-  -if prev_page
-    %p= link_to 'Previous page', prev_page
+<!--[if IE ]><html lang="en" class="no-js ie ltie10"> <![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!-->
+%html.no-js.no-ie{lang: I18n.locale}
+  <!--<![endif]-->
 
-%h1
+  = partial 'head'
 
-- page_articles("design").each_with_index do |article, i|
-  %h2
-    = link_to article.title, article
-    %span= article.date.strftime('%b %e')
-  = article.body
+  %body
+    %main{ role: "main" }
+      %header.cover
+        %h1.cover__title Michael Gibson
+        %nav.cover__nav
+          %ul
+            %li= link_to "Designer", "#designer", class: "cover__link"
+            %li= link_to "Writer", "#writer", class: "cover__link"
+            %li= link_to "Builder", "#teacher", class: "cover__link"
+      %article.section#designer
+        %h1.section__title Designer
+        %nav.imageNav
+          %ul.imageNav__list
+            - 12.times do
+              %li.imageNav__item
+                = link_to "#", class: "imageNav__link" do
+                  %figure= lorem.image('300x400', :random_color => true)
+                  %figcaption= lorem.words 5
+        %nav.listNav
+          %ul.listNav__list
+            - 12.times do
+              %li.listNav__item
+                = link_to "#", class: "listNav__link" do
+                  = lorem.words 5
+                  %time= lorem.date
+      %article.section#writer
+        %h1.section__title Writer
+        %nav.listNav
+          %ul.listNav__list
+            - 12.times do
+              %li.listNav__item
+                = link_to "#", class: "listNav__link" do
+                  = lorem.words 5
+                  %time= lorem.date
+      %article.section#teacher
+        %h1.section__title Builder
+        %p I’ve been writing HTML for 18 years and CSS for 13 years. I lived through the browser wars, watched the web embrace the standards movement, was witness to the rise of Content Management Systems and am currently enjoying the huge jump forward the web is currently undertaking due to the advancements in HTML5, CSS3 and working solutions for real embedded type on the web. Those advancements require equal progress in the way we approach our work.
+        %p No longer is it alright to simply design a page in Photoshop and call yourself a web designer. Our process needs to support design systems, rather than designed pages, and our work is not done until it is rendered in a browser window.
+        %p In discussions of web design, too often the focus in on the visual aspect of the design. However, the visual layer is just one of three layers that make a truly effective web site design. You need to ensure the interaction of the site is intuitive and pleasing; That you create little moments of pleasure that transcend color and typography. You need to ensure the execution of the site takes into account all the constraints of the modern web like unknown screen sizes, variable internet connection speeds, user accessibility restrictions and an ever growing collection of browser technologies (to name just a few).
+        %p Designing for the web is about embracing the constraints of the medium and using them to your advantage. I often refer to this as designing for failure. When you think you have the perfect design solution is when the real work begins. That is when you begin to work through all of the ways that the fragility of the web can (and will) break your design and strengthen the system to live up to stand up to even the worst case scenarios.
 
-- if paginate
-  - if next_page
-    %p= link_to 'Next page', next_page
+    = partial 'foot'

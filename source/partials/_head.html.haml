@@ -1,0 +1,115 @@
+- meta_description = current_page.data.description || "Researching, designing, and developing solutions for the web."
+- meta_author = "Michael Gibson"
+- fb_image = current_page.data.fb_image || "cards/fb.png"
+- twit_type = current_page.data.twit_type || "summary"
+- twit_image = current_page.data.twit_image || "cards/twit.png"
+
+%head
+
+  %meta{charset: "utf-8"}
+  %title= page_title
+
+  -# ---------------------------------------------------------------------------
+  -# Basic Content Meta Tags
+  -# ---------------------------------------------------------------------------
+
+  %meta{ name: "description", content: meta_description }
+  %meta{ name: "DC.description", content: meta_description }
+  %meta{ name: "author", content: meta_author }
+  %meta{ name: "DC.creator", content: meta_author }
+  %meta{ name: "DC.title", content: page_title }
+  %meta{ name: "copyright", content: "Copyright #{meta_author}, #{copyright_year_range(2007)}" }
+
+  -# ---------------------------------------------------------------------------
+  -# Facebook Card Tags - comments indicate what type of card the tags are for
+  -# and empty tags should not be rendered. Check out object types at
+  -# http://ogp.me/#types and take note of additional type specific tags
+  -# ---------------------------------------------------------------------------
+
+  %meta{ property: "og:title", content: page_title }
+  %meta{ property: "og:description", content: meta_description }
+  %meta{ property: "og:type", content: "website" }
+  %meta{ property: "og:image", content: image_url(fb_image) }
+  %meta{ property: "og:url", content: canonical_url }
+  %meta{ property: "og:site_name", content: "Love Has No Logic" }
+
+  -# ---------------------------------------------------------------------------
+  -# Twitter Card Tags - comments indicate what type of card the tags are for
+  -# and empty tags should not be rendered
+  -# ---------------------------------------------------------------------------
+
+  -# ----- All Twitter Cards
+  %meta{ name: "twitter:title", content: page_title }
+  %meta{ name: "twitter:site", content: "@lovehasnologic" }
+  %meta{ name: "twitter:description", content: meta_description }
+  %meta{ name: "twitter:card", content: twit_type }
+  - if twit_type == "summary"
+    %meta{ name: "twitter:image", content: image_url(twit_image) }
+  - if twit_type == "summary_large_image"
+    %meta{ name: "twitter:image:src", content: image_url(twit_image) }
+
+  -# ---------------------------------------------------------------------------
+  -# These are Browser and Mobile Meta Tags
+  -# ---------------------------------------------------------------------------
+
+  %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
+  %meta{:"http-equiv" => "cleartype", :content => "on"}
+  %meta{name: "HandheldFriendly", content: "True"}
+  %meta{name: "MobileOptimized", content: "320"}
+  %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+
+  -# ---------------------------------------------------------------------------
+  -# Canonical URL
+  -# ---------------------------------------------------------------------------
+
+  - if @canonical_url
+    %link{rel: :canonical, href: canonical_url}
+
+  -# ---------------------------------------------------------------------------
+  -# Stylesheets
+  -# ---------------------------------------------------------------------------
+
+  = stylesheet_link_tag "application", media: "screen"
+  = stylesheet_link_tag "application-print", media: "print"
+
+  -# ---------------------------------------------------------------------------
+  -# Javascripts
+  -# ---------------------------------------------------------------------------
+
+  -# Javascripts that need to load in the head. No jQuery here, please.
+  = javascript_include_tag "application-head"
+
+  -# ---------------------------------------------------------------------------
+  -# Favicons
+  -# ---------------------------------------------------------------------------
+
+  -# IE 6-10 use favicon.ico from public. Other browsers use the appropriate file from this list
+  %link{rel: "icon", type: "image/png", sizes: "16x16", href: image_path("fav/favicon-16x16.png")}
+  %link{rel: "icon", type: "image/png", sizes: "32x32", href: image_path("fav/favicon-32x32.png")}
+  %link{rel: "icon", type: "image/png", sizes: "96x96", href: image_path("fav/favicon-96x96.png")}
+  %link{rel: "icon", type: "image/png", sizes: "160x160", href: image_path("fav/favicon-160x160.png")}
+  %link{rel: "icon", type: "image/png", sizes: "196x196", href: image_path("fav/favicon-196x196.png")}
+
+  -# iOS Favicons
+  %link{rel: "apple-touch-icon-precomposed", type: "image/png", href: image_path("fav/apple-touch-icon-precomposed.png")}
+  %link{rel: "apple-touch-icon-precomposed", sizes: "60x60", type: "image/png", href: image_path("fav/apple-touch-icon-60x60-precomposed.png")}
+  %link{rel: "apple-touch-icon-precomposed", sizes: "72x72", type: "image/png", href: image_path("fav/apple-touch-icon-72x72-precomposed.png")}
+  %link{rel: "apple-touch-icon-precomposed", sizes: "76x76", type: "image/png", href: image_path("fav/apple-touch-icon-76x76-precomposed.png")}
+  %link{rel: "apple-touch-icon-precomposed", sizes: "114x114", type: "image/png", href: image_path("fav/apple-touch-icon-114x114-precomposed.png")}
+  %link{rel: "apple-touch-icon-precomposed", sizes: "120x120", type: "image/png", href: image_path("fav/apple-touch-icon-120x120-precomposed.png")}
+  %link{rel: "apple-touch-icon-precomposed", sizes: "144x144", type: "image/png", href: image_path("fav/apple-touch-icon-144x144-precomposed.png")}
+  %link{rel: "apple-touch-icon-precomposed", sizes: "152x152", type: "image/png", href: image_path("fav/apple-touch-icon-152x152-precomposed.png")}
+  %link{rel: "apple-touch-icon-precomposed", sizes: "180x180", type: "image/png", href: image_path("fav/apple-touch-icon-180x180-precomposed.png")}
+
+  -# Windows 8 Pinboard Tiles - 144x144
+  %meta{name: "msapplication-TileColor", content: "#e7e7e8"}
+  %meta{name: "application-name", content: "Love Has No Logic"}
+  %meta{name: "msapplication-TileImage", content: image_path("fav/mstile-144x144.png")}
+  -# Windows 8.1 Pinboard Tiles - Images fill full tapable area, leave room for text at bottom
+  %meta{name: "msapplication-square70x70logo", content: image_path("fav/mstile-70x70.png")}
+  %meta{name: "msapplication-square150x150logo", content: image_path("fav/mstile-150x150.png")}
+  %meta{name: "msapplication-wide310x150logo", content: image_path("fav/mstile-310x150.png")}
+  %meta{name: "msapplication-square310x310logo", content: image_path("fav/mstile-310x310.png")}
+
+  -# Opera Coast Favicon - 228x228
+  %link{rel: "icon", type: "image/png", href: image_path("fav/favicon-coast.png"), sizes: "228x228"}

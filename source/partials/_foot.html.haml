@@ -1,0 +1,25 @@
+-# -----------------------------------------------------------------------------
+-# Javascripts
+-# -----------------------------------------------------------------------------
+
+-# All the other scripts (including jQuery).
+= javascript_include_tag "application"
+
+-# Deferred JS scripts. These don't run until after the load event is triggered.
+:coffee
+  downloadJSAtOnload = ->
+    element = document.createElement("script")
+    element.src = "#{asset_path :js, 'application-defer'}"
+    document.body.appendChild element
+  if window.addEventListener
+    window.addEventListener "load", downloadJSAtOnload, false
+  else if window.attachEvent
+    window.attachEvent "onload", downloadJSAtOnload
+  else
+    preExistingOnload = window.onload
+    window.onload = ->
+      setTimeout downloadJSAtOnload, 0
+      preExistingOnload?()
+
+- if content_for? :page_scripts
+  = yield :page_scripts

@@ -1,0 +1,15 @@
+!!! 5
+
+<!--[if IE ]><html lang="en" class="no-js ie ltie10"> <![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!-->
+%html.no-js.no-ie{lang: I18n.locale}
+  <!--<![endif]-->
+
+  = partial 'head'
+
+  %body
+    = partial 'header'
+    %main{ role: "main" }
+      = yield
+      = partial 'footer'
+    = partial 'foot'
