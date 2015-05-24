@@ -1,0 +1,218 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+// - Extends
+// - Headings
+// - Paragraphs
+// - Inline Elements
+// - Time
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Extends
+// -----------------------------------------------------------------------------
+
+%hN {
+  // Shared styles amongst all headings
+  zoom: 1; // Remove Me
+
+  a {
+    // Shared styles for all links inside headings
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Headings
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Headings
+name: 01-headings
+category: Atoms - Type
+---
+
+```haml_example
+%h1 H1 Heading Tag
+%h2 H2 Heading Tag
+%h3 H3 Heading Tag
+%h4 H4 Heading Tag
+%h5 H5 Heading Tag
+%h6 H6 Heading Tag
+```
+
+### Scaled Heading Classes
+
+Scaled heading classes can be applied to any element to make it visually appear
+as a specific heading. This allows us to use sematically correct tags while
+styling them to look differently. For example, we can set the article title on
+a list of articles to `%h2`, but add a `.scale--1` class to ensure it looks like
+a top level title. All `h#` tags have the appropriate scale class `@extend`ed
+onto them.
+
+```haml_example
+.scale--1 Scale 1 Class
+.scale--2 Scale 2 Class
+.scale--3 Scale 3 Class
+.scale--4 Scale 4 Class
+.scale--5 Scale 5 Class
+.scale--6 Scale 6 Class
+```
+*/
+// -----------------------------------------------------------------------------
+
+// class, size, color, weight, uppercase(true|false)
+$sizes:
+    scale--0 2.5em map-get($heading, weight--bold) false
+  , scale--1 2.25em map-get($heading, weight--bold) false
+  , scale--2 2em map-get($heading, weight--bold) false
+  , scale--3 1.8em map-get($heading, weight--bold) false
+  , scale--4 1.6em map-get($heading, weight--bold) false
+  , scale--5 1.4em map-get($heading, weight--bold) false
+  , scale--6 1.2em map-get($heading, weight--bold) true
+  , scale--7 1em map-get($heading, weight--bold) true;
+
+@each $scale in $sizes {
+  .#{nth($scale, 1)} {
+    font-size: #{nth($scale, 2)};
+    font-weight: #{nth($scale, 3)};
+    color: map-get($heading, color);
+
+    @if nth($scale, 4) {
+      text-transform: uppercase;
+    }
+  }
+}
+
+@each $heading in 1 2 3 4 5 6 {
+  h#{$heading} {
+    @extend .scale--#{$heading};
+    @extend %hN;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Paragraphs
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Paragraphs
+name: 02-paragraphs
+category: Atoms - Type
+---
+
+```haml_example
+%p
+  Nam cursus accumsan tempor. Sed porta convallis dolor at commodo. Duis ut
+  hendrerit, gravida turpis ut, aliquet nisl. Pellentesque ullamcorper, libero
+  vel viverra pretium, turpis leo feugiat sapien, sit amet laoreet mauris
+  et purus. Proin vitae purus faucibus, posuere quam ac, sodales dui. Vestibu
+  mattis, massa ac pellentesque imperdiet, tortor massa ultrices enim, pharet
+  consectetur dui leo eu eros.
+```
+*/
+// -----------------------------------------------------------------------------
+
+p {
+  font-size: 1em;
+  margin: 0;
+}
+
+// -----------------------------------------------------------------------------
+// !-- Inline Elements
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Inline Elements
+name: inline-elements
+category: Atoms - Type
+---
+
+Example                       | Tag
+------------------------------|-------------------
+<strong>Bold Text</strong>    | `%strong` or `%b`
+<em>Italic Text</em>          | `%em` or `%i`
+<u>Underlined Text</u>        | `%u`
+<del>Striked Text</del>       | `%del` or `%s`
+<ins>Inserted Text</ins>      | `%ins`
+<sup>Superscript</sup>        | `%sup`
+<sub>Subscript</sub>          | `%sub`
+<small>Small Text</small>     | `%small`
+<mark>Highlighted Text</mark> | `%mark`
+<code>Code Block</code>       | `%code`
+<cite>Citation</cite>         | `%cite`
+*/
+// -----------------------------------------------------------------------------
+
+strong,
+b {
+  // Placeholder
+}
+
+em,
+i {
+  // Placeholder
+}
+
+u {
+  // Placeholder
+}
+
+del,
+s {
+  // Placeholder
+}
+
+ins {
+  // Placeholder
+}
+
+sup {
+  // Placeholder
+}
+
+sub {
+  // Placeholder
+}
+
+small {
+  // Placeholder
+}
+
+mark {
+  // Placeholder
+}
+
+code {
+  // Placeholder
+}
+
+cite {
+  // Placeholder
+}
+
+// -----------------------------------------------------------------------------
+// !-- Time
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Time Formats
+name: time-formats
+category: Atoms - Type
+---
+
+In practice, `%time` elements rarely get unique styles assigned. Their placement
+in the documentation is to account for the scenario when they do have unique
+styles, but also to document the various time formats being used in the app, and
+the appropriate markup for each. You can add formats in `config/locales/en.yml`
+under `en: time: formats:`. ([documentation](http://guides.rubyonrails.org/i18n.html#adding-date-time-formats))
+
+```haml_example_table
+%time{ datetime: "2015-05-04" } May 4th, 2015
+```
+*/
+// -----------------------------------------------------------------------------
+
+time {
+  // Placeholder
+}

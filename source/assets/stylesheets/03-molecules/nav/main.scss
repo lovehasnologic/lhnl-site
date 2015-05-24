@@ -1,0 +1,58 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+// - Container
+// - Items
+// - Links
+//
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Main Navigation
+name: nav-01-main
+category: Molecules - Navigation
+---
+```haml_example
+%nav.navMain{ role: "navigation" }
+  %ul.navMain__list
+    %li.navMain__item
+      = active_link_to "Active Nav Item", root_path, class_active: "is--active"
+    %li.navMain__item
+      = active_link_to "Nav Item", "/some/other/path/", class_active: "is--active"
+    %li.navMain__item
+      = active_link_to "Nav Item", "/some/other/path/", class_active: "is--active"
+    %li.navMain__item
+      = active_link_to "Nav Item", "/some/other/path/", class_active: "is--active"
+```
+*/
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Container
+// -----------------------------------------------------------------------------
+
+.navMain__list {
+  @include scut-list-inline;
+  text-align: right;
+}
+
+// -----------------------------------------------------------------------------
+// !-- Items
+// -----------------------------------------------------------------------------
+
+.navMain__item {
+  // Placeholder
+}
+
+// -----------------------------------------------------------------------------
+// !-- Links
+// -----------------------------------------------------------------------------
+
+.navMain__link {
+  // Placeholder
+
+  &:hover,
+  &:focus {
+    // Placeholder
+  }
+}

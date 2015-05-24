@@ -1,0 +1,196 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+// - Extends
+// - Wrappers
+// - Rows
+// - Actions
+//
+//  NOTES:
+//  [1] We use Susy (http://susydocs.oddbird.net/en/latest/) to define the field
+//      width, based on the default 12-column grid setup.
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Extends
+// -----------------------------------------------------------------------------
+
+%fieldWrapper {
+  @extend %group;
+  margin-bottom: 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Wrappers
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Wrappers
+name: 01-form-wrappers
+category: Molecules - Forms
+---
+
+Render using the `wrapper: :full` option in simple form.
+
+```haml_example
+= simple_form_for :example, url: "#" do |f|
+  = f.input :input_full, wrapper: :full, label: "Full Width Field", placeholder: "Placeholder Text"
+```
+
+Render using the `wrapper: :half` option in simple form.
+
+```haml_example
+= simple_form_for :example, url: "#" do |f|
+  = f.input :input_half, wrapper: :half, label: "Half Width Field", placeholder: "Placeholder Text"
+```
+
+Render using the `wrapper: :third` option in simple form.
+
+```haml_example
+= simple_form_for :example, url: "#" do |f|
+  = f.input :input_third, wrapper: :third, label: "Third Width Field", placeholder: "Placeholder Text"
+```
+
+Render using the `wrapper: :two_third` option in simple form.
+
+```haml_example
+= simple_form_for :example, url: "#" do |f|
+  = f.input :input_two_third, wrapper: :two_third, label: "Two-Thirds Width Field", placeholder: "Placeholder Text"
+```
+
+Render using the `wrapper: :half_last`, `wrapper: :third_last`, or
+`wrapper: :two_third_last` option in simple form. This removes the right margin
+and ensures that everything remains on a single row as it should.
+
+```haml_example
+= simple_form_for :example, url: "#" do |f|
+  = f.input :input_half_last, wrapper: :half_last, label: "Half Width Field Last In Row", placeholder: "Placeholder Text"
+```
+
+Render using the `disabled: :true`.
+
+```haml_example
+= simple_form_for :example, url: "#" do |f|
+  = f.input :input_disabled, wrapper: :half, label: "Disabled Field", placeholder: "Placeholder Text", disabled: true
+```
+
+```haml_example
+= simple_form_for :example, url: "#" do |f|
+  = f.input :input_hint, wrapper: :half, label: "Field With A Hint", placeholder: "Placeholder Text", hint: "This is the hint"
+```
+*/
+// -----------------------------------------------------------------------------
+
+.field {
+  @extend %fieldWrapper;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: .4;
+  }
+}
+
+.field--half {
+  @include span(6); // [1]
+}
+
+.field--third {
+  @include span(4); // [1]
+}
+
+.field--twoThird {
+  @include span(8); // [1]
+}
+
+.field--last {
+  @include last; // [1]
+}
+
+// -----------------------------------------------------------------------------
+// !-- Rows
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Field Rows
+name: 02-form-field-rows
+category: Molecules - Forms
+---
+
+Every row in a form should be wrapped in a `.fieldRow`. This serves as a
+container for any floated input wrappers, hints, labels, etc.
+
+```haml_example
+= simple_form_for :example, url: "#" do |f|
+  .fieldRow
+    = f.input :input_first, wrapper: :two_third, label: "Two-Thirds Field", placeholder: "Placeholder Text"
+    = f.input :input_last, wrapper: :third_last, label: "Third Field Last In Row", placeholder: "Placeholder Text"
+```
+*/
+// -----------------------------------------------------------------------------
+
+.fieldRow {
+  @extend %fieldWrapper;
+  clear: both;
+}
+
+// -----------------------------------------------------------------------------
+// !-- Actions
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Actions
+name: form-actions
+category: Molecules - Forms
+---
+```haml_example
+%ul.formActions
+  %li.formActions__action
+    %a{ href: "#" } One Action
+  %li.formActions__action
+    %a{ href: "#" } Another Action
+```
+*/
+// -----------------------------------------------------------------------------
+
+.formActions {
+  @extend %fieldWrapper;
+  clear: both;
+  margin: 1em 0 0;
+}
+
+.formActions__action {
+  // placeholder
+}
+
+// -----------------------------------------------------------------------------
+// !-- Buttons
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Buttons
+name: form-buttons
+category: Molecules - Forms
+---
+```haml_example
+= simple_form_for :example, url: "#" do |f|
+  .buttonGroup
+    = f.button :submit, "Submit Button"
+    = f.button :button, "Reset Button", type: "reset"
+```
+*/
+// -----------------------------------------------------------------------------
+
+.buttonGroup {
+  @extend %fieldWrapper;
+  clear: both;
+  margin-top: 1em;
+
+  * {
+    margin-right: 1em;
+  }
+}

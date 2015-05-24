@@ -1,0 +1,120 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+// - Extends
+// - Standard Button
+// - Button Variants
+// - Button Inputs
+//
+// -----------------------------------------------------------------------------
+
+%buttonInput {
+  @include input-appearance;
+  border: 0;
+  background: inherit;
+}
+
+// -----------------------------------------------------------------------------
+// !-- Standard Button
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Default Buttons
+name: 01-buttons
+category: Atoms - Buttons
+---
+
+Button styles can be applied to any element. Typically you&rsquo;ll want to
+use either a `<button>` or an `<a>` element:
+
+```haml_example_table
+= link_to "Button Link", "#", class: "button", title: "Link Title Here"
+
+%button Button Tag
+```
+*/
+// -----------------------------------------------------------------------------
+
+
+.button {
+  font-size: 1em;
+  font-weight: map-get($fontWeight, bold);
+  display: inline-block;
+  padding: .5em 1em;
+  text-decoration: none;
+  color: map-get($color, knockout);
+  background: map-get($button, bg);
+
+  &:hover,
+  &:focus {
+    opacity: .75;
+    color: map-get($color, knockout);
+  }
+}
+
+button {
+  @extend .button;
+  @extend %buttonInput;
+}
+
+// -----------------------------------------------------------------------------
+// !-- Button Variants
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Button Variants
+name: button-variants
+category: Atoms - Buttons
+---
+
+These button variant classes can be applied on top of the standard buttons to
+add additional styles.
+
+```haml_example_table
+= link_to "Secondary Button", "#", class: "button button--secondary", title: "Link Title Here"
+```
+*/
+// -----------------------------------------------------------------------------
+
+.button--secondary {
+  background: map-get($button, bg--secondary);
+}
+
+// -----------------------------------------------------------------------------
+// !-- Button Inputs
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Button Inputs
+name: 02-button-inputs
+category: Atoms - Buttons
+---
+
+Form input buttons should remain consistent with other buttons throughout the
+site.
+
+```haml_example_table
+= simple_form_for :example, url: "#" do |f|
+  = f.button :submit, "Submit Button"
+
+= simple_form_for :example, url: "#" do |f|
+  = f.button :button, "Generic Button"
+
+= simple_form_for :example, url: "#" do |f|
+  = f.button :button, "Reset Button", type: :reset
+```
+*/
+// -----------------------------------------------------------------------------
+
+[type="submit"],
+[type="button"] {
+  @extend .button;
+  @extend %buttonInput;
+}
+
+[type="reset"] {
+  @extend .button;
+  @extend .button--secondary;
+  @extend %buttonInput;
+  cursor: pointer;
+}

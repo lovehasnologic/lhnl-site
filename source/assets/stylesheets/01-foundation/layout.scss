@@ -1,0 +1,196 @@
+// ------------------------------------------------------------------------------
+// Table of Contents
+//
+// - Extends
+// - Gallery Layouts
+// - Main/Rail Columns
+//
+// ------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------
+// !-- Extends
+// ------------------------------------------------------------------------------
+
+%l--container {
+  @extend %group;
+}
+
+// -----------------------------------------------------------------------------
+// !-- Gallery Layouts
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Gallery Layouts
+name: layout-gallery
+category: Foundation - Layout
+---
+
+To swap between various gallery layouts you only need to change the class on the
+parent container. Do **not** copy the `sg--grid` class, as that is just for
+styleguide styling.
+
+### 1up
+```haml_example
+.l--1up
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+```
+
+### 2up
+```haml_example
+.l--2up
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+```
+
+### 3up
+```haml_example
+.l--3up
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+```
+
+### 4up
+```haml_example
+.l--4up
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+  .l--module.sg--grid Grid Module (.l--module)
+```
+*/
+// -----------------------------------------------------------------------------
+
+.l--1up {
+  @extend %l--container;
+}
+
+.l--2up {
+  @extend %l--container;
+}
+
+.l--3up {
+  @extend %l--container;
+}
+
+.l--4up {
+  @extend %l--container;
+}
+
+.l--module {
+
+  .l--2up & {
+    @include gallery(6);
+  }
+
+  .l--3up & {
+    @include gallery(4);
+  }
+
+  .l--4up & {
+    @include gallery(3);
+  }
+}
+
+// ------------------------------------------------------------------------------
+// !-- Rail Layouts
+// ------------------------------------------------------------------------------
+/*doc
+---
+title: Rail Layouts
+name: layout-rail
+category: Foundation - Layout
+---
+The width of the rail is determined by a class on the parent container.
+
+The placement of the rail is also determined by a class on the rail and not
+related to source order.
+
+### Left Rail (1/3 wide)
+```haml_example
+.l--rail--third.l--rail--left
+  .l--main.sg--grid Main Column (.l--main)
+  %aside.l--rail.sg--grid Rail (%aside.l--rail)
+```
+
+### Left Rail (1/4 wide)
+```haml_example
+.l--rail--quarter.l--rail--left
+  .l--main.sg--grid Main Column (.l--main)
+  %aside.l--rail.sg--grid Rail (%aside.l--rail)
+```
+
+### Right Rail (1/3 wide)
+```haml_example
+.l--rail--third.l--rail--right
+  .l--main.sg--grid Main Column (.l--main)
+  %aside.l--rail.sg--grid Rail (%aside.l--rail)
+```
+
+### Right Rail (1/4 wide)
+```haml_example
+.l--rail--quarter.l--rail--right
+  .l--main.sg--grid Main Column (.l--main)
+  %aside.l--rail.sg--grid Rail (%aside.l--rail)
+```
+*/
+// -----------------------------------------------------------------------------
+
+.l--rail--quarter {
+  @extend %l--container;
+}
+
+.l--rail--third {
+  @extend %l--container;
+}
+
+.l--rail {
+  .l--rail--third & {
+    @include span(4);
+  }
+
+  .l--rail--quarter & {
+    @include span(3);
+  }
+
+  .l--rail--right & {
+    @include last;
+  }
+
+  .l--rail--left & {
+    @include first;
+  }
+}
+
+
+.l--main {
+  .l--rail--third & {
+    @include span(8);
+  }
+
+  .l--rail--quarter & {
+    @include span(9);
+  }
+
+  .l--rail--right & {
+    @include first;
+  }
+
+  .l--rail--left & {
+    @include last;
+  }
+}

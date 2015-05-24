@@ -1,0 +1,96 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+// - Extends
+// - Table Container
+// - Table Rows
+// - Table Cells
+//
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Tables
+name: tables
+category: Atoms - Tables
+---
+
+```haml_example
+%table.table
+  %thead
+    %tr
+      %th Table Head Heading
+      %th Table Head Heading
+      %th Table Head Heading
+  %tbody
+    %tr
+      %th Table Body Heading
+      %td Table Body Cell
+      %td Table Body Cell
+    %tr
+      %th Table Body Heading
+      %td Table Body Cell
+      %td Table Body Cell
+```
+*/
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Extends
+// -----------------------------------------------------------------------------
+
+%cells {
+  zoom: 1; // Remove Me, here so extend doesn't fail below;
+}
+
+// -----------------------------------------------------------------------------
+// !-- Table Container
+// -----------------------------------------------------------------------------
+
+.table {
+  // Placeholder
+}
+
+// -----------------------------------------------------------------------------
+// !-- Table Rows
+// -----------------------------------------------------------------------------
+
+tr {
+  // Shared row styles
+
+  &:nth-child(even) {
+    // alternating rows, starting with the second in the section
+    // Odd should be the default styles
+  }
+
+  thead & {
+    // Only the row in the thead
+  }
+
+  tfoot & {
+    // Only the row in the thead
+  }
+
+  tbody & {
+    // Only the row in the tbody
+  }
+
+  + tr {
+    // Target styles to concurrent rows
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Table Cells
+// -----------------------------------------------------------------------------
+
+th {
+  @extend %cells;
+
+  tbody & {
+    // Target heading cells in the table body
+  }
+}
+
+td {
+  @extend %cells;
+}

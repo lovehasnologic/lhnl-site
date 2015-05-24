@@ -1,0 +1,398 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+// - Colors
+// - Named Colors
+// - Font Stacks
+// - Font Weights
+// - Border Colors
+// - Border Thickness
+// - Outer Margins
+// - Max Widths
+// - Gutters
+// - Breakpoints
+// - Z-Index
+// - Sprites
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Colors
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Colors
+name: 00-colors
+category: Foundation - Variables
+---
+
+The following colors are specified in the application using the given
+variable.These colors should only be referenced in maps and not directly in
+written CSS declarations.
+
+<div class="sg--colors">
+  <figure class="sg--color" style="background: #fff;">
+    <figcaption class="sg--color__details">
+      <strong>$white</strong> #fff
+    </figcaption>
+  </figure>
+  <figure class="sg--color" style="background: #ddd;">
+    <figcaption class="sg--color__details">
+      <strong>$silver</strong> #ddd
+    </figcaption>
+  </figure>
+  <figure class="sg--color" style="background: #aaa;">
+    <figcaption class="sg--color__details">
+      <strong>$gray</strong> #aaa
+    </figcaption>
+  </figure>
+  <figure class="sg--color" style="background: #111;">
+    <figcaption class="sg--color__details">
+      <strong>$black</strong> #111
+    </figcaption>
+  </figure>
+  <figure class="sg--color" style="background: #ff4136;">
+    <figcaption class="sg--color__details">
+      <strong>$red</strong> #ff4136
+    </figcaption>
+  </figure>
+</div>
+*/
+// -----------------------------------------------------------------------------
+
+$white: #fff;
+$silver: #ddd;
+$gray: #aaa;
+$black: #111;
+$red: #ff4136;
+
+// -----------------------------------------------------------------------------
+// !-- Named Colors
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Named Colors
+name: 00-named-colors
+category: Foundation - Variables
+---
+
+Named colors exist inside of a `$color` map and are for use throughout the
+application to ensure consistency amongst common elements. To use a named
+color, call `map-get($color, $colorName)` in your CSS.
+
+<div class="sg--colors">
+  <figure class="sg--color" style="background: #ddd;">
+    <figcaption class="sg--color__details">
+      <strong>disabled</strong> $silver (#ddd)
+    </figcaption>
+  </figure>
+  <figure class="sg--color" style="background: #ff4136;">
+    <figcaption class="sg--color__details">
+      <strong>warning</strong> $red (#ff4136)
+    </figcaption>
+  </figure>
+  <figure class="sg--color" style="background: #fff;">
+    <figcaption class="sg--color__details">
+      <strong>knockout</strong> $white (#fff)
+    </figcaption>
+  </figure>
+</div>
+*/
+// -----------------------------------------------------------------------------
+
+$color: (
+  disabled: $silver,
+  knockout: $white,
+  warning: $red,
+);
+
+// -----------------------------------------------------------------------------
+// !-- Font Stacks
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Font Stacks
+name: 02-typography
+category: Foundation - Variables
+---
+
+<p class="sg--fontStack" style="font-family: 'Helvetica Neue', Helmet, Freesans, sans-serif;">
+  <span class="sg--fontStack__variable">$sansSerif</span>
+  "Helvetica Neue", Helmet, Freesans, sans-serif
+</p>
+<p class="sg--fontStack" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+  <span class="sg--fontStack__variable">$serif</span>
+  Georgia, "Times New Roman", Times, serif
+</p>
+*/
+// -----------------------------------------------------------------------------
+
+$sansSerif: "Helvetica Neue", Helmet, Freesans, sans-serif;
+$serif: Georgia, "Times New Roman", Times, serif;
+
+// -----------------------------------------------------------------------------
+// !-- Font Weights
+// -----------------------------------------------------------------------------
+
+$fontWeight: (
+  normal: 400,
+  bold: 700,
+);
+
+// -----------------------------------------------------------------------------
+// !-- Border Color
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Border Colors
+name: border-colors
+category: Foundation - Variables
+---
+
+The following colors can be used to color borders throughout the application.
+They are contained inside a `$borderColor` map.
+
+<figure class="sg--color--border" style="background: #aaa;">
+  <figcaption class="sg--color__details">
+    <strong>standard</strong>
+  </figcaption>
+</figure>
+*/
+// -----------------------------------------------------------------------------
+
+$borderColor: (
+  standard: $gray,
+);
+
+// -----------------------------------------------------------------------------
+// !-- Border Thickness
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Border Thickness
+name: border-thickness
+category: Foundation - Variables
+---
+
+The following rule widths should be used for any borders throughout the
+application. They are contained inside a `$borderWidth` map.
+
+<figure class="sg--borderThickness">
+  <hr class="" style="width: 100%; border: 0; height: 5px"/>
+  <figcaption class="sg--borderThicknessVariable">thick</figcaption>
+</figure>
+
+<figure class="sg--borderThickness">
+  <hr class="" style="width: 100%; border: 0; height: 1px"/>
+  <figcaption class="sg--borderThicknessVariable">thin</figcaption>
+</figure>
+
+*/
+// -----------------------------------------------------------------------------
+
+$borderWidth: (
+  thin: 1px,
+);
+
+// -----------------------------------------------------------------------------
+// !-- Outer Margins
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Outer Margins
+name: outer-margins
+category: Foundation - Measurements
+---
+Outer margin measurements should be used on scaffolding and other full width
+elements, and refers to the space between the edge of the viewport and the
+element edge. Measurements are stored inside an `$outerMargin` map.
+*/
+// -----------------------------------------------------------------------------
+
+$outerMargin: (
+);
+
+// -----------------------------------------------------------------------------
+// !-- Max Widths
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Max Widths
+name: max-widths
+category: Foundation - Measurements
+---
+Max width measurements are used to restrict the width of fluid elements.
+Measurements are stored inside a `$maxWidth` map.
+*/
+// -----------------------------------------------------------------------------
+
+$maxWidth: (
+);
+
+// -----------------------------------------------------------------------------
+// !-- Gutters
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Gutters
+name: gutters
+category: Foundation - Measurements
+---
+Gutters are the space between the edge of elements on a page (2 columns, a
+header and content area, two stacked articles, etc.). Measurements are stored
+inside a `$gutter` map.
+
+<figure class="sg--measurement" style="width: 50px;">
+  <figcaption><strong>standard:</strong> 50px</figcaption>
+</figure>
+*/
+// -----------------------------------------------------------------------------
+
+$gutter: (
+  standard: 50px,
+);
+
+// -----------------------------------------------------------------------------
+// !-- Breakpoints
+//
+// Docs placed below breakpoint variables
+// -----------------------------------------------------------------------------
+
+$bp--screen: "only screen";
+$bp--landscape: "#{$bp--screen} and (orientation: landscape)";
+$bp--portrait: "#{$bp--screen} and (orientation: portrait)";
+
+$bp: (
+  1: 500,
+  2: 800,
+  3: 1000,
+  4: 1300,
+  5: 1800,
+);
+
+$bp--lowerBound: (
+  1: pem(0, 16),
+  2: pem(map-get($bp, 1) + 1, 16),
+  3: pem(map-get($bp, 2) + 1, 16),
+  4: pem(map-get($bp, 3) + 1, 16),
+  5: pem(map-get($bp, 4) + 1, 16),
+  6: pem(map-get($bp, 5) + 1, 16),
+);
+
+$bp--upperBound: (
+  1: pem(map-get($bp, 1), 16),
+  2: pem(map-get($bp, 2), 16),
+  3: pem(map-get($bp, 3), 16),
+  4: pem(map-get($bp, 4), 16),
+  5: pem(map-get($bp, 5), 16),
+);
+
+$bp--up: (
+  2: "(min-width: #{map-get($bp--lowerBound, 2)})",
+  3: "(min-width: #{map-get($bp--lowerBound, 3)})",
+  4: "(min-width: #{map-get($bp--lowerBound, 4)})",
+  5: "(min-width: #{map-get($bp--lowerBound, 5)})",
+);
+
+$bp--down: (
+  2: "(max-width: #{map-get($bp--upperBound, 2)})",
+  3: "(max-width: #{map-get($bp--upperBound, 3)})",
+  4: "(max-width: #{map-get($bp--upperBound, 4)})",
+  5: "(max-width: #{map-get($bp--upperBound, 5)})",
+);
+
+$bp--only: (
+  1: "(max-width: #{map-get($bp--upperBound, 1)})",
+  2: "(min-width: #{map-get($bp--lowerBound, 2)}) and (max-width: #{map-get($bp--upperBound, 2)})",
+  3: "(min-width: #{map-get($bp--lowerBound, 3)}) and (max-width: #{map-get($bp--upperBound, 3)})",
+  4: "(min-width: #{map-get($bp--lowerBound, 4)}) and (max-width: #{map-get($bp--upperBound, 4)})",
+  5: "(min-width: #{map-get($bp--lowerBound, 5)}) and (max-width: #{map-get($bp--upperBound, 5)})",
+  6: "(min-width: #{map-get($bp--lowerBound, 6)})",
+);
+
+// -----------------------------------------------------------------------------
+// Keep docs at end so that the examples don't error out
+// -----------------------------------------------------------------------------
+/*doc
+---
+title: Breakpoints
+name: 05-breakpoints
+category: Foundation - Breakpoints
+---
+
+<ol class="sg--breakpoints">
+  <li class="sg--bp sg--bp1">
+    Zone 1
+  </li>
+  <li class="sg--bp sg--bp2">
+    Zone 2
+  </li>
+  <li class="sg--bp sg--bp3">
+    Zone 3
+  </li>
+  <li class="sg--bp sg--bp4">
+    Zone 4
+  </li>
+  <li class="sg--bp sg--bp5">
+    Zone 5
+  </li>
+  <li class="sg--bp sg--bp6">
+    Zone 6
+  </li>
+</ol>
+
+Think of your responsive system as a collection of zones, with 1 being 0
+pixels through the first breakpoint measurement. Thinking about our
+breakpoints that way, we then define our media queries as what zones we want
+to include. For instance, Zone 4 and up, Zone 5 and down, Zone 3 only, or
+Zone 2 and Zone 4.
+
+```
+@media #{map-get($bp--up, 4)} {
+  styles: here;
+};
+
+@media #{map-get($bp--down, 5)} {
+  styles: here;
+};
+
+@media #{map-get($bp--only, 3)} {
+  styles: here;
+};
+
+@media #{map-get($bp--only, 2)} and #{map-get($bp--only, 4)} {
+  styles: here;
+};
+```
+
+See [https://github.com/tablexi/starter/wiki/Variable-Naming#break-points](https://github.com/tablexi/starter/wiki/Variable-Naming#break-points)
+for more detailed usage instructions.
+
+*/
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Z-Index
+// -----------------------------------------------------------------------------
+
+$z-index: (
+  hidden: -1,
+  below: 1,
+  above: 2,
+);
+
+// -----------------------------------------------------------------------------
+// !-- Sprites
+// -----------------------------------------------------------------------------
+
+// Sprite Image path variables
+$sprite: "../images/icons/sprite";
+$sprite--lg: "../images/icons/sprite_@2x";
+
+// One map per each icon in the sprite, with height, width and position for
+// the icon
+$sprite-name: (
+  height: 7px,
+  position: 0 -36px,
+  width: 11px,
+);

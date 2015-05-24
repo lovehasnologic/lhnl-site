@@ -1,0 +1,48 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+// - Strip Units
+// - Convert Pixels To Ems
+// - REM Sizing
+// - Fluid Type Sizes
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Strip Units
+// This'll strip the unit from any number passed to it.
+// -----------------------------------------------------------------------------
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// -----------------------------------------------------------------------------
+// !-- Convert Pixels to Ems
+// Must pass in the em base, as that changes throughout the document tree.
+// -----------------------------------------------------------------------------
+
+@function pem($pixels, $base: 16) {
+  @return strip-unit($pixels)/strip-unit($base) * 1em;
+}
+
+// -----------------------------------------------------------------------------
+// !-- REM Sizing
+// This mixin sets our font sizes in rem values. We'll set fallbacks in the IE
+// Stylesheet.
+// -----------------------------------------------------------------------------
+
+@function rem($pixels, $base: map-get($html, fontSize)) {
+  @return strip-unit($pixels)/strip-unit($base) * 1rem;
+}
+
+// -----------------------------------------------------------------------------
+// !-- Fluid Type Sizes
+// Sets the type size to vw units, based on a target font-size and target
+// browser width. This let's us control the target size through the various
+// breakpoints.
+// -----------------------------------------------------------------------------
+
+@function vw($targetSize, $breakPoint) {
+  @return ((strip-unit($targetSize)/strip-unit($breakPoint))*100) * 1vw;
+}
