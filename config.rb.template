@@ -1,0 +1,143 @@
+################################################################################
+# Paths
+################################################################################
+
+set :css_dir, 'assets/stylesheets'
+set :fonts_dir, 'assets/fonts'
+set :images_dir, 'assets/images'
+set :js_dir, 'assets/javascripts'
+set :partials_dir, 'partials'
+set :url_root, 'http://lovehasnologic.com'
+
+################################################################################
+# Blogs
+################################################################################
+
+activate :blog do |blog|
+  blog.name = "writing"
+  blog.prefix = "writing"
+  # blog.permalink = "{year}/{month}/{day}/{title}.html"
+  # blog.sources = "{year}-{month}-{day}-{title}.html"
+  # blog.taglink = "tags/{tag}.html"
+  # blog.layout = "layout"
+  # blog.summary_separator = /(READMORE)/
+  # blog.summary_length = 250
+  # blog.year_link = "{year}.html"
+  # blog.month_link = "{year}/{month}.html"
+  # blog.day_link = "{year}/{month}/{day}.html"
+  # blog.default_extension = ".markdown"
+
+  blog.tag_template = "tag.html"
+  blog.calendar_template = "calendar.html"
+
+  # blog.paginate = true
+  # blog.per_page = 10
+  # blog.page_link = "page/{num}"
+end
+
+activate :blog do |blog|
+  blog.name = "design"
+  blog.prefix = "design"
+  # blog.permalink = "{year}/{month}/{day}/{title}.html"
+  # blog.sources = "{year}-{month}-{day}-{title}.html"
+  # blog.taglink = "tags/{tag}.html"
+  # blog.layout = "layout"
+  # blog.summary_separator = /(READMORE)/
+  # blog.summary_length = 250
+  # blog.year_link = "{year}.html"
+  # blog.month_link = "{year}/{month}.html"
+  # blog.day_link = "{year}/{month}/{day}.html"
+  # blog.default_extension = ".markdown"
+
+  blog.tag_template = "tag.html"
+  blog.calendar_template = "calendar.html"
+
+  # blog.paginate = true
+  # blog.per_page = 10
+  # blog.page_link = "page/{num}"
+end
+
+page "/writing/feed.xml", layout: false
+page "/design/feed.xml", layout: false
+
+################################################################################
+# Output
+################################################################################
+
+activate :directory_indexes
+activate :gzip
+activate :livereload
+activate :search_engine_sitemap
+activate :syntax
+
+activate :autoprefixer do |config|
+  config.browsers = [
+    '> 2%',
+    'last 4 versions',
+    'Firefox >= 25',
+    'Android >= 4',
+    'Explorer >= 9',
+    'Opera >= 15',
+    'OperaMini >= 7']
+  config.cascade  = false
+end
+
+activate :google_analytics do |ga|
+  ga.tracking_id = 'UA-12345678-1'
+end
+
+activate :i18n do |locale|
+  locale.langs = [:en]
+  locale.templates_dir = "templates"
+end
+
+activate :imageoptim do |options|
+  options.manifest = true
+  options.skip_missing_workers = true
+  options.verbose = false
+  options.nice = true
+  options.threads = true
+  options.image_extensions = %w(.png .jpg .gif .svg)
+  options.advpng    = { :level => 4 }
+  options.gifsicle  = { :interlace => false }
+  options.jpegoptim = { :strip => ['all'], :max_quality => 90 }
+  options.jpegtran  = { :copy_chunks => false, :progressive => true, :jpegrescan => true }
+  options.optipng   = { :level => 6, :interlace => false }
+  options.pngcrush  = { :chunks => ['alla'], :fix => false, :brute => false }
+  options.pngout    = { :copy_chunks => false, :strategy => 0 }
+  options.svgo      = {}
+end
+
+activate :minify_html do |html|
+  html.remove_input_attributes = false
+end
+
+activate :title do |title|
+  title.site = 'Site Name'
+  title.separator = ' — '
+end
+
+################################################################################
+# Build Settings
+################################################################################
+
+configure :build do
+  activate :minify_css
+  activate :minify_javascript
+  activate :asset_hash
+  activate :relative_assets
+end
+
+################################################################################
+# Deployment
+################################################################################
+
+activate :deploy do |deploy|
+  deploy.method       = :ftp
+  deploy.host         = 'ftp.domain.com'
+  deploy.port         = 21
+  deploy.path         = '/path/to/html'
+  deploy.user         = 'user@domain.com'
+  deploy.password     = 'password'
+  deploy.build_before = true
+end
