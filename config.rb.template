@@ -136,6 +136,7 @@ activate :imageoptim do |options|
   options.verbose = false
   options.nice = true
   options.threads = true
+  options.allow_lossy = true
   options.image_extensions = %w(.png .jpg .gif .svg)
   options.advpng    = { :level => 4 }
   options.gifsicle  = { :interlace => false }
