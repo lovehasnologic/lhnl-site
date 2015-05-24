@@ -1,4 +1,4 @@
-#= require vendor/modernizr
-#= require vendor/dataUserAgent
+#= require vendor/_modernizr
+#= require vendor/_dataUserAgent
 #= require_tree ./shared
 #= require_tree ./head
