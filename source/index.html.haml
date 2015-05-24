@@ -17,9 +17,9 @@ title: Designer, Writer, Builder
         %h1.cover__title= data.site.name
         %nav.cover__nav
           %ul
-            %li= link_to "Designer", "#designer", class: "cover__link"
-            %li= link_to "Writer", "#writer", class: "cover__link"
-            %li= link_to "Builder", "#teacher", class: "cover__link"
+            %li= link_to "Designer", "#designer", class: "cover__link", data: { scroll: true }
+            %li= link_to "Writer", "#writer", class: "cover__link", data: { scroll: true }
+            %li= link_to "Builder", "#teacher", class: "cover__link", data: { scroll: true }
       %article.section#designer
         %h1.section__title Designer
         %nav.imageNav
@@ -53,3 +53,4 @@ title: Designer, Writer, Builder
         %p Designing for the web is about embracing the constraints of the medium and using them to your advantage. I often refer to this as designing for failure. When you think you have the perfect design solution is when the real work begins. That is when you begin to work through all of the ways that the fragility of the web can (and will) break your design and strengthen the system to live up to stand up to even the worst case scenarios.
 
     = partial 'foot'
+    = javascript_include_tag "home"
