@@ -152,7 +152,7 @@ activate :minify_html do |html|
 end
 
 activate :title do |title|
-  title.site = 'Site Name'
+  title.site = data.site.name
   title.separator = ' | '
 end
 

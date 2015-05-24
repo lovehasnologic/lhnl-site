@@ -1,6 +1,6 @@
 ---
 layout: false
-title: "Build stuff, sucka"
+title: Designer, Writer, Builder
 ---
 !!! 5
 
@@ -14,7 +14,7 @@ title: "Build stuff, sucka"
   %body
     %main{ role: "main" }
       %header.cover
-        %h1.cover__title Michael Gibson
+        %h1.cover__title= data.site.name
         %nav.cover__nav
           %ul
             %li= link_to "Designer", "#designer", class: "cover__link"
