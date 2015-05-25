@@ -40,11 +40,11 @@ title: Designer, Writer, Builder
         %h1.section__title Writer
         %nav.listNav
           %ul.listNav__list
-            - 12.times do
+            - blog("writing").articles.each do |article|
               %li.listNav__item
-                = link_to "#", class: "listNav__link" do
-                  = lorem.words 5
-                  %time= lorem.date
+                = link_to article.url, class: "listNav__link" do
+                  = article.title
+                  %time{ datetime: article.date.strftime('%F') }= article.date.strftime("%B '%y")
       %article.section#teacher
         %h1.section__title Builder
         %p I’ve been writing HTML for 18 years and CSS for 13 years. I lived through the browser wars, watched the web embrace the standards movement, was witness to the rise of Content Management Systems and am currently enjoying the huge jump forward the web is currently undertaking due to the advancements in HTML5, CSS3 and working solutions for real embedded type on the web. Those advancements require equal progress in the way we approach our work.

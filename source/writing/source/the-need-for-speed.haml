@@ -1,0 +1,104 @@
+---
+title: The Need For Speed
+date: 2013-04-09
+---
+
+%p
+  Tom Cruise may be crazy but as they say, even a broken clock is right twice a
+  day, and even though he was reading from a script,
+  = link_to "Maverick was onto something", "http://www.youtube.com/watch?v=ZwNWviK5z0Q"
+  out on the tarmac. Speed matters and we&rsquo;re constantly seeking it.
+  Personally, I get frustrated when I&rsquo;m stuck behind a slow bus in the
+  bike lane. I don&rsquo;t like it when a package takes an extra day or two to
+  get to me. And, like many users of the web, I hate waiting for pages to load.
+  This past week, that last one hit a bit too close to home.
+
+%p
+  We talk about speed with all of our clients. Questions like, &ldquo;How
+  quickly do I have to get feedback to you?&rdquo; and &ldquo;How long do we
+  have to pay you?&rdquo; are par for the course. What is less common is
+  &ldquo;How fast is our site going to load?&rdquo; However, that&rsquo;s one of
+  the most important questions for any successful site launch and is something
+  that I had neglected to ask while developing our own site. I was really
+  excited when the new site launched. We&rsquo;ve been working on it longer than
+  I care to mention (again) and it was great to push it live. What wasn&rsquo;t
+  great was the 5+ second page loads. This could not stand.
+
+%p
+  We had a good start. Expression Engine makes it quite simple to optimize your
+  database queries and cache template pieces. While looking over our templates,
+  I noticed there were a couple things I had forgotten to circle back on, but
+  for the most part we were good there. Part of the problem was that we were on
+  a shared host with limited resources. Another part of the problem was that,
+  due to the way the site was designed, we had to make a higher-than-usual
+  number of database queries. By mid-week we had patched up everything we
+  missed, but it still wasnt fast enough. Three seconds for the initial request
+  and another .6 seconds to render it all? Nope.
+
+%figure
+  = image_tag "assets/images/writing/speed-slow.png", width: "1000", height: "46", alt: "Screenshot of slow page rendering from Chrome's Developer Tools."
+  %figcaption Still too slow
+
+%p
+  On the assets side, we&rsquo;ve already looked at file size and feel that
+  we&rsquo;ve struck the right balance between limiting http requests, keeping
+  file size low and supporting hi-dpi screens. There are a few images we can
+  sprite up, but that wasn&rsquo;t the problem. I had to find the savings
+  somewhere else. Better site caching to the rescue. We&rsquo;ve used some other
+  third party Expression Engine caching solutions in the past.
+
+%ul
+  %li
+    = link_to "Template Morsels", "http://www.solspace.com/software/detail/template_morsels/"
+    is one of my favorites, but I&rsquo;ve been shying away from it lately.
+    I&rsquo;m not a big fan of how it takes large chunks of the templates out of
+    the templating system. I also don&rsquo;t like that it won&rsquo;t
+    automatically regenerate its cache files.
+  %li
+    People I trust quite a bit more than myself rave constantly about
+    = succeed "." do
+      = link_to "Stash", "http://devot-ee.com/add-ons/stash"
+    It&rsquo;s on my radar but I kept looking because I wasn&rsquo;t convinced.
+
+%p
+  In the end, turns out I had an unused license for
+  = succeed "," do
+    = link_to "CE Cache", "http://www.causingeffect.com/software/expressionengine/ce-cache"
+  and decided to try that out. I&rsquo;m quite glad I did. Let&rsquo;s let the
+  load time do the talking.
+
+%figure
+  = image_tag "assets/images/writing/speed-speedy.png", width: "1000", height: "46", alt: "Screenshot of quicker page rendering from Chrome's Developer Tools."
+  %figcaption Just right
+
+%p
+  Both images show the front page loading in a Chrome Incognito window, browser
+  cache disabled and emptied. The numbers speak for themselves. From three
+  seconds to 1/10th of a second for the initial request and from 3.6 seconds to
+  .7 seconds for the full page load. That makes me happy. Where did the speed
+  come from? Glad you asked.
+
+%p
+  CE Cache has a great feature (as far as I&rsquo;ve looked, seemingly unique
+  among the Expression Engine caching solutions) where instead of storing cached
+  chunks of templates, it will run your site in static mode, similar to what
+  Moveable Type did so well (perhaps the only thing it did well). When you call
+  a static cache tag in a template, a full, flat html file is saved and stored
+  on your server and sent back each time that page is requested, almost
+  completely bypassing the database and not needing to render anything on the
+  fly. It was quite simple to hook up and roll out across most of the site (took
+  about 15-20 minutes). In the few cases where I needed to make sure there was
+  dynamic info that got updated with every page load, the standard caching
+  mechanisms gave me more than enough control over saving the heavy lifting out
+  as flat files while still keeping dynamic pieces of the page uncached.
+
+%p
+  Simply put, I&rsquo;m impressed, and the results speak for themselves. Adding
+  this one to the standard toolkit.
+
+%p.p--note
+  Since this post was published, I&rsquo;ve rebuilt the website using
+  = link_to "Middleman", "http://middlemanapp.com"
+  to generate static site files and make the site really scream. I&rsquo;ll be
+  adding an entry to the blog about the techniques we used to speed up the site
+  in the redesign shortly.

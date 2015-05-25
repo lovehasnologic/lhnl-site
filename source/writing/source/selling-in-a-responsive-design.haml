@@ -1,0 +1,142 @@
+---
+title: Selling in a Responsive Design
+date: 2013-06-27
+---
+
+%p
+  If there&rsquo;s one thing that&rsquo;s sure to drive you batty in a
+  responsive layout it&rsquo;s working with third party ad services. Not
+  everyone can afford their own ad sales team or has the resources to support
+  their own ad network, and because of this, they turn to services such as
+  = succeed "." do
+    = link_to "Google DFP", "http://www.google.com/doubleclick/publishers/small-business/"
+  Those services are easy to implement and enable an instant revenue stream.
+  They also don&rsquo;t work well in fluid width layouts.
+
+%p
+  We ran into this wall the weekend before the launch of the new
+  = link_to "Roger Ebert", "http://rogerebert.com/"
+  website. We were implementing a new ad network that did not play nicely with
+  our fluid width columns. Not having the time to fully implement and test an
+  entire new layout for the site, we had to think quickly. Here&rsquo;s what we
+  did&hellip;
+
+%h2 The HTML
+
+%p
+  Our ads were all 300 pixels wide and existed in the same column. This column
+  was one of two columns in its parent container. On the parent container, we
+  put a class of
+  = succeed "." do
+    %code fixed-rail
+  Inside the container we added a class of
+  %code pad
+  to our main content and
+  %code place
+  to our ad rail. The HTML looked like this&hellip;
+
+:code
+  # lang: html
+  <section class="fixed-rail">
+    <section class="main pad">
+      ... Insert main content here ...
+    </section>
+    <aside class="place">
+      ... Insert ad rail content here ...
+    </aside>
+  </section>
+
+%h2 The CSS
+
+%p
+  Easy enough, right? The magic is the CSS. We&rsquo;re already using
+  = succeed "," do
+    = link_to "border-box box-sizing", "http://paulirish.com/2012/box-sizing-border-box-ftw/"
+  so we set our
+  %code pad
+  column to
+  = succeed "." do
+    %code width: 100%;
+  We then give it right padding of
+  %code 330px
+  (300 pixels for our ad-rail and 30px as the universal gutter width setting in
+  our SASS files). We then position the
+  %code place
+  column absolutely to the upper right corner. Instant fixed width right rail
+  and fluid width content column.
+
+:code
+  # lang: sass
+  $gutter-width: 30px;
+
+  .fixed-rail {
+    position: relative;
+  }
+
+  .pad {
+    width: 100%;
+    padding: 300px + $gutter-width;
+  }
+
+  .place {
+    width: 300px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+%h2 We Got This&hellip;
+
+%p
+  Looks great, right? One problem. There were some cases where the ad rail was
+  taller than the content column. Since it was positioned absolutely, the layout
+  would collapse. Uh-oh. The solution? We inserted a quick bit of JS to
+  calculate the height of the place column and added that as a minimum height on
+  its sibling pad column.
+
+:code
+  # lang: javascript
+  $('.place').each(function(){
+    var forceHeight = $(this).height() + 'px';
+    var sibling = $(this).siblings('.pad');
+    $(sibling).css({'min-height': forceHeight});
+  });
+
+%p
+  Honestly, I don&rsquo;t know how this solution will hold up over time, but it
+  seems to have been doing just fine in practice so far. If you&rsquo;ve got
+  some thoughts on this, let&rsquo;s chat.
+
+%p.p--note Updated May of 2015
+
+%p
+  Since this article has been written, web browsers have made a lot of progress.
+  This technique is now best approached using CSS Calculations. Using
+  calculations, your CSS might look like this:
+
+:code
+  # lang: sass
+  $gutter-width: 30px;
+  $ad-width: 300px;
+
+
+  .fixed-rail {
+    position: relative;
+  }
+
+  .pad {
+    width: calc(100% - $gutter-width - $ad-width);
+    float: left;
+  }
+
+  .place {
+    width: $ad-width;
+    float: right;
+  }
+
+%p
+  This will render issue free in
+  = succeed "," do
+    = link_to "IE9 and up", "http://caniuse.com/#feat=calc"
+  and you can use the original techniques in browsers that don&rsquo;t support
+  calulations.

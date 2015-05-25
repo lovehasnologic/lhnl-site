@@ -1,0 +1,144 @@
+---
+title: How I Learned To Love A CMS
+date: 2009-03-30
+---
+
+%p
+  Last month I wrote an entry looking at my personal history using content
+  management systems that I ended with the public announcement that through it
+  all I have finally found a system that works exactly how I think,
+  = succeed "." do
+    = link_to "Textpattern", "http://www.textpattern.com/"
+  The post elicited a handful of inquiries, most of which were questions asking
+  me the &ldquo;why&rsquo;s&rdquo; that influenced my decision.
+
+%p
+  Rather than put together a long winded article looking at the philosophical
+  differences that drove the development of Wordpress and Textpattern, here are
+  two snippets of code that go a great deal at illustrating why I prefer one
+  over another.
+
+%p
+  Textpattern code to display entries limited to a certain category
+
+:code
+  # lang: xml
+  <txp:article category="name" form="form_name" />
+
+%p
+  Wordpress code to display entries limited to a certain category
+
+:code
+  # lang: php
+  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <?php if (in_category(&rsquo;3&rsquo;)) continue; ?>
+      --Display code for the posts--
+    <?php endwhile; else: ?>
+  <?php endif; ?>
+
+%p
+  You&rsquo;ll notice two things. First, the Textpattern code explains at first
+  glance, even to those who have no experience working with Textpattern, what
+  the tag is doing. It&rsquo;s pulling in articles from the &ldquo;name&rdquo;
+  category and applying the form &ldquo;form_name&rdquo; (I will talk about
+  forms in a second) to them. On the other hand, the Wordpress code is a
+  combination of raw php based tags that are more difficult to decipher. Sure, I
+  recognize &ldquo;the loop&rdquo; and can decipher the if/else logic behind the
+  code, but the fact of the matter is that many of us that lean more towards the
+  word design in web designer are not PHP wizards, and working with
+  Wordpress&rsquo; PHP based tagging system slows us down. Textpattern&rsquo;s
+  plain language XML based tagging system is as close to writing in plain
+  english as you can get with computer code.
+
+%p
+  However, don&rsquo;t take this as an acknowledgement that if you are familiar
+  with PHP, that Wordpress is the system for you. It may be, that&rsquo;s for
+  you to decide, but let it be known that Textpattern, at the heart, is built on
+  PHP and MySQL, and as such, can execute any raw PHP commands you throw at it.
+  The fact that the Textpattern uses plain-language tags for its tagging system
+  while also being flexible enough to allow for any PHP you want to throw at it
+  was a major reason that I was able to crack into TXP and build this very site
+  just three days later.
+
+%p
+  The second thing made me ditch Wordpress in favor of Textpattern was the
+  mix-n-match form system that it uses to display content. With Wordpress, I
+  always found it difficult to re-reference similar code elsewhere on the site.
+  For instance. Let&rsquo;s say I wrote some display code for the articles on
+  the front page that I wanted to use for the articles in two categories, but
+  not for articles in a third, it was always a combination of various if/else
+  statements that added more cruft to the template file while just making things
+  appear more hazy to me when I looked at the screen.
+
+%p
+  Textpattern on the other hand approached this reality of web design with an
+  interesting idea. When developing a template, you can break out any code you
+  want to reuse into a form. A form is essentially a code snippet. These forms
+  can be used by any tag that outputs content from the database and they
+  determine how that content is displayed. A friend of mine summed it up
+  perfectly when I was introducing him to TXP. He said, &ldquo;So it&rsquo;s
+  like style sheets for code?&rdquo; And in essence, yes. It is a &ldquo;Write
+  Once. Publish Wherever.&rdquo; philosophy to how you build templates (and
+  eventually pages). By breaking out the template code delegated to displaying
+  content into it&rsquo;s own set of forms, the creation of pages is streamlined
+  by allowing me to focus simply on using tags to pull the proper content from
+  the database for each section and using conditional statements to limit and
+  fine tune the display of that content.
+  %em
+    Where HTML and CSS separate style from content in the browser,
+    Textpattern&rsquo;s template system allows you to separate style from
+    content in the process of creating the templates that power a site.
+  That&rsquo;s a big deal, and speaks directly to how my mind (and the mind of
+  many designers working on the web) think while writing web code.
+
+%p
+  In the past year, I&rsquo;ve become a small time TXP evangelist. I love the
+  system, recommend it to all my colleagues, and push my clients in that
+  direction when they ask my opinion. The two points I&rsquo;ve mentioned above
+  make it the quickest system for me to use to build a website. But, as I wrote
+  in my previous article, it&rsquo;s not the perfect system for every site, nor
+  for every developer/designer, and I realize that. In this side by side
+  comparison, I will readily admit that Wordpress has some major advantages.
+
+%p
+  For one, it&rsquo;s developer community is second to none. That&rsquo;s not to
+  say that Textpattern has no community to speak of, as I&rsquo;ve always found
+  plugins for any sort of problem I&rsquo;ve encountered with the stock
+  installation, but as is the case in the Mac/Windows comparison, the sheer
+  number of Wordpress developers overshadows all the other CMS communities
+  combined.
+
+%p
+  Secondly, the quality of free, and for-pay, templates available for Wordpress
+  make it extremely easy to install and get up and running in a basic form in
+  mere minutes. Textpattern doesn&rsquo;t shine in this regard.  Out of the box,
+  it is a plain, bare bones, black text on a white page utilitarian publishing
+  system. The ready made templates for Textpattern are at the level where
+  Wordpress templates were at three years ago. It&rsquo;s an obvious
+  shortcoming. However, where TXP shines is in the flexibility of developing
+  custom themes for specific purposes (for instance TXP powers this site
+  = succeed "," do
+    %em [Ed. note: This site is now powered by Middleman.]
+  the
+  = succeed "," do
+    = link_to "Adam Metz Website", "http://adammetz.com"
+  and
+  = succeed ")" do
+    = link_to "Broke Ass Gourmet", "http://brokeassgourmet.com/"
+  and that shouldn&rsquo;t be diminished.
+
+%p
+  Finally, as the leader in the CMS arena for several years now, many users are
+  now so familiar with Wordpress that the time saved in developing a site in
+  Textpattern is lost in breaking the site owners of their previous Wordpress
+  habits and training them on Textpattern.
+
+%p
+  As with most things online, it&rsquo;s essential that we regularly survey the
+  landscape and make sure we&rsquo;re using the tools that work best for us.
+  That&rsquo;s why I wrote my last post. I wanted to show how my toolset has
+  changed over the years as I&rsquo;ve discovered more efficient applications to
+  deploy. However, an important part of that process, and the reason for this
+  post, is making sure that we know why those choices we make are being made,
+  and that we, from time to time, re-evaluate those choices and make sure they
+  still make sense. I can safely say that for me, they still make perfect sense.

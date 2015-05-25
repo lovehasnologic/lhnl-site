@@ -1,0 +1,209 @@
+---
+title: Mobile First Responsive Design?
+date: 2015-05-22
+---
+
+%p.p--note This article was originally published on the Table XI blog.
+
+%hr
+
+%p
+  This past weekend, on May 3rd, I had the pleasure of joining a collection of
+  really smart people on stage at
+  = succeed "." do
+    = link_to "Mobile Camp Chicago", "http://2014.mobilecampchicago.com/"
+  It was a full day of discussing what the expansion in device usage over the
+  past few years means for our industry. I heard a bunch of great talks and had
+  even more great conversations. If you get a chance to attend one of the shows
+  that
+  = link_to "Chicago Camps", "http://chicagocamps.org/"
+  puts on I could not recommend it enough. The events are some of the most
+  affordable around and full of some of the best speakers
+  I&rsquo;ve seen.
+
+%p
+  For my talk,
+  = succeed "," do
+    = link_to "Mobile First Responsive Design?", "https://speakerdeck.com/lovehasnologic/mobile-first-responsive-design"
+  I posed this industry best practice as a question to the audience. We
+  don&rsquo;t usually see this technique posed as a question. It&rsquo;s
+  accepted that if you&rsquo;re building responsively, Mobile First is the way
+  to go. When I teach responsive design to students, I pose a similar question.
+  I show them a website in both a narrow view and a wide view and I ask,
+  &ldquo;Where would you start if you were building this site?&rdquo; About 2/3
+  of the class typically raises their hand for the narrow view, with the rest
+  raising their hand for the wide view (and occasionally a few students remind
+  me that they are paying for me to give them the answer). I then ask the class
+  &ldquo;Why?&rdquo;. Why did they make the choice they did? There&rsquo;s a bit
+  of conversation around their reasoning, and then I flip the example. I show
+  the same site, but with the narrow layout in the wide viewport, and the wide
+  layout in the narrow viewport. I follow with another question. &ldquo;Which of
+  these layouts is broken less?&rdquo; To me, this is a good visual for students
+  grasping with learning responsive techniques. Browsers that don&rsquo;t
+  support media queries will get the layout you start with. Which layout is
+  better out of context? The narrow view, yes? That settles the question of
+  where to begin, mobile first, right?
+
+%p
+  Eventually, a student in one of my classes raised her hand. She said
+  (paraphrased), &ldquo;I&rsquo;ve been trying to learn responsive design on my
+  own and have tackled a few projects. I have to start big, though, or else I
+  have a hard time wrapping my head around what&rsquo;s happening. Does that
+  mean I&rsquo;m doing it wrong?&rdquo; That last bit is what stuck with me. In
+  no way was she doing anything wrong. She was learning new techniques on her
+  own. She was building sites that responded to whatever environment they were
+  viewed in. She was doing everything right and the phrasing of her question,
+  the implication that this was wrong (and almost shameful) stuck with me.
+  It&rsquo;s my job to encourage and what I thought was an illustration of best
+  practices was a moment of discouragement. We talked about this as a group as
+  my thinking expanded right in front of the class and we came to a different
+  way of thinking about the problem: Start where you&rsquo;re standing.
+
+%p
+  Best practices are great because they are repeatable processes. As designers
+  and developers, we like repeatable processes. They allow us to think less
+  about the process and more about the problems we are trying to solve. However,
+  a repeatable process is like a racetrack that never moves. We run around and
+  around and around, but the starting line and finish line are always the same.
+  However, real-world projects are not the same size. They aren&rsquo;t the same
+  shape or length or even in the same place. They don&rsquo;t have the same
+  starting and finish lines and while a best practice can guide us on the right
+  path, it shouldn&rsquo;t be the thing that&rsquo;s creating the path. To start
+  where you&rsquo;re standing simply asks you, as the builder, to look at what
+  information you have before you determine where you&rsquo;ll start building
+  your front end. This includes analytics, user research, existing designs and
+  code, budgetary constraints and anything else you happen to know about the
+  project before you write your first line of HTML. Doing it right means
+  optimizing the process so that the person you&rsquo;re building your site for
+  gets the most value for the least amount of effort. If that means starting
+  with a wide view first in your breakpoint system, then you are &ldquo;doing it
+  wrong&rdquo; if you start small.
+
+%p
+  Regardless of where your project&rsquo;s starting point is, Mobile First is
+  still a best practice. It&rsquo;s important for us to understand what makes it
+  a best practice so that regardless of where we start we are able to make
+  better choices as we build out our sites. Back in 2009 Luke W. wrote a blog
+  post that would go on to inspire talks at conferences and a book on the topic,
+  = succeed "." do
+    = link_to "Mobile First", "http://www.lukew.com/ff/entry.asp?933"
+  In the post, he made three key arguments as to the benefits of a mobile first
+  approach to responsive design.
+
+%h2 Mobile Is Exploding
+
+%p
+  Back in 2009, small screens were a new frontier for web designers. The iOS and
+  Android explosion meant that people were trying to view our sites in the palm
+  of their hands and the experience was failing them. Designers needed to catch
+  up and a 960 grid wasn&rsquo;t going to do it. At the time it was the message
+  we needed to hear. Focus on the small screen and build out from there.
+  It&rsquo;s been 5 years and we&rsquo;ve done a good job, as an industry, of
+  solving the small screen problem. In doing so, we&rsquo;ve let the large
+  screen slip by us. A List Apart recently published
+  = link_to "Surveying the Big Screen", "http://alistapart.com/article/surveying-the-big-screen"
+  where the do a great job of pointing this out (and rightly call out some work
+  that I was tasked with creating). As we focused on small screens the other end
+  of the screen size divide continued to grow. There are desktop machines that
+  have screens pushing 3000 pixels wide. I will regularly browse websites on my
+  television from 15 feet across the room. I&rsquo;ve built internal
+  applications that are regularly used on projectors in a room of 10+ people.
+  Mobile exploded and the dust is settling. In 2014 viewports are exploding in
+  all directions and our approach should account for that.
+
+%h2 Mobile Forces You To Focus
+
+%p Luke sums this up perfectly:
+
+%blockquote
+  %p
+    Mobile devices require software development teams to
+    = succeed "." do
+      = link_to "focus on only the most important data and actions in an application", "http://alistapart.com/article/surveying-the-big-screen"
+    There simply isn&rsquo;t room in a 320 by 480 pixel screen for extraneous,
+    unnecessary elements. You have to prioritize.
+
+%p
+  I couldn&rsquo;t agree more. Once again, in 2009, this was what we needed to
+  hear. As an industry we kept cramming as much as we could onto the page
+  because we had the room to do it. We learned to focus our functionality to
+  specific purpose and find the intersection of audience and business needs in
+  a way that worked to make everyone involved with the website happy. But how
+  is focus a device problem? Regardless of where we are beginning in our build
+  process we should focus on the most important data and actions. That is our
+  job as designers, not an effect of designing for small screens. In 2014, doing
+  our jobs requires us to focus.
+
+%h2 Mobile Extends Your Capabilities
+
+%p
+  This was a game changer. With computers in our pockets we suddenly had a
+  completely new set of functionality we could roll into our websites. Like a
+  kid in a candy store we were faced with endless options: Touch screens and
+  gestures, location services, push notifications and more. These new
+  capabilities could change the way our sites worked and needed to be considered
+  early in the process, not as an afterthought. That was then. In 2014, this
+  functionality is coming to the large screen. Windows 8 has enabled touch on
+  large screens. Modern browsers have caught up on the feature front as well.
+  The capabilities that we associated with smart phones is no longer isolated to
+  our pockets and can become a part of our web sites across all devices.
+
+%h2
+  %del Mobile
+  Content First
+
+%p
+  Today Mobile First is an antiquated practice. Let&rsquo;s design for
+  &ldquo;Content First.&rdquo; In doing so we will take a device agnostic
+  approach.
+  = link_to "Adam McCrimmon", "https://twitter.com/mcatoms"
+  gave a talk earlier in the day called &ldquo;Deviceism.&rdquo; In it, he
+  talked about his response to &ldquo;People won&rsquo;t do that on
+  mobile.&rdquo; In 45 minutes he talked us through conversations, scenarios and
+  data around this question and summed it up with 5 simple words:
+  %em Context Changes. Intent Does Not.
+  People are going to do what they want to do with the closest screen that lets
+  them do it. The data backs this up. If we are still thinking about responsive
+  design as a device-centric problem, then we&rsquo;re not solving our actual
+  problem, which is allowing our site users to accomplish what they&rsquo;re
+  there to do regardless of the screen they&rsquo;re using. Taking a content
+  first approach to your responsive design allows you to forget about devices
+  and focus squarely on this problem.
+
+%p
+  Regardless of where you start, begin with a sketch. You know where
+  you&rsquo;re starting at, but unless you know where you&rsquo;re going to wind
+  up, the steps in between become much harder to work through. In putting
+  Sharpie to paper we can begin to answer some of those lingering interaction
+  questions and ensure that the focus is on data and action.
+
+%p
+  With your roadmap laid out, get your code into the browser. It doesn&rsquo;t
+  have to be a pixel perfect recreation of the full design, just a basic
+  scaffold, but get it there. Load it up and see how it lives and breathes in
+  the site&rsquo;s natural environment. Then shake things up a bit. Start
+  resizing your browser. When things don&rsquo;t look right you&rsquo;ve got
+  your first breakpoint. It&rsquo;s right in the name. A breakpoint is the point
+  at which your layout breaks. Fix it.
+
+%p
+  Finally, don&rsquo;t forget that the responsive journey is not a one-way
+  street. Think through and evaluate your design in both directions.
+
+%h2 Best Practice &ne; Dogma
+
+%p
+  We have a bad habit in our industry of jumping head first into embracing
+  newer, better best practices. In doing so, we tend to create a world that is
+  black and white, and the lack of gray hues scare me.
+
+%p
+  Let&rsquo;s go back to the girl that was in my class who spoke up as I was
+  teaching a mobile first approach. My lesson was black and white. Her reality
+  didn&rsquo;t align with what was &ldquo;right&rdquo;, and she got worried.
+  Best practices are simply a good starting point. Instead of unquestioningly
+  jumping into them face first, step back, evaluate them to find out what makes
+  them better, and apply those lessons in the most appropriate way for the
+  projects that you are working on. Share that knowledge and encourage the team
+  around you and this industry will continue to grow faster than we&rsquo;ve
+  ever seen.
