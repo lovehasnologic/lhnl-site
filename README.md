@@ -16,7 +16,7 @@
 
 **Site Build**
 
-- [*] Load SVG files
+- [x] Load SVG files
 - [ ] Refactor Social Nav CSS
 - [ ] Lazy Load images
 - [ ] Recrop eye image 
