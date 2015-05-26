@@ -16,7 +16,8 @@
 
 **Site Build**
 
-- [ ] Load SVG files
+- [*] Load SVG files
+- [ ] Refactor Social Nav CSS
 - [ ] Lazy Load images
 - [ ] Recrop eye image 
 - [ ] Design Text Lists
@@ -28,6 +29,8 @@
   - [ ] Floated
   - [ ] Full
   - [ ] Bleed
+- [ ] Make quotes consistent
+- [ ] Lint CSS
 
 **Articles**
 
