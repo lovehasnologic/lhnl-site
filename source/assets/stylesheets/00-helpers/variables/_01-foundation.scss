@@ -61,10 +61,10 @@ written CSS declarations.
 // -----------------------------------------------------------------------------
 
 $white: #fff;
-$silver: #ddd;
-$gray: #aaa;
-$black: #111;
-$red: #ff4136;
+$gray--light: #ddd;
+$gray: #676767;
+$black: #333;
+$pink: #ed1b68;
 
 // -----------------------------------------------------------------------------
 // !-- Named Colors
@@ -101,9 +101,9 @@ color, call `map-get($color, $colorName)` in your CSS.
 // -----------------------------------------------------------------------------
 
 $color: (
-  disabled: $silver,
+  disabled: $gray--light,
   knockout: $white,
-  warning: $red,
+  warning: $pink,
 );
 
 // -----------------------------------------------------------------------------
@@ -129,14 +129,18 @@ category: Foundation - Variables
 
 $sansSerif: "Helvetica Neue", Helmet, Freesans, sans-serif;
 $serif: Georgia, "Times New Roman", Times, serif;
+$headings: "utopia-std-headline", $serif;
+$display: "adelle", $serif;
 
 // -----------------------------------------------------------------------------
 // !-- Font Weights
 // -----------------------------------------------------------------------------
 
 $fontWeight: (
-  normal: 400,
-  bold: 700,
+  normal: 300,
+  heading: 400,
+  bold: 600,
+  heavy: 800,
 );
 
 // -----------------------------------------------------------------------------

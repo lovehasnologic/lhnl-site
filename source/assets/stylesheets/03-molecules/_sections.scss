@@ -1,0 +1,56 @@
+.cover {
+  background-color: $gray;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .is--loaded & {
+    background-image: image_url("assets/images/bg/eyes.png");
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+}
+
+.cover__title {
+  font-family: $serif;
+  color: $white;
+  font-weight: map-get($fontWeight, heavy);
+  font-size: vw(56px, map-get($bp, 1));
+
+  .wf-utopiastdheadline-n4-active & {
+    font-family: $headings;
+    font-weight: map-get($fontWeight, heading);
+  }
+}
+
+.cover__nav {
+  font-family: $serif;
+  font-weight: map-get($fontWeight, normal);
+
+  .wf-adelle-n3-active & {
+    font-family: $display;
+  }
+
+  ul {
+    @include scut-list-inline;
+  }
+
+  a {
+    padding: .25em 1em;
+    color: $white;
+    text-decoration: none;
+    font-size: vw(32px, map-get($bp, 1));
+    display: block;
+
+    @media #{map-get($bp--up, 2)} {
+      font-size: vw(18px, map-get($bp, 1));
+    }
+
+    @media #{map-get($bp--up, 5)} {
+      font-size: vw(28px, map-get($bp, 4));
+    }
+  }
+}

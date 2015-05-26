@@ -20,6 +20,16 @@ title: Designer, Writer, Builder
             %li= link_to "Designer", "#designer", class: "cover__link", data: { scroll: true }
             %li= link_to "Writer", "#writer", class: "cover__link", data: { scroll: true }
             %li= link_to "Builder", "#teacher", class: "cover__link", data: { scroll: true }
+        %nav.navSocial
+          %ul.navSocial__list
+            %li.navSocial__link
+              = link_to svg_icon("twitter", "navSocial__icon", 32, 32), "https://twitter.com/lovehasnologic", class: "navSocial__link"
+            %li.navSocial__link
+              = link_to svg_icon("dribbble", "navSocial__icon", 32, 32), "https://dribbble.com/lovehasnologic", class: "navSocial__link"
+            %li.navSocial__link
+              = link_to svg_icon("github", "navSocial__icon", 32, 32), "https://github.com/lovehasnologic", class: "navSocial__link"
+            %li.navSocial__link
+              = link_to svg_icon("linkedin", "navSocial__icon", 32, 32), "https://www.linkedin.com/in/lovehasnologic", class: "navSocial__link"
       %article.section#designer
         %h1.section__title Designer
         %nav.imageNav
@@ -27,7 +37,7 @@ title: Designer, Writer, Builder
             - 12.times do
               %li.imageNav__item
                 = link_to "#", class: "imageNav__link" do
-                  %figure= lorem.image('300x400', :random_color => true)
+                  %figure= image_tag(lorem.image('600x450', random_color: true, text: "Thumbnail"))
                   %figcaption= lorem.words 5
         %nav.listNav
           %ul.listNav__list
