@@ -11,26 +11,6 @@
 // -----------------------------------------------------------------------------
 // !-- Unordered Lists
 // -----------------------------------------------------------------------------
-/*doc
----
-title: Unordered Lists
-name: 01-unordered-lists
-category: Atoms - Lists
----
-
-```haml_example
-%ul
-  %li This is a list item
-  %li
-    This is a list item with a list inside
-    %ul
-      %li This is a list item
-      %li This is a list item
-  %li This is a list item
-  %li This is a list item
-```
-*/
-// -----------------------------------------------------------------------------
 
 ul {
   // List Container
@@ -43,26 +23,6 @@ ul {
 // -----------------------------------------------------------------------------
 // !-- Ordered Lists
 // -----------------------------------------------------------------------------
-/*doc
----
-title: Ordered Lists
-name: 02-ordered-lists
-category: Atoms - Lists
----
-
-```haml_example
-%ol
-  %li This is a list item
-  %li
-    This is a list item with a list inside
-    %ol
-      %li This is a list item
-      %li This is a list item
-  %li This is a list item
-  %li This is a list item
-```
-*/
-// -----------------------------------------------------------------------------
 
 ol {
   // List Container
@@ -74,22 +34,6 @@ ol {
 
 // -----------------------------------------------------------------------------
 // !-- Definition Lists
-// -----------------------------------------------------------------------------
-/*doc
----
-title: Definition Lists
-name: 03-definition-lists
-category: Atoms - Lists
----
-
-```haml_example
-%dl
-  %dt This is a definition term
-  %dd This is a definition description
-  %dt This is a definition term
-  %dd This is a definition description
-```
-*/
 // -----------------------------------------------------------------------------
 
 dl {
@@ -115,31 +59,4 @@ dd {
     // Works as a "last-child" selector between the last definition and the
     // next term
   }
-}
-
-// -----------------------------------------------------------------------------
-// !-- Inline Lists
-// -----------------------------------------------------------------------------
-/*doc
----
-title: List Variants
-name: list-variants
-category: Atoms - Lists
----
-
-Add these classes to any type of list to assign the variant&rsquo;s properties
-to them.
-
-### Inline List
-
-```haml_example
-%ul.list--inline
-  %li This is a list item
-  %li This is a list item
-```
-*/
-// -----------------------------------------------------------------------------
-
-.list--inline {
-  @include scut-list-inline;
 }

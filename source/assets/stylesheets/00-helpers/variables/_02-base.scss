@@ -20,6 +20,6 @@ $body: (
 );
 
 $selection: (
-  bg: transparentize($black, .6),
-  color: $black
+  bg: transparentize($pink, .6),
+  color: map-get($color, knockout),
 );

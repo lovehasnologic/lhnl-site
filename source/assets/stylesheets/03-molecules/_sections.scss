@@ -14,12 +14,12 @@
 // !-- Variables
 // -----------------------------------------------------------------------------
 
-$sectionBgs {
+$sectionBgs: (
   designer__title: $black,
   writer: $offWhite,
   writer__title: $gray--light,
   builder: $black,
-}
+);
 
 // -----------------------------------------------------------------------------
 // !-- Extends

@@ -1,124 +1,26 @@
 // -----------------------------------------------------------------------------
 // Table of Contents
 //
-// - Visibility
-// - Text Alignment
 // - Layout Alignment
 //
 // -----------------------------------------------------------------------------
 
 // -----------------------------------------------------------------------------
-// !-- Visibility
-// -----------------------------------------------------------------------------
-/*doc
----
-title: Visibility
-name: 01-visibility-states
-category: Foundation - States
----
-While many of these visibility states will appear the same (either visible or
-not) they acheieve their results in different ways. Be sure to use the most
-appropriate class for the situation.
-
-Example                                                                                        |Class            |Description
------------------------------------------------------------------------------------------------|-----------------|-------------------------------------------------------------------
-<figure class="sg--states"><span class="is--hidden sg--states--visibility"></span></figure>    |`.is--hidden`    |Invisible to eyes and screen readers alike.
-<figure class="sg--states"><span class="is--visHidden sg--states--visibility"></span></figure> |`.is--visHidden` |Invisible to eyes, but visible to screen readers.
-<figure class="sg--states"><span class="is--collapsed sg--states--visibility"></span></figure> |`.is--collapsed` |Invisible to eyes and screenreaders, but no forced with !important, so easier toggling/animating when attached to interactions.
-
-*/
-// -----------------------------------------------------------------------------
-
-.is--hidden {
-  // override any element styles
-  display: none !important;
-}
-
-.is--visHidden {
-  // Important declarations to override any other styles the element may pick up
-  // These are invisible on the page, but visible by screen readers
-  position: absolute;
-  top: 0 !important;
-  left: 0 !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-.is--collapsed {
-  // Differs from .is--hidden in that it's not forced onto the item
-  // Use when you are hiding to show with javascript
-  display: none;
-}
-
-// -----------------------------------------------------------------------------
-// !-- Text Alignment
-// -----------------------------------------------------------------------------
-/*doc
----
-title: Text Alignment
-name: alignment-text
-category: Foundation - States
----
-
-These classes can be assigned to a parent to force text alignment in a specific
-direction. The classes use `!important` to achieve this and override any
-inherited styles.
-
-Example                                                                                                    |Class
------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------
-<figure class="sg--states"><span class="text--left sg--states--textAlign">Left Aligned</span></figure>     |`.text--left`
-<figure class="sg--states"><span class="text--right sg--states--textAlign">Right Aligned</span></figure>   |`.text--right`
-<figure class="sg--states"><span class="text--center sg--states--textAlign">Center Aligned</span></figure> |`.text--centered`
-*/
-// -----------------------------------------------------------------------------
-
-.text--left {
-  text-align: left !important;
-}
-
-.text--center {
-  text-align: center !important;
-}
-
-.text--right {
-  text-align: right !important;
-}
-
-// -----------------------------------------------------------------------------
 // !-- Layout Alignment
-// -----------------------------------------------------------------------------
-/*doc
----
-title: Layout Alignment
-name: alignment-layout
-category: Foundation - States
----
-These classes can be assigned to any block/inline-block element to force it's
-alignment within it's parent. Left and right aligned elements are floated.
-Centered blocks are not (not until float: center; is a thing). `!important` is
-used to override any inherited styles.
-
-Example                                                                                                     |Class
-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------
-<figure class="sg--states"><span class="is--left sg--states--blockAlign">Left Aligned</span></figure>       |`.is--left`
-<figure class="sg--states"><span class="is--right sg--states--blockAlign">Right Aligned</span></figure>     |`.is--right`
-<figure class="sg--states"><span class="is--centered sg--states--blockAlign">Center Aligned</span></figure> |`.is--centered`
-*/
 // -----------------------------------------------------------------------------
 
 .is--left {
   float: left !important;
-}
 
-.is--centered {
-  position: relative !important;
-  float: none !important;
-  margin-right: auto !important;
-  margin-left: auto !important;
+  .is--padded {
+    margin: 0 map-get($gutter, narrow) map-get($gutter, narrow) 0;
+  }
 }
 
 .is--right {
   float: right !important;
+
+  .is--padded {
+    margin: 0 0 map-get($gutter, narrow) map-get($gutter, narrow);
+  }
 }
