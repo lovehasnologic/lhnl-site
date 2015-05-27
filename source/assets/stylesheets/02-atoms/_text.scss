@@ -28,20 +28,19 @@
 
 // class, size, color, weight, uppercase(true|false)
 $sizes:
-    scale--0 2.5em map-get($heading, weight--bold) false
-  , scale--1 2.25em map-get($heading, weight--bold) false
-  , scale--2 2em map-get($heading, weight--bold) false
-  , scale--3 1.8em map-get($heading, weight--bold) false
-  , scale--4 1.6em map-get($heading, weight--bold) false
-  , scale--5 1.4em map-get($heading, weight--bold) false
-  , scale--6 1.2em map-get($heading, weight--bold) true
-  , scale--7 1em map-get($heading, weight--bold) true;
+    scale--0 2.5em map-get($fontWeight, heading) false
+  , scale--1 2.25em map-get($fontWeight, heading) false
+  , scale--2 2em map-get($fontWeight, heading) false
+  , scale--3 1.8em map-get($fontWeight, heading) false
+  , scale--4 1.6em map-get($fontWeight, heading) false
+  , scale--5 1.4em map-get($fontWeight, heading) false
+  , scale--6 1.2em map-get($fontWeight, heading) true
+  , scale--7 1em map-get($fontWeight, heading) true;
 
 @each $scale in $sizes {
   .#{nth($scale, 1)} {
     font-size: #{nth($scale, 2)};
     font-weight: #{nth($scale, 3)};
-    color: map-get($heading, color);
 
     @if nth($scale, 4) {
       text-transform: uppercase;

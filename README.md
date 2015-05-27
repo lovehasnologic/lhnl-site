@@ -17,9 +17,9 @@
 **Site Build**
 
 - [x] Load SVG files
-- [ ] Refactor Social Nav CSS
+- [x] Refactor Social Nav CSS
 - [x] Lazy Load images
-- [ ] Recrop eye image 
+- [x] Recrop eye image 
 - [ ] Design Text Lists
 - [ ] Design Image Lists
 - [ ] Design Sections
