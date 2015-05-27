@@ -27,10 +27,10 @@
 }
 
 .cover__nav {
-  font-family: $serif;
+  font-family: $sansSerif;
   font-weight: map-get($fontWeight, normal);
 
-  .wf-adelle-n3-active & {
+  .wf-ffmetawebpro-n4-active & {
     font-family: $display;
   }
 

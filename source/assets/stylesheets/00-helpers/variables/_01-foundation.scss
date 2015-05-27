@@ -130,16 +130,16 @@ category: Foundation - Variables
 $sansSerif: "Helvetica Neue", Helmet, Freesans, sans-serif;
 $serif: Georgia, "Times New Roman", Times, serif;
 $headings: "utopia-std-headline", $serif;
-$display: "adelle", $serif;
+$display: "ff-meta-web-pro", $sansSerif;
 
 // -----------------------------------------------------------------------------
 // !-- Font Weights
 // -----------------------------------------------------------------------------
 
 $fontWeight: (
-  normal: 300,
+  normal: 400,
   heading: 400,
-  bold: 600,
+  bold: 700,
   heavy: 800,
 );
 
@@ -386,17 +386,11 @@ $z-index: (
 );
 
 // -----------------------------------------------------------------------------
-// !-- Sprites
+// !-- Transitions
 // -----------------------------------------------------------------------------
 
-// Sprite Image path variables
-$sprite: "../images/icons/sprite";
-$sprite--lg: "../images/icons/sprite_@2x";
+$transitionTiming: cubic-bezier(.5, 0, .5, 1);
 
-// One map per each icon in the sprite, with height, width and position for
-// the icon
-$sprite-name: (
-  height: 7px,
-  position: 0 -36px,
-  width: 11px,
+$transition: (
+  standard: .2s all $transitionTiming,
 );
