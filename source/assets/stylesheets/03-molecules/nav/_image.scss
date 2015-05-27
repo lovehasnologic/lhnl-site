@@ -18,8 +18,8 @@
 // -----------------------------------------------------------------------------
 
 .imageNav {
-  line-height: 0;
-  margin-bottom: map-get($gutter, tight); /* [1] */
+  line-height: 0;  /* [1] */
+  margin-bottom: map-get($gutter, tight);
 
   @media #{map-get($bp--up, 3)} {
     margin-bottom: map-get($gutter, narrow);
