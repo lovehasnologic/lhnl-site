@@ -1,0 +1,59 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+//  - Variables
+//  - Container
+//  - Links/Icons
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Variables
+// -----------------------------------------------------------------------------
+
+$navSocial--iconSize: 24px;
+
+// -----------------------------------------------------------------------------
+// !-- Container
+// -----------------------------------------------------------------------------
+
+.navSocial {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 1em;
+
+  @media #{map-get($bp--up, 3)} {
+    margin: 2em;
+  }
+}
+
+.navSocial__list {
+  @include scut-list-inline;
+}
+
+// -----------------------------------------------------------------------------
+// !-- Links/Icons
+// -----------------------------------------------------------------------------
+
+.navSocial__link {
+  transition: map-get($transition, standard);
+  color: map-get($color, knockout);
+  display: block;
+  padding: .25em 1em;
+
+  .navSocial:hover & {
+    opacity: map-get($cover, opacity);
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}
+
+.navSocial__icon {
+  width: $navSocial--iconSize;
+  height: $navSocial--iconSize;
+}
