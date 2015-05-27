@@ -38,6 +38,10 @@ helpers do
     "<svg class='icon icon--#{icon} #{klass}' viewBox='0 0 #{width} #{height}'><use xlink:href='##{icon}'></use></svg>"
   end
 
+  def lazy_image_tag(src, width, height, alt)
+    "<img data-original='#{src}' width='#{width}' height='#{height}' alt='#{alt}' />"
+  end
+
   def copyright_year_range(start_year)
     current_year = Time.current.year
     if current_year > start_year

@@ -18,7 +18,7 @@
 
 - [x] Load SVG files
 - [ ] Refactor Social Nav CSS
-- [ ] Lazy Load images
+- [x] Lazy Load images
 - [ ] Recrop eye image 
 - [ ] Design Text Lists
 - [ ] Design Image Lists

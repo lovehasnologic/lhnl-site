@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+//  - Images
+//
+//  NOTES:
+//  [1] For Image lazy loading, we add a tiny bit of CSS to handle pre-/post-
+//      loaded images. This CSS ensures that pre-loaded images aren't visible
+//      (remove the missing Image X from the page) and then fade in smoothly
+//      once loaded.
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Images
+// -----------------------------------------------------------------------------
+
+img {
+  // [1]
+  &[data-original] {
+    transition: .25s opacity ease-in-out;
+    opacity: 0;
+
+    &.is--loaded {
+      opacity: 1;
+    }
+  }
+}

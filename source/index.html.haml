@@ -37,7 +37,7 @@ title: Designer, Writer, Builder
             - 12.times do
               %li.imageNav__item
                 = link_to "#", class: "imageNav__link" do
-                  %figure= image_tag(lorem.image('600x450', random_color: true, text: "Thumbnail"))
+                  %figure= lazy_image_tag lorem.image('600x450', random_color: true, text: "Thumbnail"), 600, 450, "Thumbnail"
                   %figcaption= lorem.words 5
         %nav.listNav
           %ul.listNav__list
