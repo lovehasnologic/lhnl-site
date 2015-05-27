@@ -1,0 +1,96 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+//  - Variables
+//  - Extends
+//  - Shared
+//  - Designer
+//  - Writer
+//  - Builder
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Variables
+// -----------------------------------------------------------------------------
+
+$sectionBgs {
+  designer__title: $black,
+  writer: $offWhite,
+  writer__title: $gray--light,
+  builder: $black,
+}
+
+// -----------------------------------------------------------------------------
+// !-- Extends
+// -----------------------------------------------------------------------------
+
+%section--padded {
+  padding: 0 map-get($gutter, tight) map-get($gutter, tight);
+
+  @media #{map-get($bp--up, 3)} {
+    padding: 0 map-get($gutter, standard) map-get($gutter, narrow);
+  }
+
+  .section__title {
+    margin: 0 (map-get($gutter, tight) * -1) map-get($gutter, tight);
+
+    @media #{map-get($bp--up, 3)} {
+      @include scut-margin(n (map-get($gutter, standard) * -1) map-get($gutter, narrow));
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Shared
+// -----------------------------------------------------------------------------
+
+.section__title {
+  @include headingFont;
+  text-align: center;
+  line-height: 1;
+  padding: map-get($gutter, tight);
+
+  @media #{map-get($bp--up, 4)} {
+    @include headingFont(32);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Designer
+// -----------------------------------------------------------------------------
+
+#designer {
+  .section__title {
+    background: map-get($sectionBgs, designer__title);
+    color: map-get($color, knockout);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Writer
+// -----------------------------------------------------------------------------
+
+#writer {
+  @extend %section--padded;
+  background: map-get($sectionBgs, writer);
+
+  .section__title {
+    background: map-get($sectionBgs, writer__title);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Builder
+// -----------------------------------------------------------------------------
+
+#builder {
+  @extend %section--padded;
+  background: map-get($sectionBgs, builder);
+  color: map-get($color, knockout);
+
+  .section__title {
+    background: map-get($color, richBlack);
+    color: map-get($color, knockout);
+  }
+}

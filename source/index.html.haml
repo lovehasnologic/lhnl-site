@@ -19,7 +19,7 @@ title: Designer, Writer, Builder
           %ul
             %li= link_to "Designer", "#designer", class: "cover__link", data: { scroll: true }
             %li= link_to "Writer", "#writer", class: "cover__link", data: { scroll: true }
-            %li= link_to "Builder", "#teacher", class: "cover__link", data: { scroll: true }
+            %li= link_to "Builder", "#builder", class: "cover__link", data: { scroll: true }
         %nav.navSocial
           %ul.navSocial__list
             %li.navSocial__item
@@ -56,7 +56,7 @@ title: Designer, Writer, Builder
                 = link_to article.url, class: "listNav__link" do
                   = article.title
                   %time.listNav__secondary{ datetime: article.date.strftime('%F') }= article.date.strftime("%B '%y")
-      %article.section#teacher
+      %article.section#builder
         %h1.section__title Builder
         %p I’ve been writing HTML for 18 years and CSS for 13 years. I lived through the browser wars, watched the web embrace the standards movement, was witness to the rise of Content Management Systems and am currently enjoying the huge jump forward the web is currently undertaking due to the advancements in HTML5, CSS3 and working solutions for real embedded type on the web. Those advancements require equal progress in the way we approach our work.
         %p No longer is it alright to simply design a page in Photoshop and call yourself a web designer. Our process needs to support design systems, rather than designed pages, and our work is not done until it is rendered in a browser window.

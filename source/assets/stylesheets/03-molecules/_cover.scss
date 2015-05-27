@@ -33,15 +33,8 @@
 // -----------------------------------------------------------------------------
 
 .cover__title {
-  font-family: $serif;
+  @include headingFont;
   color: map-get($color, knockout);
-  font-weight: map-get($fontWeight, heavy);
-  font-size: vw(56px, map-get($bp, 1));
-
-  .wf-utopiastdheadline-n4-active & {
-    font-family: $headings;
-    font-weight: map-get($fontWeight, heading);
-  }
 }
 
 // -----------------------------------------------------------------------------
@@ -49,12 +42,7 @@
 // -----------------------------------------------------------------------------
 
 .cover__nav {
-  font-family: $sansSerif;
-  font-weight: map-get($fontWeight, normal);
-
-  .wf-ffmetawebpro-n4-active & {
-    font-family: $display;
-  }
+  @include bodyFont;
 
   ul {
     @include scut-list-inline;

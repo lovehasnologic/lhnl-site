@@ -1,0 +1,31 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+//  - Headings
+//  - Body
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Headings
+// -----------------------------------------------------------------------------
+
+@mixin headingFont($size: 56) {
+  font-family: $serif;
+  font-weight: map-get($fontWeight, heavy);
+  font-size: vw(($size * 1px), map-get($bp, 1));
+
+  .wf-utopiastdheadline-n4-active & {
+    font-family: $headings;
+    font-weight: map-get($fontWeight, heading);
+  }
+}
+
+@mixin bodyFont {
+  font-family: $sansSerif;
+  font-weight: map-get($fontWeight, normal);
+
+  .wf-ffmetawebpro-n4-active & {
+    font-family: $bodyFont;
+  }
+}

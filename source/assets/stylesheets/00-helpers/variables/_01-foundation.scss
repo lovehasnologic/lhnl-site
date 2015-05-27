@@ -61,6 +61,7 @@ written CSS declarations.
 // -----------------------------------------------------------------------------
 
 $white: #fff;
+$offWhite: #f2f2f2;
 $gray--light: #ddd;
 $gray: #676767;
 $black: #333;
@@ -103,6 +104,7 @@ color, call `map-get($color, $colorName)` in your CSS.
 $color: (
   disabled: $gray--light,
   knockout: $white,
+  richBlack: #000,
   warning: $pink,
 );
 
@@ -130,7 +132,7 @@ category: Foundation - Variables
 $sansSerif: "Helvetica Neue", Helmet, Freesans, sans-serif;
 $serif: Georgia, "Times New Roman", Times, serif;
 $headings: "utopia-std-headline", $serif;
-$display: "ff-meta-web-pro", $sansSerif;
+$bodyFont: "ff-meta-web-pro", $sansSerif;
 
 // -----------------------------------------------------------------------------
 // !-- Font Weights
@@ -253,6 +255,8 @@ inside a `$gutter` map.
 // -----------------------------------------------------------------------------
 
 $gutter: (
+  tight: 20px,
+  narrow: 25px,
   standard: 50px,
 );
 
