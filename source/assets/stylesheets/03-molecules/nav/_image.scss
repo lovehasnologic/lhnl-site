@@ -1,0 +1,97 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+//  - Container
+//  - Item
+//  - Link/Content
+//
+//  NOTES:
+//  [1] Lazy loading the images results in some white space inside the list
+//      item. This adds whitespace to the view via line-height. Setting
+//      line-height: 0 on the container removes it, but we need to ensure there
+//      is line-height on the details container.
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Container
+// -----------------------------------------------------------------------------
+
+.imageNav {
+  line-height: 0;
+  margin-bottom: map-get($gutter, tight); /* [1] */
+
+  @media #{map-get($bp--up, 3)} {
+    margin-bottom: map-get($gutter, narrow);
+  }
+}
+
+.imageNav__list {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+// -----------------------------------------------------------------------------
+// !-- Item
+// -----------------------------------------------------------------------------
+
+.imageNav__item {
+  width: 300px;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+.imageNav__image {
+  display: block;
+  transition: map-get($transition, standard);
+
+  .imageNav__link:hover & {
+    filter: grayscale(100%);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Link/Content
+// -----------------------------------------------------------------------------
+
+.imageNav__link {
+  position: relative;
+  display: block;
+}
+
+.imageNav__details {
+  @include bodyFont;
+  font-size: 1.25em;
+  font-weight: map-get($fontWeight, bold);
+  line-height: 1.2;  /* [1] */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  transition: map-get($transition, standard);
+  transform: scale3d(0,0,0);
+  text-align: center;
+  opacity: 0;
+  color: map-get($color, knockout);
+  background: transparentize($pink, .25);
+  align-items: center;
+  justify-content: center;
+
+  .imageNav__link:hover & {
+    transform: scale3d(1,1,1);
+    opacity: 1;
+  }
+}
+
+.imageNav__secondary {
+  font-size: .75em;
+  font-weight: map-get($fontWeight, normal);
+  margin-top: .5em;
+  text-transform: capitalize;
+}

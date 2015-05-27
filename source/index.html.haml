@@ -37,8 +37,11 @@ title: Designer, Writer, Builder
             - 12.times do
               %li.imageNav__item
                 = link_to "#", class: "imageNav__link" do
-                  %figure= lazy_image_tag lorem.image('600x450', random_color: true, text: "Thumbnail"), 600, 450, "Thumbnail"
-                  %figcaption= lorem.words 5
+                  %figure.imageNav__image= lazy_image_tag lorem.image('600x450', random_color: true, text: "Thumbnail"), 600, 450, "Thumbnail"
+                  %figcaption.imageNav__details
+                    = lorem.words 5
+                    %span.imageNav__secondary
+                      category, second category
         %nav.listNav
           %ul.listNav__list
             - blog("design").articles.sort_by(&:title).each do |article|
