@@ -8,10 +8,29 @@
 
   @media #{map-get($bp--up, 3)} {
     font-size: rem(28);
+    line-height: 1.55;
   }
 
   p {
     max-width: 1000px;
-    margin: 0 auto 1em;
+    margin: 0 auto;
+
+    + p {
+      text-indent: 1.5em;
+    }
+
+    &:first-of-type {
+      &:first-letter {
+        @include headingFont;
+        font-size: 3em;
+        line-height: 1;
+        float: left;
+        margin: 0 0 -.1em;
+
+        @media #{map-get($bp--up, 3)} {
+          font-size: 3.3em;
+        }
+      }
+    }
   }
 }

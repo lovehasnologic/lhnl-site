@@ -114,8 +114,4 @@ $sectionBgs: (
     background: map-get($color, richBlack);
     color: map-get($color, knockout);
   }
-
-  @media #{map-get($bp--up, 2)} {
-    padding-bottom: map-get($gutter, standard)*2;
-  }
 }
