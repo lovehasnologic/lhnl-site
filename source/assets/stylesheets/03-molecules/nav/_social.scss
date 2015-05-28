@@ -19,9 +19,9 @@ $navSocial--iconSize: 24px;
 
 .navSocial {
   position: absolute;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
   margin: 1em;
 
   @media #{map-get($bp--up, 3)} {
@@ -38,10 +38,10 @@ $navSocial--iconSize: 24px;
 // -----------------------------------------------------------------------------
 
 .navSocial__link {
-  transition: map-get($transition, standard);
-  color: map-get($color, knockout);
   display: block;
   padding: .25em 1em;
+  transition: map-get($transition, standard);
+  color: map-get($color, knockout);
 
   .navSocial:hover & {
     opacity: map-get($cover, opacity);

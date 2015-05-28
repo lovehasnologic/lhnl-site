@@ -19,6 +19,7 @@
       text-indent: 1.5em;
     }
 
+    // scss-lint:disable NestingDepth
     &:first-of-type {
       &:first-letter {
         @include headingFont;
@@ -32,5 +33,6 @@
         }
       }
     }
+    // scss-lint:enable NestingDepth
   }
 }

@@ -55,9 +55,9 @@ $sectionBgs: (
 
 .section__title {
   @include headingFont;
-  text-align: center;
   line-height: 1;
   padding: map-get($gutter, tight);
+  text-align: center;
 
   @media #{map-get($bp--up, 4)} {
     @include headingFont(32);
@@ -68,10 +68,11 @@ $sectionBgs: (
 // !-- Designer
 // -----------------------------------------------------------------------------
 
+// scss-lint:disable IdSelector
 #designer {
   .section__title {
-    background: map-get($sectionBgs, designer__title);
     color: map-get($color, knockout);
+    background: map-get($sectionBgs, designer__title);
   }
 
   .listNav {
@@ -106,12 +107,13 @@ $sectionBgs: (
 
 #builder {
   @extend %section--padded;
-  background: map-get($sectionBgs, builder);
-  color: map-get($color, knockout);
   padding-bottom: map-get($gutter, standard);
+  color: map-get($color, knockout);
+  background: map-get($sectionBgs, builder);
 
   .section__title {
-    background: map-get($color, richBlack);
     color: map-get($color, knockout);
+    background: map-get($color, richBlack);
   }
 }
+// scss-lint:enable IdSelector

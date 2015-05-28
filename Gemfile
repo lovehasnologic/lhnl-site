@@ -8,6 +8,7 @@ gem 'image_optim_pack'
 gem 'color-schemer'
 gem 'scut'
 gem 'susy'
+gem 'scss_lint'
 
 # Middleman
 gem 'middleman', '~>3.3.12'
