@@ -1,0 +1,17 @@
+.article {
+  font-size: vw(20, map-get($bp, 1));
+  line-height: 1.4;
+
+  @media #{map-get($bp--only, 2)} {
+    font-size: vw(16, map-get($bp, 1));
+  }
+
+  @media #{map-get($bp--up, 3)} {
+    font-size: rem(28);
+  }
+
+  p {
+    max-width: 1000px;
+    margin: 0 auto 1em;
+  }
+}

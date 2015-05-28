@@ -12,10 +12,40 @@
 // -----------------------------------------------------------------------------
 
 .listNav {
-  font-size: vw(18, map-get($bp, 1));
+  font-size: vw(20, map-get($bp, 1));
+
+  @media #{map-get($bp--only, 2)} {
+    font-size: vw(16, map-get($bp, 1));
+  }
+
+  @media #{map-get($bp--only, 3)} {
+    font-size: vw(16, map-get($bp, 2));
+  }
+
+  @media #{map-get($bp--only, 4)} {
+    font-size: vw(18, map-get($bp, 3));
+  }
+
+  @media #{map-get($bp--only, 5)} {
+    font-size: vw(18, map-get($bp, 4));
+  }
+
+  @media #{map-get($bp--only, 6)} {
+    font-size: vw(18, map-get($bp, 5));
+  }
 }
 
 .listNav__list {
+  list-style-type: none;
+
+  @media #{map-get($bp--up, 3)} {
+    column-count: 2;
+    column-gap: map-get($gutter, standard);
+  }
+
+  @media #{map-get($bp--up, 5)} {
+    column-count: 3;
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -23,6 +53,8 @@
 // -----------------------------------------------------------------------------
 
 .listNav__item {
+  break-inside: avoid;
+  margin: 0 -.75em;
 }
 
 // -----------------------------------------------------------------------------
@@ -30,10 +62,42 @@
 // -----------------------------------------------------------------------------
 
 .listNav__link {
-}
+  transition: map-get($transition, standard);
+  display: block;
+  padding: 0 .75em .15em;
+  margin: 0 0 1em;
+  text-decoration: none;
+  color: map-get($body, color);
+  position: relative;
 
-.listNav__details {
+  .listNav__item:last-child & {
+    margin-bottom: 0;
+  }
+
+  &:hover,
+  &:focus {
+    &:after {
+      width: .25em;
+    }
+  }
+
+  &:after {
+    transition: map-get($transition, standard);
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    background: $pink;
+  }
 }
 
 .listNav__secondary {
+  font-size: .75em;
+  font-weight: map-get($fontWeight, bold);
+  display: block;
+  text-transform: capitalize;
+  opacity: .35;
 }

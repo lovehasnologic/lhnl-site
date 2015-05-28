@@ -42,8 +42,8 @@ html {
 }
 
 body {
-  font-family: map-get($body, font);
-  font-weight: 400;
+  @include bodyFont;
+  font-weight: map-get($fontWeight, normal);
   font-style: normal;
   line-height: 1.3;
   box-sizing: border-box;

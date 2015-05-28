@@ -28,15 +28,23 @@ $sectionBgs: (
 %section--padded {
   padding: 0 map-get($gutter, tight) map-get($gutter, tight);
 
+  @media #{map-get($bp--up, 2)} {
+    @include scut-padding(n map-get($gutter, standard));
+  }
+
   @media #{map-get($bp--up, 3)} {
-    padding: 0 map-get($gutter, standard) map-get($gutter, narrow);
+    padding-bottom: map-get($gutter, standard);
   }
 
   .section__title {
     margin: 0 (map-get($gutter, tight) * -1) map-get($gutter, tight);
 
+    @media #{map-get($bp--up, 2)} {
+      @include scut-margin(n (map-get($gutter, standard) * -1));
+    }
+
     @media #{map-get($bp--up, 3)} {
-      @include scut-margin(n (map-get($gutter, standard) * -1) map-get($gutter, narrow));
+      margin-bottom: map-get($gutter, standard);
     }
   }
 }
@@ -65,6 +73,18 @@ $sectionBgs: (
     background: map-get($sectionBgs, designer__title);
     color: map-get($color, knockout);
   }
+
+  .listNav {
+    padding: 0 map-get($gutter, tight) map-get($gutter, tight);
+
+    @media #{map-get($bp--up, 2)} {
+      @include scut-padding(n map-get($gutter, standard));
+    }
+
+    @media #{map-get($bp--up, 3)} {
+      padding-bottom: map-get($gutter, standard);
+    }
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -88,9 +108,14 @@ $sectionBgs: (
   @extend %section--padded;
   background: map-get($sectionBgs, builder);
   color: map-get($color, knockout);
+  padding-bottom: map-get($gutter, standard);
 
   .section__title {
     background: map-get($color, richBlack);
     color: map-get($color, knockout);
+  }
+
+  @media #{map-get($bp--up, 2)} {
+    padding-bottom: map-get($gutter, standard)*2;
   }
 }

@@ -22,7 +22,7 @@
   margin-bottom: map-get($gutter, tight);
 
   @media #{map-get($bp--up, 3)} {
-    margin-bottom: map-get($gutter, narrow);
+    margin-bottom: map-get($gutter, standard);
   }
 }
 
@@ -62,7 +62,6 @@
 }
 
 .imageNav__details {
-  @include bodyFont;
   font-size: 1.25em;
   font-weight: map-get($fontWeight, bold);
   line-height: 1.2;  /* [1] */
