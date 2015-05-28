@@ -20,9 +20,9 @@
 - [x] Refactor Social Nav CSS
 - [x] Lazy Load images
 - [x] Recrop eye image 
-- [ ] Design Text Lists
-- [ ] Design Image Lists
-- [ ] Design Sections
+- [x] Design Text Lists
+- [x] Design Image Lists
+- [x] Design Sections
 - [ ] Design Articles
 - [ ] Design Figures
   - [ ] Standard
