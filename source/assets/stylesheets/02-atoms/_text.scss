@@ -55,6 +55,43 @@ $sizes:
   }
 }
 
+.heading--strip {
+  @include headingFont;
+  line-height: 1;
+  padding: map-get($gutter, tight);
+  text-align: center;
+
+  @media #{map-get($bp--up, 4)} {
+    @include headingFont(32);
+  }
+
+  .block & {
+    margin: map-get($gutter, tight) * -1;
+
+    @media #{map-get($bp--up, 2)} {
+      @include scut-margin(n (map-get($gutter, standard) * -1));
+    }
+
+    @media #{map-get($bp--up, 3)} {
+      margin-bottom: map-get($gutter, standard);
+    }
+  }
+
+  #designer & {
+    color: map-get($color, knockout);
+    background: map-get($block, bg--designer__title);
+  }
+
+  #writer & {
+    background: map-get($block, bg--writer__title);
+  }
+
+  #builder & {
+    color: map-get($color, knockout);
+    background: map-get($block, bg--builder__title);
+  }
+}
+
 // -----------------------------------------------------------------------------
 // !-- Paragraphs
 // -----------------------------------------------------------------------------

@@ -4,6 +4,7 @@
 //  - Variables
 //  - Extends
 //  - Shared
+//  - Text
 //  - Designer
 //  - Writer
 //  - Builder
@@ -11,22 +12,11 @@
 // -----------------------------------------------------------------------------
 
 // -----------------------------------------------------------------------------
-// !-- Variables
+// !-- Text
 // -----------------------------------------------------------------------------
 
-$sectionBgs: (
-  designer__title: $black,
-  writer: $offWhite,
-  writer__title: $gray--light,
-  builder: $black,
-);
-
-// -----------------------------------------------------------------------------
-// !-- Extends
-// -----------------------------------------------------------------------------
-
-%section--padded {
-  padding: 0 map-get($gutter, tight) map-get($gutter, tight);
+.block {
+  padding: map-get($gutter, tight);
 
   @media #{map-get($bp--up, 2)} {
     @include scut-padding(n map-get($gutter, standard));
@@ -36,31 +26,8 @@ $sectionBgs: (
     padding-bottom: map-get($gutter, standard);
   }
 
-  .section__title {
-    margin: 0 (map-get($gutter, tight) * -1) map-get($gutter, tight);
-
-    @media #{map-get($bp--up, 2)} {
-      @include scut-margin(n (map-get($gutter, standard) * -1));
-    }
-
-    @media #{map-get($bp--up, 3)} {
-      margin-bottom: map-get($gutter, standard);
-    }
-  }
-}
-
-// -----------------------------------------------------------------------------
-// !-- Shared
-// -----------------------------------------------------------------------------
-
-.section__title {
-  @include headingFont;
-  line-height: 1;
-  padding: map-get($gutter, tight);
-  text-align: center;
-
-  @media #{map-get($bp--up, 4)} {
-    @include headingFont(32);
+  .writing & {
+    background: map-get($block, bg--writer);
   }
 }
 
@@ -70,11 +37,6 @@ $sectionBgs: (
 
 // scss-lint:disable IdSelector
 #designer {
-  .section__title {
-    color: map-get($color, knockout);
-    background: map-get($sectionBgs, designer__title);
-  }
-
   .listNav {
     padding: 0 map-get($gutter, tight) map-get($gutter, tight);
 
@@ -93,12 +55,7 @@ $sectionBgs: (
 // -----------------------------------------------------------------------------
 
 #writer {
-  @extend %section--padded;
-  background: map-get($sectionBgs, writer);
-
-  .section__title {
-    background: map-get($sectionBgs, writer__title);
-  }
+  background: map-get($block, bg--writer);
 }
 
 // -----------------------------------------------------------------------------
@@ -106,14 +63,8 @@ $sectionBgs: (
 // -----------------------------------------------------------------------------
 
 #builder {
-  @extend %section--padded;
   padding-bottom: map-get($gutter, standard);
   color: map-get($color, knockout);
-  background: map-get($sectionBgs, builder);
-
-  .section__title {
-    color: map-get($color, knockout);
-    background: map-get($color, richBlack);
-  }
+  background: map-get($block, bg--builder);
 }
 // scss-lint:enable IdSelector

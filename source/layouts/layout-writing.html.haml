@@ -19,16 +19,16 @@
             - current_article.tags.each do |tag|
               = link_to tag, tag_path(tag)
         = yield
-        - if similar_articles
-          %footer.article__footer
-            %h3 Related Articles
-            %nav.listNav
-              %ul.listNav__list
-                - similar_articles.first(6).each do |related|
-                  %li.listNav__item
-                    = link_to related.url, class: "listNav__link" do
-                      = related.title
-                      %time.listNav__secondary{ datetime: related.date.strftime('%F') }
-                        = related.date.strftime("%B '%y")
+      - if similar_articles
+        %aside.block.block--related
+          %h3 Related Articles
+          %nav.listNav
+            %ul.listNav__list
+              - similar_articles.first(6).each do |related|
+                %li.listNav__item
+                  = link_to related.url, class: "listNav__link" do
+                    = related.title
+                    %time.listNav__secondary{ datetime: related.date.strftime('%F') }
+                      = related.date.strftime("%B '%y")
       = partial 'footer'
     = partial 'foot'
