@@ -23,15 +23,17 @@
 - [x] Design Text Lists
 - [x] Design Image Lists
 - [x] Design Sections
-- [ ] Design Articles
-- [ ] Design Figures
-  - [ ] Standard
-  - [ ] Floated
-  - [ ] Full
-  - [ ] Bleed
-- [ ] Code Blocks
+- [x] Design Articles
+- [x] Design Figures
+  - [x] Standard
+  - [x] Floated
+  - [x] Full
+  - [x] Bleed
+- [x] Code Blocks
 - [ ] Make quotes consistent
 - [ ] Lint CSS
+- [ ] Refactor out !important madness
+- [ ] Rebuild Sample Images in Portfolio for new site
 
 **Articles**
 

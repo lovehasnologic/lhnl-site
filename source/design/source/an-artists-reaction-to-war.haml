@@ -4,15 +4,15 @@ date: 2009-08-01
 tags: print design
 ---
 
-%figure
-  = image_tag "assets/images/work/artistsreaction.jpg"
-
 %p
   The Firehouse Gallery, an old-style firehouse turned art gallery, does one
   thing, and does it well. They curate amazing and thought-provoking art shows
   that make the community of Louisville, GA a better place. We couldn&rsquo;t
   have been happier when they asked us to work with them on their show promotion
   materials.
+
+%figure
+  = lazy_image_tag "/assets/images/work/artistsreaction.jpg", 1000, 668, "Full Show Poster"
 
 %p
   For their show,
@@ -26,6 +26,10 @@ tags: print design
   artists into a single work, so we took the opportunity to make our own
   response to war.
 
+%figure.figure--bleed
+  = lazy_image_tag "/assets/images/work/artistsreaction-type.jpg", 1000, 250, "Poster Closeup Detail"
+  %figcaption Type (Detail)
+
 %p
   We combined digital stylization and silkscreen to make an image that focused
   on several of the main aspects of war: inflicting pain on the other side and
@@ -36,10 +40,6 @@ tags: print design
   we scanned the piece and used it as a backdrop for the show, itself becoming a
   de facto piece in the exhibit.
 
-%figure
-  = image_tag "assets/images/work/artistsreaction-type.jpg"
-  %figcaption Type (Detail)
-
-%figure
-  = image_tag "assets/images/work/artistsreaction-bg.jpg"
+%figure.figure--bleed
+  = lazy_image_tag "/assets/images/work/artistsreaction-bg.jpg", 1000, 250, "Poster Closeup Detail"
   %figcaption Background (Detail)

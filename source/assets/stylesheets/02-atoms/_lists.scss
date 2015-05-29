@@ -57,26 +57,23 @@ ol {
 // -----------------------------------------------------------------------------
 
 dl {
-  // List Container
+  @extend %group;
+  margin: 0 0 1em;
 }
 
 dt {
-  // Definition Term
+  font-weight: map-get($fontWeight, bold);
+  display: inline-block;
+  float: left;
+  clear: left;
 
-  + dt {
-    // Add styles for stacked, multiple terms
+  &:after {
+    content: ":";
+    margin-right: .25em
   }
 }
 
 dd {
-  // Definition Description
-
-  + dd {
-    // Add styles for stacked, multiple descriptions
-  }
-
-  + dt {
-    // Works as a "last-child" selector between the last definition and the
-    // next term
-  }
+  display: inline-block;
+  float: left;
 }

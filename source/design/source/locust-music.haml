@@ -4,9 +4,6 @@ date: 2010-03-01
 tags: web design, front end development, cms development, textpattern
 ---
 
-%figure
-  = image_tag "assets/images/work/locust-home.jpg"
-
 %p
   We worked with Chicago record label Locust Music to rebuild their site from
   the ground up. Moving from a fragile, outdated CMS to a more flexible solution
@@ -19,9 +16,13 @@ tags: web design, front end development, cms development, textpattern
   system to securely deliver promotional materials to writers and radio stations.
 
 %figure
-  = image_tag "assets/images/work/locust-browse.jpg"
+  = lazy_image_tag "/assets/images/work/locust-home.jpg", 1000, 587, "Homepage Mockup"
+  %figcaption Home Page
+
+%figure
+  = lazy_image_tag "/assets/images/work/locust-browse.jpg", 1000, 587, "Catalog Browsing Mockup"
   %figcaption Catalog Browsing
 
 %figure
-  = image_tag "assets/images/work/locust-itemdetail.jpg"
+  = lazy_image_tag "/assets/images/work/locust-itemdetail.jpg", 1000, 587, "Catalog Item Mockup"
   %figcaption Catalog Item

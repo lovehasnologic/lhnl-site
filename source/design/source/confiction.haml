@@ -4,9 +4,6 @@ date: 2009-02-01
 tags: web design, identity development, front end development
 ---
 
-%figure
-  = image_tag 'assets/images/work/confiction-home.jpg'
-
 %p
   Confiction began as an idea in our friend
   = succeed "&rsquo;" do
@@ -19,11 +16,18 @@ tags: web design, identity development, front end development
   sale: baby shoes, never worn,&rdquo; and it&rsquo;s, &ldquo;No.&rdquo; Simply
   put, Confiction is fiction written in 140 characters or less.
 
+%figure
+  = lazy_image_tag '/assets/images/work/confiction-home.jpg', 1000, 587, "Homepage Mockup"
+
 %p
   As James was describing his vision to us, we had one of those moments where
   the design solidified instantly. There were a couple of minor tweaks before we
   began to build things, but what you see here is pretty much what hit the
   screen as soon as we stopped talking and started making.
+
+%figure.figure--bleed
+  = lazy_image_tag '/assets/images/work/confiction-about.jpg', 1000, 450, "Closeup Detail of About Page"
+  %figcaption About Page (Detail)
 
 %p
   The approach was simple: a site featuring the written word should be built
@@ -32,7 +36,10 @@ tags: web design, identity development, front end development
   allowed us to see how far we could go with only html and css to make a design
   truly unique.
 
-%figure
-  = image_tag 'assets/images/work/confiction-about.jpg'
-  %figcaption About Page (Detail)
+%h3 Collaborators
 
+%dl
+  %dt Founder
+  %dd= link_to "James Smythe", "http://james-smythe.com"
+  %dt Developer
+  %dd= link_to "Jim Benton", "http://autonomousmachine.com/"

@@ -4,15 +4,15 @@ date: 2008-08-01
 tags: web design, front end development, cms development
 ---
 
-%figure
-  = image_tag 'assets/images/work/sokana.jpg'
-
 %p
   Sokana Chartering is a worldwide tanker shipping company that needed to
   separate itself from its competitors.
   = link_to "This Design Studio", "http://thisdesignstudio.com/"
   worked with us to expand Sokana&rsquo;s sleek, new identity to an updated
   website that added a level of sophistication the industry had been lacking.
+
+%figure
+  = lazy_image_tag '/assets/images/work/sokana.jpg', 1000, 587, "Homepage Mockup"
 
 %p
   The website did away with the clutter that had become status quo and on
@@ -28,11 +28,11 @@ tags: web design, front end development, cms development
   leading to the site&rsquo;s organization.
 
 %figure
-  = image_tag 'assets/images/work/sokana-people.jpg'
+  = lazy_image_tag '/assets/images/work/sokana-people.jpg', 1000, 722, "People Page Detail"
   %figcaption People Page
 
 %figure
-  = image_tag 'assets/images/work/sokana-contact.jpg'
+  = lazy_image_tag '/assets/images/work/sokana-contact.jpg', 1000, 722, "Contact Page Detail"
   %figcaption Contact Page
 
 %h3 Collaborators

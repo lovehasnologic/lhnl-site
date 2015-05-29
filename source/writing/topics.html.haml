@@ -1,14 +1,16 @@
 ---
 title: Writing
+layout: writing
 ---
 
-.section.section--padded
-  %h1.section__title= current_page.data.title
-  %h2.section__subtitle #{tagname} Articles
-  %nav.listNav
-    %ul.listNav__list
-      - articles.each do |article|
-        %li.listNav__item
-          = link_to article.url, class: "listNav__link" do
-            = article.title
-            %time.listNav__secondary{ datetime: article.date.strftime('%F') }= article.date.strftime("%B '%y")
+%header.article__header
+  %h1.article__title= current_page.data.title
+  %h2.article__subtitle #{tagname}
+
+%nav.listNav
+  %ul.listNav__list
+    - articles.each do |article|
+      %li.listNav__item
+        = link_to article.url, class: "listNav__link" do
+          = article.title
+          %time.listNav__secondary{ datetime: article.date.strftime('%F') }= article.date.strftime("%B '%y")

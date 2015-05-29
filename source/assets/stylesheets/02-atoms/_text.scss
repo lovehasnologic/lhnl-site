@@ -61,9 +61,7 @@ $sizes:
   @extend %bleed--title;
   @include headingFont;
   line-height: 1;
-  // scss-lint:disable ImportantRule
   max-width: none !important; // Force bleed
-  // scss-lint:enable ImportantRule
   padding: map-get($gutter, tight);
   text-align: center;
 
@@ -71,7 +69,8 @@ $sizes:
     @include headingFont(32);
   }
 
-  #designer & {
+  #designer &,
+  .design & {
     color: map-get($color, knockout);
     background: map-get($block, bg--designer__title);
   }

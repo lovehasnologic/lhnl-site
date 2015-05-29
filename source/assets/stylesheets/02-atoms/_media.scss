@@ -26,3 +26,22 @@ img {
     }
   }
 }
+
+.figure--bleed {
+  margin-left: 50% !important;
+  transform: translateX(-50%);
+  width: 100vw !important;
+  max-width: none !important;
+
+  img {
+    width: 100% !important;
+  }
+}
+
+.figure--tight {
+  margin-top: -(map-get($gutter, tight)) !important;
+
+  @media #{map-get($bp--up, 3)} {
+    margin-top: -(map-get($gutter, standard)) !important;
+  }
+}

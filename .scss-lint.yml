@@ -34,7 +34,7 @@ linters:
   IdSelector:
     severity: error
   ImportantRule:
-    severity: warning
+    disable: true
   ImportPath:
     severity: warning
   Indentation:

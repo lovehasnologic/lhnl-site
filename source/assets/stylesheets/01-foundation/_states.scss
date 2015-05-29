@@ -9,7 +9,6 @@
 // !-- Layout Alignment
 // -----------------------------------------------------------------------------
 
-// scss-lint:disable ImportantRule
 .is--left {
   float: left !important;
 
@@ -25,4 +24,3 @@
     margin: 0 0 map-get($gutter, narrow) map-get($gutter, narrow);
   }
 }
-// scss-lint:enable ImportantRule

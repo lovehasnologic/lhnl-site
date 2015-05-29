@@ -1,9 +1,10 @@
 ---
 title: Designer
+layout: design
 ---
 
-.section
-  %h1.section__title= current_page.data.title
+%section.block--bleed
+  %h1.heading--strip= current_page.data.title
   %nav.imageNav
     %ul.imageNav__list
       - 12.times do
@@ -14,6 +15,8 @@ title: Designer
               = lorem.words 5
               %span.imageNav__secondary
                 category, second category
+
+%section.block
   %nav.listNav
     %ul.listNav__list
       - blog("design").articles.sort_by(&:title).each do |article|

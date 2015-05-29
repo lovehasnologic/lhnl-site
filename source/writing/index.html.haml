@@ -4,7 +4,7 @@ layout: writing
 ---
 
 %header.article__header
-  %h1.article__title.text--left= current_page.data.title
+  %h1.article__title= current_page.data.title
 %nav.listNav
   %ul.listNav__list
     - blog("writing").articles.each do |article|

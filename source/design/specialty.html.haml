@@ -1,13 +1,16 @@
 ---
-title: Design
+title: Designer
+layout: design
 ---
 
-.section.section--padded
-  %h1.section__title= current_page.data.title
-  %h2.section__subtitle #{tagname} Projects
+.block
+  %header.article__header
+    %h1.article__title= current_page.data.title
+    %h2.article__subtitle #{tagname} Projects
+
   %nav.listNav
     %ul.listNav__list
-      - blog("design").articles.sort_by(&:title).each do |article|
+      - articles.sort_by(&:title).each do |article|
         %li.listNav__item
           = link_to article.url, class: "listNav__link" do
             = article.title
