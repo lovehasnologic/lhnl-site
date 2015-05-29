@@ -13,19 +13,13 @@
 // -----------------------------------------------------------------------------
 
 .cover {
+  @extend %bg--halftone;
   display: flex;
   flex-direction: column;
   height: 100vh;
   text-align: center;
-  background-color: map-get($cover, bg);
   align-items: center;
   justify-content: center;
-
-  .is--loaded & {
-    background-image: image_url("assets/images/bg/portrait.png");
-    background-position: 50% 50%;
-    background-size: cover;
-  }
 }
 
 // -----------------------------------------------------------------------------
@@ -47,7 +41,6 @@
   ol {
     @include scut-list-inline;
   }
-
 }
 
 .cover__link {

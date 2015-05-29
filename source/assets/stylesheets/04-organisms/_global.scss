@@ -1,0 +1,48 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+//  - Header
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Header
+// -----------------------------------------------------------------------------
+
+.pageHeader {
+  @extend %bg--halftone;
+  display: flex;
+
+  @media #{map-get($bp--down, 2)} {
+    flex-direction: column;
+  }
+
+  @media #{map-get($bp--up, 3)} {
+    align-items: baseline;
+    padding: 0 map-get($gutter, tight);
+  }
+
+  @media #{map-get($bp--up, 4)} {
+    padding: 0 map-get($gutter, standard)
+  }
+}
+
+.logo {
+  @include headingFont;
+  text-align: center;
+
+  @media #{map-get($bp--up, 3)} {
+    font-size: rem(48);
+  }
+}
+
+.logo__link {
+  text-decoration: none;
+  color: map-get($color, knockout);
+  padding: map-get($gutter, tight) 0 0;
+  display: block;
+
+  @media #{map-get($bp--up, 3)} {
+    @include scut-padding(map-get($gutter, tight) n);
+  }
+}

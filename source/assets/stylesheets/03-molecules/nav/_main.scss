@@ -11,9 +11,45 @@
 // !-- Container
 // -----------------------------------------------------------------------------
 
+.navMain {
+  @include bodyFont;
+  flex: 1;
+}
+
 .navMain__list {
   @include scut-list-inline;
-  text-align: right;
+  text-align: center;
+
+  @media #{map-get($bp--up, 3)} {
+    text-align: right;
+  }
+}
+
+.navMain__link {
+  font-size: vw(32px, map-get($bp, 1));
+  display: block;
+  padding: 0 1em map-get($gutter, tight);
+  transition: map-get($transition, standard);
+  text-decoration: none;
+  color: map-get($color, knockout);
+
+  .navMain:hover & {
+    opacity: map-get($cover, opacity);
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  @media #{map-get($bp--up, 2)} {
+    font-size: vw(18px, map-get($bp, 1));
+  }
+
+  @media #{map-get($bp--up, 3)} {
+    @include scut-padding(map-get($gutter, tight) n);
+    font-size: rem(24);
+  }
 }
 
 // -----------------------------------------------------------------------------
