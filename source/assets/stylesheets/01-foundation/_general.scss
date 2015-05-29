@@ -49,6 +49,10 @@ body {
   box-sizing: border-box;
   min-height: 100%;
   background-color: map-get($body, bg);
+
+  &.writing {
+    background: $offWhite;
+  }
 }
 
 body,
@@ -56,6 +60,10 @@ select,
 input,
 textarea {
   color: map-get($body, color);
+}
+
+a {
+  transition: map-get($transition, standard);
 }
 
 .is--hoverDisabled {

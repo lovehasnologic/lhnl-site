@@ -29,6 +29,7 @@
   - [ ] Floated
   - [ ] Full
   - [ ] Bleed
+- [ ] Code Blocks
 - [ ] Make quotes consistent
 - [ ] Lint CSS
 

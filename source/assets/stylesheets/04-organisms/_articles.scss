@@ -35,4 +35,13 @@
     }
     // scss-lint:enable NestingDepth
   }
+
+  a {
+    color: $pink;
+
+    &:hover,
+    &:focus {
+      color: map-get($body, color);
+    }
+  }
 }

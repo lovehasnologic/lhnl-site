@@ -37,6 +37,7 @@
 }
 
 .logo__link {
+  transition: map-get($transition, standard);
   text-decoration: none;
   color: map-get($color, knockout);
   padding: map-get($gutter, tight) 0 0;
@@ -44,5 +45,10 @@
 
   @media #{map-get($bp--up, 3)} {
     @include scut-padding(map-get($gutter, tight) n);
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale3d(1.05, 1.05, 1.05);
   }
 }
