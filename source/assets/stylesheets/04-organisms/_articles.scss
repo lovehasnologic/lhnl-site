@@ -80,8 +80,8 @@
     @extend %constrain;
   }
 
-  ul,
-  ol {
+  > ul,
+  > ol {
     @extend %constrain;
   }
 

@@ -5,7 +5,6 @@
 //  - Extends
 //  - Shared
 //  - Text
-//  - Designer
 //  - Writer
 //  - Builder
 //
@@ -23,7 +22,7 @@
   }
 
   @media #{map-get($bp--up, 3)} {
-    padding-bottom: map-get($gutter, standard);
+    @include scut-padding(map-get($gutter, standard) n);
   }
 
   .writing & {
@@ -42,28 +41,10 @@
 }
 
 // -----------------------------------------------------------------------------
-// !-- Designer
-// -----------------------------------------------------------------------------
-
-// scss-lint:disable IdSelector
-#designer {
-  .listNav {
-    padding: 0 map-get($gutter, tight) map-get($gutter, tight);
-
-    @media #{map-get($bp--up, 2)} {
-      @include scut-padding(n map-get($gutter, standard));
-    }
-
-    @media #{map-get($bp--up, 3)} {
-      padding-bottom: map-get($gutter, standard);
-    }
-  }
-}
-
-// -----------------------------------------------------------------------------
 // !-- Writer
 // -----------------------------------------------------------------------------
 
+// scss-lint:disable IdSelector
 #writer {
   background: map-get($block, bg--writer);
 }

@@ -56,7 +56,8 @@ $sizes:
   }
 }
 
-.heading--strip {
+.heading--strip,
+.heading--strip:first-child {
   @extend %bleed--title;
   @include headingFont;
   line-height: 1;
@@ -82,6 +83,10 @@ $sizes:
   #builder & {
     color: map-get($color, knockout);
     background: map-get($block, bg--builder__title);
+  }
+
+  .block--bleed & {
+    margin-top: 0;
   }
 }
 

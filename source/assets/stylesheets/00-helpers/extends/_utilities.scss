@@ -26,6 +26,6 @@
   }
 
   @media #{map-get($bp--up, 3)} {
-    margin-bottom: map-get($gutter, standard);
+    @include scut-margin((map-get($gutter, standard) * -1) n map-get($gutter, standard));
   }
 }
