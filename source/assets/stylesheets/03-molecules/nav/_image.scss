@@ -19,11 +19,6 @@
 
 .imageNav {
   line-height: 0;  // [1]
-  margin-top: -(map-get($gutter, tight));
-
-  @media #{map-get($bp--up, 3)} {
-    margin-top: -(map-get($gutter, standard));
-  }
 }
 
 .imageNav__list {
