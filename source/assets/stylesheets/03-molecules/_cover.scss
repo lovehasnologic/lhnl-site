@@ -44,7 +44,7 @@
 .cover__nav {
   @include bodyFont;
 
-  ul {
+  ol {
     @include scut-list-inline;
   }
 

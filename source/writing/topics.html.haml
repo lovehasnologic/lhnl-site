@@ -1,15 +1,14 @@
 ---
-title: Design
+title: Writing
 ---
 
 .section.section--padded
   %h1.section__title= current_page.data.title
-  %h2.section__subtitle #{tagname} Projects
+  %h2.section__subtitle #{tagname} Articles
   %nav.listNav
     %ul.listNav__list
-      - blog("design").articles.sort_by(&:title).each do |article|
+      - articles.each do |article|
         %li.listNav__item
           = link_to article.url, class: "listNav__link" do
             = article.title
-            %span.listNav__secondary
-              = article.tags.join ", "
+            %time.listNav__secondary{ datetime: article.date.strftime('%F') }= article.date.strftime("%B '%y")

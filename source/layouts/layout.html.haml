@@ -7,9 +7,9 @@
 
   = partial 'head'
 
-  %body
+  %body#design
     = partial 'header'
-    %main{ role: "main" }
+    %main.body{ role: "main" }
       = yield
       = partial 'footer'
     = partial 'foot'

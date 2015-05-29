@@ -42,6 +42,7 @@ GEM
     eventmachine (1.0.7)
     execjs (2.5.2)
     exifr (1.2.2)
+    fast-stemmer (1.0.2)
     ffi (1.9.8)
     fspath (2.1.1)
     haml (4.0.6)
@@ -66,6 +67,8 @@ GEM
     in_threads (1.3.1)
     json (1.8.2)
     kramdown (1.7.0)
+    levenshtein-ffi (1.1.0)
+      ffi (~> 1.9)
     listen (2.10.0)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
@@ -88,6 +91,10 @@ GEM
       addressable (~> 2.3.5)
       middleman-core (~> 3.2)
       tzinfo (>= 0.3.0)
+    middleman-blog-similar (1.1.1)
+      fast-stemmer (~> 1.0.2)
+      middleman-blog (~> 3.5)
+      middleman-core (~> 3.2)
     middleman-core (3.3.12)
       activesupport (~> 4.1.0)
       bundler (~> 1.1)
@@ -149,15 +156,11 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rainbow (2.0.0)
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rouge (1.9.0)
     sass (3.4.14)
-    scss_lint (0.39.0)
-      rainbow (~> 2.0)
-      sass (~> 3.4.1)
     scut (1.1.3)
       sass (~> 3.2, >= 3.2.0)
     sprockets (2.12.3)
@@ -191,9 +194,11 @@ DEPENDENCIES
   color-schemer
   image_optim
   image_optim_pack
+  levenshtein-ffi
   middleman (~> 3.3.12)
   middleman-autoprefixer
   middleman-blog
+  middleman-blog-similar
   middleman-deploy (~> 1.0)
   middleman-google-analytics
   middleman-imageoptim
@@ -203,6 +208,5 @@ DEPENDENCIES
   middleman-sprockets
   middleman-syntax
   middleman-title
-  scss_lint
   scut
   susy
