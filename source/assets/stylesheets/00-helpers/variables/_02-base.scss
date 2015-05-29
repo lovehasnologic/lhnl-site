@@ -23,3 +23,8 @@ $selection: (
   bg: transparentize($pink, .25),
   color: map-get($color, knockout),
 );
+
+$link: (
+  color: $pink,
+  hover: map-get($body, color),
+);

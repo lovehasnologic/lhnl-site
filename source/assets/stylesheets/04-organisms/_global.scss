@@ -20,10 +20,15 @@
   @media #{map-get($bp--up, 3)} {
     align-items: baseline;
     padding: 0 map-get($gutter, tight);
+    justify-content: space-between;
   }
 
   @media #{map-get($bp--up, 4)} {
     padding: 0 map-get($gutter, standard)
+  }
+
+  .writing & {
+    border-bottom: .5em solid $black;
   }
 }
 

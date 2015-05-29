@@ -1,3 +1,26 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+//  - Extends
+//  - Container
+//  - Typography
+//  - Header
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Extends
+// -----------------------------------------------------------------------------
+
+%constrain {
+  @include scut-margin(n auto);
+  max-width: 1000px;
+}
+
+// -----------------------------------------------------------------------------
+// !-- Container
+// -----------------------------------------------------------------------------
+
 .article {
   font-size: vw(20, map-get($bp, 1));
   line-height: 1.4;
@@ -7,18 +30,24 @@
   }
 
   @media #{map-get($bp--up, 3)} {
-    font-size: rem(28);
+    font-size: rem(32);
     line-height: 1.55;
   }
 
-  p {
-    max-width: 1000px;
-    margin: 0 auto;
+// -----------------------------------------------------------------------------
+// !-- Typography
+// -----------------------------------------------------------------------------
+
+  p,
+  .p--note {
+    @extend %constrain;
 
     + p {
       text-indent: 1.5em;
     }
+  }
 
+  > p { // only drop cap direct children
     // scss-lint:disable NestingDepth
     &:first-of-type {
       &:first-letter {
@@ -26,7 +55,7 @@
         font-size: 3em;
         line-height: 1;
         float: left;
-        margin: 0 0 -.1em;
+        margin: 0 .05em (-.1em) 0;
 
         @media #{map-get($bp--up, 3)} {
           font-size: 3.3em;
@@ -37,11 +66,116 @@
   }
 
   a {
-    color: $pink;
+    color: map-get($link, color);
 
     &:hover,
     &:focus {
-      color: map-get($body, color);
+      color: map-get($link, hover);
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    @extend %constrain;
+  }
+
+  ul,
+  ol {
+    @extend %constrain;
+  }
+
+  pre {
+    @extend %constrain;
+  }
+
+  blockquote {
+    @extend %constrain;
+    box-sizing: content-box;
+  }
+
+  figure {
+    @extend %constrain;
+    @include scut-margin(1em n);
+  }
+
+  img {
+    border: map-get($borderWidth, thin) solid $gray--light;
+  }
+
+  figcaption {
+    font-size: .8em;
+    font-style: italic;
+    text-align: center;
+    opacity: .5;
+  }
+}
+
+.quote__citation {
+  font-size: .75em;
+  font-weight: map-get($fontWeight, bold);
+  font-style: italic;
+  display: block;
+  text-align: right;
+
+  &:before {
+    content: "\2014";
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Header
+// -----------------------------------------------------------------------------
+
+.article__header {
+  @extend %bleed--title;
+  font-size: 1.2em;
+  padding: map-get($gutter, tight);
+  text-align: center;
+
+  @media #{map-get($bp--up, 3)} {
+    margin-bottom: map-get($gutter, standard);
+  }
+
+  .writing & {
+    background: map-get($block, bg--writer__title);
+  }
+}
+
+.article__title {
+  line-height: 1.1;
+  // scss-lint:disable ImportantRule
+  max-width: none !important;
+  margin: 0;
+  // scss-lint:enable ImportantRule
+}
+
+.article__date,
+.article__tags {
+  font-size: .75em;
+}
+
+.article__tags {
+  &:before {
+    font-size: .5em;
+    position: relative;
+    top: -.25em;
+    margin: 0 1em;
+    content: "\2022";
+    opacity: .5;
+  }
+
+  a {
+    text-transform: capitalize;
+
+    &:after {
+      content: "\002C";
+    }
+
+    &:last-child {
+      &:after {
+        content: "";
+      }
     }
   }
 }

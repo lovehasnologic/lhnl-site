@@ -10,14 +10,15 @@
   %body.writing
     = partial 'header'
     %main.body{ role: "main" }
-      %article.article
+      %article.article.block
         %header.article__header
           %h1.article__title= current_article.title
           %time.article__date{ datetime: current_article.date.strftime('%F') }
-            = current_article.date.strftime("%B '%y")
-          %span.article__tags
-            - current_article.tags.each do |tag|
-              = link_to tag, tag_path(tag)
+            = current_article.date.strftime("%B ’%y")
+          - if current_article.tags.present?
+            %span.article__tags
+              - current_article.tags.each do |tag|
+                = link_to tag, tag_path(tag)
         = yield
       - if similar_articles
         %aside.block.block--related

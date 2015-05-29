@@ -1,5 +1,5 @@
 ---
-title: How I Learned To Love A CMS
+title: How I Learned To Love A&nbsp;CMS
 date: 2009-03-30
 tags: process, textpattern, cms, wordpress
 ---
@@ -25,18 +25,16 @@ tags: process, textpattern, cms, wordpress
 :code
   # lang: xml
   <txp:article category="name" form="form_name" />
-
 %p
   Wordpress code to display entries limited to a certain category
 
 :code
   # lang: php
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-    <?php if (in_category(&rsquo;3&rsquo;)) continue; ?>
+    <?php if (in_category('3')) continue; ?>
       --Display code for the posts--
     <?php endwhile; else: ?>
   <?php endif; ?>
-
 %p
   You&rsquo;ll notice two things. First, the Textpattern code explains at first
   glance, even to those who have no experience working with Textpattern, what
