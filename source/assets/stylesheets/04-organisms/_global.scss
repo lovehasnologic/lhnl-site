@@ -2,6 +2,7 @@
 // Table of Contents
 //
 //  - Header
+//  - Github
 //
 // -----------------------------------------------------------------------------
 
@@ -18,13 +19,13 @@
   }
 
   @media #{map-get($bp--up, 3)} {
-    align-items: baseline;
     padding: 0 map-get($gutter, tight);
+    align-items: baseline;
     justify-content: space-between;
   }
 
   @media #{map-get($bp--up, 4)} {
-    padding: 0 map-get($gutter, standard)
+    padding: 0 map-get($gutter, standard);
   }
 
   .writing & {
@@ -42,11 +43,11 @@
 }
 
 .logo__link {
+  display: block;
+  padding: map-get($gutter, tight) 0 0;
   transition: map-get($transition, standard);
   text-decoration: none;
   color: map-get($color, knockout);
-  padding: map-get($gutter, tight) 0 0;
-  display: block;
 
   @media #{map-get($bp--up, 3)} {
     @include scut-padding(map-get($gutter, tight) n);
@@ -57,3 +58,54 @@
     transform: scale3d(1.05, 1.05, 1.05);
   }
 }
+
+// -----------------------------------------------------------------------------
+// !-- Github
+// -----------------------------------------------------------------------------
+
+.github {
+  position: relative;
+  overflow: hidden;
+  padding: map-get($gutter, tight);
+  text-align: center;
+  color: $gray;
+  background: map-get($color, richBlack);
+
+  @media #{map-get($bp--up, 2)} {
+    padding: map-get($gutter, standard);
+  }
+
+  p {
+    position: relative;
+    z-index: map-get($z-index, above);
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  a {
+    color: $gray;
+
+    &:hover,
+    &:focus {
+      color: $gray--light;
+    }
+  }
+}
+
+// scss-lint:disable PropertyUnits
+.github__icon {
+  position: absolute;
+  z-index: map-get($z-index, below);
+  top: -45px;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  opacity: .65;
+  color: map-get($block, bg--builder);
+
+  @media #{map-get($bp--up, 2)} {
+    width: 250px;
+    height: 250px;
+  }
+}
+// scss-lint:enable PropertyUnits

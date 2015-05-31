@@ -9,7 +9,7 @@
 :coffee
   downloadJSAtOnload = ->
     element = document.createElement("script")
-    element.src = "#{asset_path :js, 'defer'}"
+    element.src = "#{asset_path :js, "defer"}"
     document.body.appendChild element
   if window.addEventListener
     window.addEventListener "load", downloadJSAtOnload, false
@@ -23,3 +23,5 @@
 
 - if content_for? :page_scripts
   = yield :page_scripts
+
+= google_analytics_tag

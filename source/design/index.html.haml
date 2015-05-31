@@ -1,27 +1,30 @@
 ---
 title: Designer
 layout: design
+description: Browse a sampling of the work I've done over my career as a designer.
 ---
 
 %section.block--bleed
   %h1.heading--strip= current_page.data.title
   %nav.imageNav
     %ul.imageNav__list
-      - 12.times do
-        %li.imageNav__item
-          = link_to "#", class: "imageNav__link" do
-            %figure.imageNav__image= lazy_image_tag lorem.image('600x450', random_color: true, text: "Thumbnail"), 600, 450, "Thumbnail"
-            %figcaption.imageNav__details
-              = lorem.words 5
-              %span.imageNav__secondary
-                category, second category
+      - blog("design").articles.each do |article|
+        - if article.data.featured.present?
+          %li.imageNav__item
+            = link_to article.url, class: "imageNav__link" do
+              %figure.imageNav__image= lazy_image_tag article.data.thumbnail, 600, 450, "#{article.title} Case Study Thumbnail"
+              %figcaption.imageNav__details
+                = article.title
+                %span.imageNav__secondary
+                  = article.tags.join ", "
 
 %section.block
   %nav.listNav
     %ul.listNav__list
       - blog("design").articles.sort_by(&:title).each do |article|
-        %li.listNav__item
-          = link_to article.url, class: "listNav__link" do
-            = article.title
-            %span.listNav__secondary
-              = article.tags.join ", "
+        - unless article.data.featured.present?
+          %li.listNav__item
+            = link_to article.url, class: "listNav__link" do
+              = article.title
+              %span.listNav__secondary
+                = article.tags.join ", "

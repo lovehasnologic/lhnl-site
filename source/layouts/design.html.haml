@@ -5,24 +5,35 @@
 %html.no-js.no-ie{lang: I18n.locale}
   <!--<![endif]-->
 
-  = partial 'head'
+  = partial "head"
 
   %body.design
-    = partial 'header'
+    = partial "header"
     %main.body{ role: "main" }
       - if is_blog_article?
         .block
           %article.article
-            %header.article__header
-              %h1.article__title= current_article.title
-              %time.article__date{ datetime: current_article.date.strftime('%F') }
-                = current_article.date.strftime("%B ’%y")
-              - if current_article.tags.present?
-                %span.article__tags
-                  - current_article.tags.each do |tag|
-                    = link_to tag, tag_path(tag)
+            - if current_article.data.hide_title.present?
+              %h1.is--visHidden= current_article.title
+            - else
+              %header.article__header
+                %h1.article__title= current_article.title
             = yield
+            %footer.article__footer
+              %dl
+                - if current_article.tags.present?
+                  %dt Specialities
+                  %dd
+                    - current_article.tags.each do |tag|
+                      = link_to tag, tag_path(tag), class: "article__tag"
+                %dt Created
+                %dd
+                  %time.article__date{ datetime: current_article.date.strftime("%F") }
+                    = current_article.date.strftime("%B ’%y")
+                - if current_article.data.url.present?
+                  %dt Website
+                  %dd= link_to current_article.data.url, current_article.data.url, class: "article__url"
       - else
         = yield
-      = partial 'footer'
-    = partial 'foot'
+      = partial "footer"
+    = partial "foot"

@@ -1,6 +1,7 @@
 ---
 title: Writer
 layout: writing
+description: Musings on design, technology, music and culture.
 ---
 
 %header.article__header
@@ -11,4 +12,5 @@ layout: writing
       %li.listNav__item
         = link_to article.url, class: "listNav__link" do
           = article.title
-          %time.listNav__secondary{ datetime: article.date.strftime('%F') }= article.date.strftime("%B '%y")
+          %time.listNav__secondary{ datetime: article.date.strftime("%F") }
+            = article.date.strftime("%B ’%y")

@@ -17,8 +17,8 @@
 %hN {
   font-family: $sansSerif;
   font-weight: map-get($fontWeight, heavy);
-  margin: 1em 0 0;
   line-height: 1.2;
+  margin: 1em 0 0;
 
   .wf-utopiastdheadline-n4-active & {
     font-family: $headings;
@@ -69,6 +69,7 @@ $sizes:
     @include headingFont(32);
   }
 
+  // scss-lint:disable IdSelector
   #designer &,
   .design & {
     color: map-get($color, knockout);
@@ -83,6 +84,7 @@ $sizes:
     color: map-get($color, knockout);
     background: map-get($block, bg--builder__title);
   }
+  // scss-lint:enable IdSelector
 
   .block--bleed & {
     margin: 0;
@@ -101,10 +103,10 @@ p {
 .p--note {
   @include scut-margin(1em auto);
   font-size: .75em;
-  background: transparentize(map-get($body, color), .9);
+  box-sizing: content-box;
   padding: .5em 1em;
   border-radius: .25em;
-  box-sizing: content-box;
+  background: transparentize(map-get($body, color), .9);
 }
 
 // -----------------------------------------------------------------------------
@@ -112,11 +114,11 @@ p {
 // -----------------------------------------------------------------------------
 
 blockquote {
+  clear: both;
   margin: 1em auto;
   padding: 0 .75em;
-  border-left: 5px solid lighten($gray, 25%);
-  clear: both;
   color: lighten($gray, 25%);
+  border-left: 5px solid lighten($gray, 25%);
 }
 
 // -----------------------------------------------------------------------------
@@ -130,281 +132,168 @@ pre {
   box-sizing: content-box;
   margin: 1em auto;
   padding: 1em;
+  border: map-get($borderWidth, thin) solid $gray--light;
   border-radius: .25em;
   background: $white;
-  border: map-get($borderWidth, thin) solid $gray--light;
 }
 
+// scss-lint:disable all
 .highlight {
 // GitHub style for Pygments
 // Courtesy of GitHub.com
   .hll {
-    background-color: #f8f8f8;
-    border: 1px solid #ccc;
     padding: 6px 10px;
+    border: map-get($borderWidth, thin) solid #ccc;
     border-radius: 3px;
-  }
-
-  .c {
-    color: #999988;
-    font-style: italic;
-  }
-
-  .err {
-    color: #a61717;
-  }
-
-  .k {
-    font-weight: bold;
-  }
-
-  .o {
-    font-weight: bold;
-  }
-
-  .cm {
-    color: #999988;
-    font-style: italic;
-  }
-
-  .cp {
-    color: #999999;
-    font-weight: bold;
-  }
-
-  .c1 {
-    color: #999988;
-    font-style: italic;
-  }
-
-  .cs {
-    color: #999999;
-    font-weight: bold;
-    font-style: italic;
-  }
-
-  .gd {
-    color: #000000;
-  }
-
-  .gd .x {
-    color: #000000;
+    background-color: #f8f8f8;
   }
 
   .ge {
     font-style: italic;
   }
 
-  .gr {
-    color: #aa0000;
+  .k,
+  .o,
+  .gs,
+  .kc,
+  .kd,
+  .kn,
+  .kp,
+  .kr,
+  .ow {
+    font-weight: bold;
   }
 
-  .gh {
-    color: #999999;
-  }
-
-  .gi {
-    color: #000000;
-  }
-
+  .gd,
+  .gd .x,
+  .gi,
   .gi .x {
-    color: #000000;
+    color: #000;
   }
 
-  .go {
-    color: #888888;
+  .m,
+  .il,
+  .mf,
+  .mh,
+  .mi,
+  .mo {
+    color: #099;
   }
 
-  .gp {
-    color: #555555;
+  .gp,
+  .nn {
+    color: #555;
   }
 
-  .gs {
-    font-weight: bold;
+  .bp,
+  .gc,
+  .gh {
+    color: #999;
   }
 
-  .gu {
-    color: #800080;
-    font-weight: bold;
-  }
-
+  .gr,
   .gt {
-    color: #aa0000;
+    color: #a00;
   }
 
-  .kc {
-    font-weight: bold;
+  .s,
+  .sb,
+  .sc,
+  .sd,
+  .s2,
+  .se,
+  .sh,
+  .si,
+  .sx,
+  .s1 {
+    color: #d14;
   }
 
-  .kd {
-    font-weight: bold;
-  }
-
-  .kn {
-    font-weight: bold;
-  }
-
-  .kp {
-    font-weight: bold;
-  }
-
-  .kr {
-    font-weight: bold;
-  }
-
-  .kt {
-    color: #445588;
-    font-weight: bold;
-  }
-
-  .m {
-    color: #009999;
-  }
-
-  .s {
-    color: #dd1144;
-  }
-
-  .n {
-    color: #333333;
-  }
-
-  .na {
+  .na,
+  .no,
+  .nv,
+  .vc,
+  .vg,
+  .vi {
     color: teal;
+  }
+
+  .c,
+  .c1 {
+    font-style: italic;
+    color: #988;
+  }
+
+  .kt,
+  .nc {
+    font-weight: bold;
+    color: #458;
+  }
+
+  .ne,
+  .nf {
+    font-weight: bold;
+    color: #990000;
   }
 
   .nb {
     color: #0086b3;
   }
 
-  .nc {
-    color: #445588;
-    font-weight: bold;
-  }
-
-  .no {
-    color: teal;
-  }
-
-  .ni {
-    color: purple;
-  }
-
-  .ne {
-    color: #990000;
-    font-weight: bold;
-  }
-
-  .nf {
-    color: #990000;
-    font-weight: bold;
-  }
-
-  .nn {
-    color: #555555;
-  }
-
-  .nt {
-    color: navy;
-  }
-
-  .nv {
-    color: teal;
-  }
-
-  .ow {
-    font-weight: bold;
-  }
-
-  .w {
-    color: #bbbbbb;
-  }
-
-  .mf {
-    color: #009999;
-  }
-
-  .mh {
-    color: #009999;
-  }
-
-  .mi {
-    color: #009999;
-  }
-
-  .mo {
-    color: #009999;
-  }
-
-  .sb {
-    color: #dd1144;
-  }
-
-  .sc {
-    color: #dd1144;
-  }
-
-  .sd {
-    color: #dd1144;
-  }
-
-  .s2 {
-    color: #dd1144;
-  }
-
-  .se {
-    color: #dd1144;
-  }
-
-  .sh {
-    color: #dd1144;
-  }
-
-  .si {
-    color: #dd1144;
-  }
-
-  .sx {
-    color: #dd1144;
-  }
-
   .sr {
     color: #009926;
   }
 
-  .s1 {
-    color: #dd1144;
+  .n {
+    color: #333;
+  }
+
+  .go {
+    color: #888;
   }
 
   .ss {
     color: #990073;
   }
 
-  .bp {
-    color: #999999;
+  .err {
+    color: #a61717;
   }
 
-  .vc {
-    color: teal;
+  .w {
+    color: #bbb;
   }
 
-  .vg {
-    color: teal;
+  .nt {
+    color: navy;
   }
 
-  .vi {
-    color: teal;
+  .ni {
+    color: purple;
   }
 
-  .il {
-    color: #009999;
+  .gu {
+    font-weight: bold;
+    color: #800080;
   }
 
-  .gc {
+  .cm {
+    font-style: italic;
+    color: #998;
+  }
+
+  .cp {
+    font-weight: bold;
+    color: #999;
+  }
+
+  .cs {
+    font-weight: bold;
+    font-style: italic;
     color: #999;
   }
 }
-
+// scss-lint:enable all
 
 // -----------------------------------------------------------------------------
 // !-- Inline Elements
@@ -417,5 +306,5 @@ b {
 
 em,
 i {
- font-style: italic;
+  font-style: italic;
 }

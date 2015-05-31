@@ -1,9 +1,31 @@
 // -----------------------------------------------------------------------------
 // Table of Contents
 //
-// - Layout Alignment
+//  - Visibility
+//  - Layout Alignment
 //
 // -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Visibility
+// -----------------------------------------------------------------------------
+
+.is--hidden {
+  // override any element styles
+  display: none !important;
+}
+
+.is--visHidden {
+  // Important declarations to override any other styles the element may pick up
+  // These are invisible on the page, but visible by screen readers
+  position: absolute;
+  top: 0 !important;
+  left: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  width: 0 !important;
+  height: 0 !important;
+}
 
 // -----------------------------------------------------------------------------
 // !-- Layout Alignment

@@ -1,6 +1,7 @@
 ---
 title: How I Learned To Love A&nbsp;CMS
 date: 2009-03-30
+description: The answer to the question, 'Why do you love Textpattern so much? You should just marry it.'
 tags: process, textpattern, cms, wordpress
 ---
 
@@ -31,7 +32,7 @@ tags: process, textpattern, cms, wordpress
 :code
   # lang: php
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-    <?php if (in_category('3')) continue; ?>
+    <?php if (in_category("3")) continue; ?>
       --Display code for the posts--
     <?php endwhile; else: ?>
   <?php endif; ?>

@@ -5,9 +5,7 @@ gem 'image_optim'
 gem 'image_optim_pack'
 
 # Sass
-gem 'color-schemer'
 gem 'scut'
-gem 'susy'
 
 # Middleman
 gem 'middleman', '~>3.3.12'

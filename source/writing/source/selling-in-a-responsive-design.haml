@@ -1,6 +1,8 @@
 ---
 title: Selling in a Responsive&nbsp;Design
 date: 2013-06-27
+description: If there's one thing that's sure to drive you batty in a responsive layout it's working with third party ad services.
+tags: code, process, responsive design
 ---
 
 %p
@@ -94,10 +96,10 @@ date: 2013-06-27
 
 :code
   # lang: javascript
-  $('.place').each(function(){
-    var forceHeight = $(this).height() + 'px';
-    var sibling = $(this).siblings('.pad');
-    $(sibling).css({'min-height': forceHeight});
+  $(".place").each(function(){
+    var forceHeight = $(this).height() + "px";
+    var sibling = $(this).siblings(".pad");
+    $(sibling).css({"min-height": forceHeight});
   });
 %p
   Honestly, I don&rsquo;t know how this solution will hold up over time, but it

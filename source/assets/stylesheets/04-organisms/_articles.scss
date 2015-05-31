@@ -5,6 +5,7 @@
 //  - Container
 //  - Typography
 //  - Header
+//  - Footer
 //
 // -----------------------------------------------------------------------------
 
@@ -164,11 +165,11 @@
 
 .article__header {
   @extend %bleed--title;
-  padding: map-get($gutter, tight);
-  text-align: center;
 
   font-size: vw(20, map-get($bp, 1));
   line-height: 1.4;
+  padding: map-get($gutter, tight);
+  text-align: center;
 
   @media #{map-get($bp--only, 2)} {
     font-size: vw(16, map-get($bp, 1));
@@ -185,8 +186,8 @@
   }
 
   .design & {
-    background: map-get($block, bg--designer__title);
     color: map-get($color, knockout);
+    background: map-get($block, bg--designer__title);
   }
 }
 
@@ -198,45 +199,57 @@
 
 .article__subtitle {
   @include bodyFont;
-  text-align: center;
   font-size: 1em;
   display: inline-block;
-  padding: .5em .5em 0;
   margin-top: .5em;
-  border-top: map-get($borderWidth, thin) solid map-get($body, color);
+  padding: .5em .5em 0;
+  text-align: center;
   text-transform: capitalize;
+  border-top: map-get($borderWidth, thin) solid map-get($body, color);
 
   .design & {
     border-top-color: map-get($color, knockout);
   }
 }
 
-.article__date,
-.article__tags {
-  font-size: .75em;
-}
+// -----------------------------------------------------------------------------
+// !-- Footer
+// -----------------------------------------------------------------------------
 
-.article__tags {
-  &:before {
-    font-size: .5em;
-    position: relative;
-    top: -.25em;
-    margin: 0 1em;
-    content: "\2022";
-    opacity: .5;
+.article__footer {
+  @extend %constrain;
+  @include scut-margin(3em n 1.5em);
+  font-size: .75em;
+  clear: both;
+  box-sizing: content-box;
+  padding: .5em 1em;
+  border-radius: .25em;
+  background: $offWhite;
+
+  .writing & {
+    background: map-get($body, bg);
   }
 
-  a {
-    text-transform: capitalize;
+  dl {
+    margin: 0;
+  }
+}
 
+.article__tag {
+  float: left;
+  white-space: nowrap;
+
+  &:after {
+    margin-right: .25em;
+    content: ",";
+    text-decoration: none;
+    color: map-get($body, color);
+  }
+
+  &:last-child {
     &:after {
-      content: "\002C";
-    }
-
-    &:last-child {
-      &:after {
-        content: "";
-      }
+      display: none;
+      content: "";
     }
   }
 }

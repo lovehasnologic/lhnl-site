@@ -5,23 +5,27 @@
 %html.no-js.no-ie{lang: I18n.locale}
   <!--<![endif]-->
 
-  = partial 'head'
+  = partial "head"
 
   %body.writing
-    = partial 'header'
+    = partial "header"
     %main.body{ role: "main" }
       .block
         - if is_blog_article?
           %article.article
             %header.article__header
               %h1.article__title= current_article.title
-              %time.article__date{ datetime: current_article.date.strftime('%F') }
-                = current_article.date.strftime("%B ’%y")
-              - if current_article.tags.present?
-                %span.article__tags
-                  - current_article.tags.each do |tag|
-                    = link_to tag, tag_path(tag)
+              %h2.article__subtitle
+                %time.article__date{ datetime: current_article.date.strftime("%F") }
+                  = current_article.date.strftime("%B ’%y")
             = yield
+            %footer.article__footer
+              %dl
+                - if current_article.tags.present?
+                  %dt Topics
+                  %dd
+                    - current_article.tags.each do |tag|
+                      = link_to tag, tag_path(tag), class: "article__tag"
         - else
           = yield
       - if is_blog_article?
@@ -34,7 +38,7 @@
                   %li.listNav__item
                     = link_to related.url, class: "listNav__link" do
                       = related.title
-                      %time.listNav__secondary{ datetime: related.date.strftime('%F') }
-                        = related.date.strftime("%B '%y")
-      = partial 'footer'
-    = partial 'foot'
+                      %time.listNav__secondary{ datetime: related.date.strftime("%F") }
+                        = related.date.strftime("%B ’%y")
+      = partial "footer"
+    = partial "foot"

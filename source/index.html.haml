@@ -1,6 +1,7 @@
 ---
 layout: false
 title: Designer, Writer, Builder
+description: Chicago based designer that developers enjoy working with.
 ---
 !!! 5
 
@@ -9,7 +10,7 @@ title: Designer, Writer, Builder
 %html.no-js.no-ie{lang: I18n.locale}
   <!--<![endif]-->
 
-  = partial 'head'
+  = partial "head"
 
   %body
     %main{ role: "main" }
@@ -36,23 +37,25 @@ title: Designer, Writer, Builder
         %h1.heading--strip Designer
         %nav.imageNav
           %ul.imageNav__list
-            - 12.times do
-              %li.imageNav__item
-                = link_to "#", class: "imageNav__link" do
-                  %figure.imageNav__image= lazy_image_tag lorem.image('600x450', random_color: true, text: "Thumbnail"), 600, 450, "Thumbnail"
-                  %figcaption.imageNav__details
-                    = lorem.words 5
-                    %span.imageNav__secondary
-                      category, second category
+            - blog("design").articles.each do |article|
+              - if article.data.featured.present?
+                %li.imageNav__item
+                  = link_to article.url, class: "imageNav__link" do
+                    %figure.imageNav__image= lazy_image_tag article.data.thumbnail, 600, 450, "#{article.title} Case Study Thumbnail"
+                    %figcaption.imageNav__details
+                      = article.title
+                      %span.imageNav__secondary
+                        = article.tags.join ", "
       %section.block
         %nav.listNav
           %ul.listNav__list
             - blog("design").articles.sort_by(&:title).each do |article|
-              %li.listNav__item
-                = link_to article.url, class: "listNav__link" do
-                  = article.title
-                  %span.listNav__secondary
-                    = article.tags.join ", "
+              - unless article.data.featured.present?
+                %li.listNav__item
+                  = link_to article.url, class: "listNav__link" do
+                    = article.title
+                    %span.listNav__secondary
+                      = article.tags.join ", "
       %section.block#writer
         %h1.heading--strip Writer
         %nav.listNav
@@ -61,14 +64,44 @@ title: Designer, Writer, Builder
               %li.listNav__item
                 = link_to article.url, class: "listNav__link" do
                   = article.title
-                  %time.listNav__secondary{ datetime: article.date.strftime('%F') }= article.date.strftime("%B '%y")
+                  %time.listNav__secondary{ datetime: article.date.strftime("%F") }
+                    = article.date.strftime("%B ’%y")
       %section.block#builder
         %article.article
           %h1.heading--strip Builder
-          %p I’ve been writing HTML for 18 years and CSS for 13 years. I lived through the browser wars, watched the web embrace the standards movement, was witness to the rise of Content Management Systems and am currently enjoying the huge jump forward the web is currently undertaking due to the advancements in HTML5, CSS3 and working solutions for real embedded type on the web. Those advancements require equal progress in the way we approach our work.
-          %p No longer is it alright to simply design a page in Photoshop and call yourself a web designer. Our process needs to support design systems, rather than designed pages, and our work is not done until it is rendered in a browser window.
-          %p In discussions of web design, too often the focus in on the visual aspect of the design. However, the visual layer is just one of three layers that make a truly effective web site design. You need to ensure the interaction of the site is intuitive and pleasing; That you create little moments of pleasure that transcend color and typography. You need to ensure the execution of the site takes into account all the constraints of the modern web like unknown screen sizes, variable internet connection speeds, user accessibility restrictions and an ever growing collection of browser technologies (to name just a few).
-          %p Designing for the web is about embracing the constraints of the medium and using them to your advantage. I often refer to this as designing for failure. When you think you have the perfect design solution is when the real work begins. That is when you begin to work through all of the ways that the fragility of the web can (and will) break your design and strengthen the system to live up to stand up to even the worst case scenarios.
+          %p
+            I&rsquo;ve been writing HTML for 18 years and CSS for 13 years. I
+            lived through the browser wars, watched the web embrace the
+            standards movement, was witness to the rise of Content Management
+            Systems and am currently enjoying the huge jump forward the web is
+            witnessing due to the advancements in HTML5, CSS3 and working
+            solutions for real embedded type on the web. Those advancements
+            require equal progress in the way we approach our work.
+          %p
+            No longer is it alright to simply design a page in Photoshop and
+            call yourself a web designer. Our process needs to support design
+            systems, rather than designed pages, and our work is not done until
+            it is rendered in a browser window.
+          %p
+            In discussions of web design, too often the focus is on the visual
+            aspect of the design. However, the visual layer is just one of three
+            layers that make a truly effective web site design. You need to
+            ensure the interaction of the site is intuitive and pleasing; That
+            you create little moments of pleasure that transcend color and
+            typography. You need to ensure the execution of the site takes into
+            account all the constraints of the modern web like unknown screen
+            sizes, variable internet connection speeds, user accessibility
+            restrictions and an ever growing collection of browser technologies
+            (to name just a few).
+          %p
+            Designing for the web is about embracing the constraints of the
+            medium and using them to your advantage. I often refer to this as
+            designing for failure. When you think you have the perfect design
+            solution is when the real work begins. That is when you begin to
+            work through all of the ways that the fragility of the web can (and
+            will) break your design and strengthen the system to live up to
+            stand up to even the worst case scenarios.
 
-    = partial 'foot'
+    = partial "footer"
+    = partial "foot"
     = javascript_include_tag "home"

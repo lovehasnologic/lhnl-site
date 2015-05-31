@@ -30,13 +30,41 @@
   - [x] Full
   - [x] Bleed
 - [x] Code Blocks
-- [ ] Make quotes consistent
-- [ ] Lint CSS
+- [x] Finish adding Case studies
+- [x] Non-breaking spaces
+- [x] Hook up featured portfolio items
+- [x] Hook up frontmatter
+  - [x] URL
+  - [x] Featured
+  - [x] Meta Data
+  - [x] Twitter/FB Data
+- [x] Design Categories
+- [x] Github Footer
+- [x] Favicons
+- [x] Colophon
+- [x] Blog Feed
+- [x] Make quotes consistent
+- [x] Lint CSS
+- [ ] Htaccess
+  - [ ] Redirect Blog
+  - [ ] Redirect Our Work
+  - [ ] Remove EE
+  - [ ] Check H5BP
+
+**Post Launch**
+
+- [ ] Better case study designs
 - [ ] Refactor out !important madness
 - [ ] Rebuild Sample Images in Portfolio for new site
+- [ ] Verify Twitter Cards
+- [ ] Verify Facebook Cards
+- [ ] Change case, where appropriate, from "us" to "me"
+- [ ] Re-examine patterns for better long term re-use
+- [ ] Sticky Footer
 
 **Articles**
 
+- [ ] View Source vs. Github Source
 - [ ] new site optimizations
 - [ ] CMS Wrapup update (SS, CMS, MM)
 - [ ] Dev/Design integration
@@ -48,3 +76,4 @@
 - [ ] Medill
 - [ ] Field Museum
 - [ ] Gradesaver
+- [ ] CHIRP: The First Time

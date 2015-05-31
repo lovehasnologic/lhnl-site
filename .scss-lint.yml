@@ -34,7 +34,7 @@ linters:
   IdSelector:
     severity: error
   ImportantRule:
-    disable: true
+    enabled: false
   ImportPath:
     severity: warning
   Indentation:
@@ -46,6 +46,7 @@ linters:
   NameFormat:
     enabled: false
   NestingDepth:
+    enabled: false
     severity: error
   PlaceholderInExtend:
     enabled: false

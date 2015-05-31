@@ -1,0 +1,46 @@
+---
+title: CHIRP Record Fair & Other&nbsp;Delights
+date: 2013-01-01
+description: We made a website look like a poster... but it functions like a well-oiled machine. Just another thing that sets the CHIRP Record Fair and Other Delights apart.
+tags: web design, responsive design, research, front end development, identity development, cms development
+url: http://recordfair.chirpradio.org/
+featured: true
+thumbnail: /assets/images/work/thumbnails/chirp-recordfair-thumb.jpg
+hide_title: true
+---
+
+%figure.figure--bleed.figure--tight
+  = lazy_image_tag "/assets/images/work/chirp-recordfair-slide1.jpg", 1500, 610, "CHIRP Record Fair Website Banner"
+
+%figure.is--right.is--padded
+  = lazy_image_tag "/assets/images/work/chirp-recordfair-ipad.jpg", 500, 651, "The website loading on an iPad"
+
+%p
+  It&rsquo;s the billed &ldquo;Other Delights&rdquo; that really sets the annual
+  CHIRP Record Fair apart. Sure, digging through an entire room packed with bins
+  of vinyl is fun, but anyone can gather a bunch of record vendors and buyers
+  together in the same place. The Chicago Independent Radio Project separates
+  its record fair from the rest with loads of goodies: DJs, games, toy and
+  clothing vendors, food and beer from local outlets,, poster makers and more.
+  It was this last category that became our inspiration, as we decided to see
+  how well we could pull off emulating a poster in a responsive website. We did
+  this through the addition of offset color blocks and misregistered headlines,
+  printer marks at the top and bottom of the page and even live page slugs that
+  show the name of the document and the time it was created&hellip; all while
+  failing gracefully in less advanced browsers.
+
+%figure
+  = lazy_image_tag "/assets/images/work/chirp-recordfair-footer.jpg", 1000, 225, "Printer marks on the footer"
+  %figcaption Site Footer Detail (showing printer marks and page slug)
+
+%p
+  While the front end looks great, the back end is where the magic happens. We
+  wanted to ensure that data management was easy and content could be shared
+  across all of CHIRP&rsquo;s websites. The site was built using
+  ExpressionEngine&rsquo;s multi-site manager and utilizes network-wide member
+  accounts to RSVP to the fair, automatically cross-posts to the CHIRP Radio
+  event calendar and makes all entry data accessible to the rest of the network.
+
+%figure
+  = lazy_image_tag "/assets/images/work/chirp-recordfair-slide2.jpg", 1500, 675, "Page detail"
+

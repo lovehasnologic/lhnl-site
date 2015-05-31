@@ -1,11 +1,11 @@
 // -----------------------------------------------------------------------------
 // Table of Contents
 //
-// - Extends
-// - Unordered Lists
-// - Ordered Lists
-// - Definition Lists
-// - List Variants
+//  - Extends
+//  - Unordered Lists
+//  - Ordered Lists
+//  - Definition Lists
+//  - List Variants
 //
 // -----------------------------------------------------------------------------
 
@@ -65,15 +65,14 @@ dt {
   font-weight: map-get($fontWeight, bold);
   display: inline-block;
   float: left;
-  clear: left;
+  clear: both;
 
   &:after {
+    margin-right: .25em;
     content: ":";
-    margin-right: .25em
   }
 }
 
 dd {
-  display: inline-block;
-  float: left;
+  overflow: hidden;
 }

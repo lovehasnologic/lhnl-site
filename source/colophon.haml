@@ -1,0 +1,102 @@
+---
+title: Colophon
+layout: writing
+description: Information about the tools used to build this website.
+---
+
+%article.article
+  %header.article__header
+    %h1.article__title= current_page.data.title
+
+  %h2 Typography
+
+  %p
+    The typefaces used on this website are
+    %strong Utopia Std Headline
+    by Adobe and
+    %strong FF Meta Web Pro
+    by FontFont. The typefaces are served up via
+    = succeed "." do
+      = link_to "Typekit", "http://typekit.com/"
+    More information about the typefaces used on this site is available
+    = succeed "." do
+      = link_to "here", "http://typekit.com/colophons/osa6fnb"
+
+  %h2 File Generation & Processing
+
+  %p
+    = link_to "Middleman", "https://middlemanapp.com"
+    was used to precompile and generate static files for the website. In addition to Middleman, a collection of add-ons were used to make the creation of this site smoother and improve the performance of the generated files.
+
+  %ul
+    %li
+      = succeed ": " do
+        = link_to "Middleman Autoprefixer", "https://github.com/middleman/middleman-autoprefixer"
+      Generate vendor prefixes during asset compilation
+    %li
+      = succeed ": " do
+        = link_to "Middleman Blog", "https://github.com/middleman/middleman-blog"
+      Adds blogging tools and collection management to Middleman
+    %li
+      = succeed ": " do
+        = link_to "Middleman Similar Articles", "https://github.com/ngs/middleman-blog-similar"
+      Output a list of similar articles, based on content
+    %li
+      = succeed ": " do
+        = link_to "Middleman Deploy", "https://github.com/middleman-contrib/middleman-deploy"
+      Adds command line deployment to the build process
+    %li
+      = succeed ": " do
+        = link_to "Middleman Google Analytics", "https://github.com/danielbayerlein/middleman-google-analytics"
+      Add Google Analytics to your generated Middleman files
+    %li
+      = succeed ": " do
+        = link_to "Middleman ImageOptim", "https://github.com/plasticine/middleman-imageoptim"
+      Compress site images during build and deployment
+    %li
+      = succeed ": " do
+        = link_to "Middleman Minify HTML", "https://github.com/middleman/middleman-minify-html"
+      Strip whitespace and unnecessary punctuation from HTML files
+    %li
+      = succeed ": " do
+        = link_to "Middleman Search Engine Sitemap", "https://github.com/Aupajo/middleman-search_engine_sitemap"
+      Generate sitemap.xml files
+    %li
+      = succeed ": " do
+        = link_to "Middleman Syntax", "https://github.com/middleman/middleman-syntax"
+      Code highlighting using the Pygment library
+    %li
+      = succeed ": " do
+        = link_to "Middleman Title", "https://github.com/jcypret/middleman-title"
+      Page Title helpers
+
+  %h2 Code
+
+  %p
+    I used
+    = link_to "Haml", "http://haml.info"
+    to author this website&rsquo;s page markup,
+    = link_to "Sass", "http://sass-lang.com"
+    to author this website&rsquo;s page styles, and
+    = link_to "Coffeescript", "http://coffeescript.org"
+    to author this website&rsquo;s interaction code. I used
+    = link_to "Atomic Design", "http://patternlab.io/about.html"
+    principles to help me organize my Sass files and generate my class names
+    (though there is currently room for improvement in this area).
+    = link_to "GitHub", "http://github.com/lovehasnologic/lhnl-site"
+    was used to backup and version track the files for the website.
+
+  %p
+    To make generating my Sass easier, I&rsquo;m using
+    = succeed "," do
+      = link_to "Scut", "https://davidtheclark.github.io/scut/"
+    an indespensible collection of simple Sass patterns for the sort of things we
+    all find ourselves writing on almost every site.
+
+
+  %h2 Hosting
+
+  %p
+    This site is hosted at
+    = succeed "." do
+      = link_to "Media Temple", "https://mediatemple.net"
