@@ -11,6 +11,7 @@ RewriteCond %{REQUEST_FILENAME}.gz -f
 RewriteRule ^(.*)\.css$ $1.css.gz [QSA,L]
 RewriteRule ^(.*)\.js$ $1.js.gz [QSA,L]
 RewriteRule ^(.*)\.html$ $1.html.gz [QSA,L]
+RewriteRule ^(.*)\.svg$ $1.svgz [QSA,L]
 
 RewriteRule ^our-work/(.*)$ /design/$1 [R=301,NC,L]
 RewriteRule ^blog/(.*)$ /writing/$1 [R=301,NC,L]

@@ -13,6 +13,8 @@
 
 .listNav {
   font-size: vw(20, map-get($bp, 1));
+  position: relative;
+  z-index: map-get($z-index, above);
 
   @media #{map-get($bp--only, 2)} {
     font-size: vw(16, map-get($bp, 1));
@@ -53,7 +55,7 @@
 // -----------------------------------------------------------------------------
 
 .listNav__item {
-  margin: 0 -.75em;
+  margin: 0;
   break-inside: avoid;
 }
 
@@ -65,7 +67,7 @@
   position: relative;
   display: block;
   margin: 0 0 1em;
-  padding: 0 .75em .15em;
+  padding: 0 0 .15em .75em;
   transition: map-get($transition, standard);
   text-decoration: none;
   color: map-get($body, color);

@@ -48,8 +48,8 @@
 - [ ] Htaccess
   - [ ] Redirect Blog
   - [ ] Redirect Our Work
-  - [ ] Remove EE
-  - [ ] Check H5BP
+  - [x] Remove EE
+  - [x] Check H5BP
 
 **Post Launch**
 
