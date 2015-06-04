@@ -87,9 +87,9 @@ Common Middleman frontmatter keys include:
 Additionally, I've added a handful of frontmatter keys in the templates that can 
 be accessed.
 
-- `meta_description`: Page description as shown in the meta tag and when the 
+- `description`: Page description as shown in the meta tag and when the 
   content is shared through sharing services.
-- `meta_author`: A stand-in for the article's author, in case I ever include 
+- `name`: A stand-in for the article's author, in case I ever include 
   guest posts. This, right now, is only set to update the meta tag and be used 
   in Twitter sharing cards.
 - `fb_image`: The image to display on Facebook cards when shared via Facebook.
