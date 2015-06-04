@@ -102,6 +102,17 @@ the ` | Michael Gibson` suffix is added to every page title. Currently, the
 stepped option in this add on is broken and can't be used on this site. It is 
 something I plan on exploring.
 
+In the design section, case studies can include additional frontmatter that is specific to those layouts. These are all optional.
+
+- `url`: Linked URL to where the live project can be viewed. Must include 
+  `http://`
+- `hide_title`: When set to true, this will surpress the title strip across the 
+  top of the page. That way I can use artwork or screenshots to introduce the 
+  project.
+- `featured`: When set to true, this will show up in the image list of projects.
+- `thumbnail`: Relative path, from `source` where the thumbnail for the image 
+  list can be found.
+
 # Deployment
 
 The site is deployed using the [Middleman Deploy](https://github.com/middleman-contrib/middleman-deploy)
