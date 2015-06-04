@@ -138,7 +138,7 @@ built files to your server.
 
 **Blog Articles**
 
-- [ ] View Source vs. Github Source
+- [x] View Source vs. Github Source
 - [ ] new site optimizations
 - [ ] CMS Wrapup update (SS, CMS, MM)
 - [ ] Dev/Design integration
