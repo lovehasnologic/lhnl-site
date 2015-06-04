@@ -28,9 +28,9 @@
 // -----------------------------------------------------------------------------
 
 .navMain__link {
-  font-size: vw(32px, map-get($bp, 1));
+  font-size: vw(30px, map-get($bp, 1));
   display: block;
-  padding: 0 1em map-get($gutter, tight);
+  padding: 0 .75em map-get($gutter, tight);
   transition: map-get($transition, standard);
   text-decoration: none;
   color: map-get($color, knockout);
