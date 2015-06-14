@@ -2,6 +2,7 @@
 // Table of Contents
 //
 //  - Images
+//  - Mockups
 //
 //  NOTES:
 //  [1] For Image lazy loading, we add a tiny bit of CSS to handle pre-/post-
@@ -43,5 +44,144 @@ img {
 
   @media #{map-get($bp--up, 3)} {
     margin-top: -(map-get($gutter, standard)) !important;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Mockups
+// -----------------------------------------------------------------------------
+
+%figure__margin {
+  @media #{map-get($bp--up, 3)} {
+    margin-top: -.75em;
+  }
+}
+
+.figure--mockup {
+  position: relative;
+  overflow: hidden;
+  border: map-get($borderWidth, thick) solid map-get($body, color);
+  border-radius: .25em;
+
+  img {
+    display: block;
+  }
+}
+
+.figure--browser {
+  padding: 1.5em 0 0;
+
+  &:before {
+    font-size: 1.25em;
+    position: absolute;
+    top: 0;
+    left: .25em;
+    content: "°°°";
+  }
+
+  &:after {
+    position: absolute;
+    top: 1.5em;
+    right: 0;
+    left: 0;
+    height: map-get($borderWidth, thin);
+    content: "";
+    background: map-get($body, color);
+  }
+
+  + .figure--tablet {
+    @extend %figure__margin;
+  }
+
+  .figure__caption {
+    font-size: .6em;
+    font-style: normal;
+    line-height: 2.5em;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    margin-left: 3.5em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    opacity: 1;
+
+    &:before {
+      margin-right: 1em;
+      content: "|";
+    }
+  }
+}
+
+.figure--tablet,
+.figure--phone {
+  padding: 2em 1em;
+  display: inline-block;
+  vertical-align: top;
+
+  @media #{map-get($bp--down, 2)} {
+    font-size: .8em;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    left: 50%;
+    content: "";
+    border: map-get($borderWidth, thin) solid map-get($body, color);
+  }
+
+  &:before {
+    top: 1em;
+  }
+
+  &:after {
+    bottom: 0;
+    width: 1.25em;
+    height: 1.25em;
+    margin-bottom: .375em;
+    margin-left: -.75em;
+    border-radius: 50%;
+  }
+
+  img {
+    border: map-get($borderWidth, thin) solid map-get($body, color);
+  }
+}
+
+.figure--tablet {
+  width: 55%;
+  max-width: 575px !important;
+
+  @media #{map-get($bp--down, 2)} {
+    width: 75%;
+  }
+
+  + .figure--phone {
+    @extend %figure__margin;
+  }
+
+  &:before {
+    width: .5em;
+    height: .5em;
+    margin-top: -.25em;
+    margin-left: -.25em;
+    border-radius: 50%;
+  }
+}
+
+.figure--phone {
+  width: 35%;
+  max-width: 375px !important;
+
+  @media #{map-get($bp--down, 2)} {
+    width: 55%;
+  }
+
+  &:before {
+    width: 50px;
+    height: 10px;
+    margin-top: -5px;
+    margin-left: -25px;
+    border-radius: 5px;
   }
 }

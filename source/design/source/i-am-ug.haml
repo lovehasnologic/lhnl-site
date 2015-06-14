@@ -1,13 +1,30 @@
 ---
 title: I Am Urban&nbsp;Gateways
 date: 2012-09-01
-description: What to do with an anniversary site when the calendar turns the page? That's the question we helped Urban Gateways answer with their I Am Urban Gateways domain.
+description: What to do with an anniversary site when the calendar turns the page? That's the question I helped Urban Gateways answer with their I Am Urban Gateways domain.
 tags: web design, front end development, cms development
 website: http://iamurbangateways.org/
+hide_title: true
 ---
 
-%figure
-  = lazy_image_tag "/assets/images/work/iamug-screenshot.jpg", 1000, 587, "Site Screenshot"
+- content_for :custom_styles do
+  :scss
+    .body {
+      background: #e7f6fd url("/assets/images/work/iamug-border.png") 50% 0 repeat-x;
+      padding-top: 135px;
+      color: #004366;
+    }
+
+    .article__footer {
+      background: #fff;
+    }
+
+    .pageHeader {
+      border-bottom: 9px solid #343434;
+    }
+
+%figure.text--centered.figure--tight
+  = lazy_image_tag "/assets/images/work/iamug-logo.png", 800, 100, "I Am Urban Gateways Logo"
 
 %p
   For their 50th anniversary, the non-profit arts organization
@@ -15,21 +32,26 @@ website: http://iamurbangateways.org/
   created the I Am Urban Gateways website. The purpose of the site was to house
   stories and testimonials from people who Urban Gateways had inspired
   throughout its history. It was a wonderful (and successful) initiative that
-  carried one big problem with it: what do you do when year 51 arrives? We
+  carried one big problem with it: what do you do when year 51 arrives? I
   worked with Urban Gateways to come up with the answer.
 
-%figure
-  = lazy_image_tag "/assets/images/work/iamug-slide.jpg", 1500, 567, "Blog Detail"
+%figure.figure--mockup.figure--browser
+  = lazy_image_tag "/assets/images/work/iamug-home.jpg", 1750, 1107, "Homepage"
+  %figcaption.figure__caption http://iamurbangateways.org
 
 %p
   The stories the organization had gathered for the original initiative were
-  inspiring, and we didn&rsquo;t want to throw them away. Instead, we decided to
+  inspiring, and I didn&rsquo;t want to throw them away. Instead, I decided to
   use them as a starting point and build a site around that material. The
   stories and content created by, and inspiring to, the people who are engaged
   with Urban Gateways programs became the central focus of the I Am Urban
   Gateways site. It would include a blog with interviews, personal stories and
   news about staff and alumni. The video and written testimonials were still
   featured prominently on the site alongside a clear request for alumni stories
-  to add to the archives. Finally, we integrated the content Urban Gateways was
+  to add to the archives. Finally, I integrated the content Urban Gateways was
   generating on their Flickr and Twitter accounts into the site design to
   further highlight the human aspect of the organization.
+
+%figure.figure--mockup.figure--browser
+  = lazy_image_tag "/assets/images/work/iamug-testimonials.jpg", 1750, 1107, "Video Testimonials"
+  %figcaption.figure__caption http://iamurbangateways.org/testimonials

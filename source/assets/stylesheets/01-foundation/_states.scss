@@ -46,3 +46,7 @@
     margin: 0 0 map-get($gutter, narrow) map-get($gutter, narrow);
   }
 }
+
+.text--centered {
+  text-align: center;
+}

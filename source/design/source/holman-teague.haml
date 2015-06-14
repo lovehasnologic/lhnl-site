@@ -1,23 +1,31 @@
 ---
 title: Holman Teague
 date: 2011-03-01
-description: We built a professional, trustworthy and beautiful site for Napa Valley land use and real estate law firm Holman Teague.
+description: I built a professional, trustworthy and beautiful site for Napa Valley land use and real estate law firm Holman Teague.
 tags: web design, front end development, cms development
 url: http://htralaw.com
 hide_title: true
 ---
 
+- content_for :custom_styles do
+  :scss
+    .pageHeader {
+      border-bottom: 9px solid #343434;
+    }
+
 %figure.figure--bleed.figure--tight
-  = lazy_image_tag "/assets/images/work/HTRA-Slide.jpg", 1500, 675, "Homepage Mockup"
+  = lazy_image_tag "/assets/images/work/HTRA-banner.jpg", 1500, 542, "Homepage Mockup"
 
 %p
-  When we were approached by Holman Teague to help them develop their
-  firm&rsquo;s website, we found our inspiration in the region they call home,
-  Napa Valley. Their focus on real estate and land use law provided us the
-  perfect opportunity to set them apart from other regional firms by showcasing
-  the type of work they do through beautiful photography of the region. The
-  completed design highlighted a firm that was professional, trustworthy, and
-  most importantly, not content simply to go along with the rest of the crowd.
+  When I was approached by Holman Teague to help them develop their firm&rsquo;s
+  website, I found my inspiration in the region they call home, Napa Valley.
+  Their focus on real estate and land use law provided us the perfect
+  opportunity to set them apart from other regional firms by showcasing the type
+  of work they do through beautiful photography of the region. The completed
+  design highlighted a firm that was professional, trustworthy, and most
+  importantly, not content simply to go along with the rest of the crowd.
 
-%figure
-  = lazy_image_tag "/assets/images/work/HTRA-screen.jpg", 1000, 587, "Interior Page Mockup"
+%figure.figure--mockup.figure--browser
+  = lazy_image_tag "/assets/images/work/HTRA-attorneys.jpg", 1750, 1121, "Attorneys Page"
+  %figcaption.figure__caption http://htralaw.com/attorneys
+

@@ -1,21 +1,34 @@
 ---
 title: Wastelands Film Festival
 date: 2008-06-01
-description: Combining our love of watching films and making flyers, we put these together for Peace Action New York State's Wasteland Film Festival.
+description: Combining our love of watching films and making flyers, I put these together for Peace Action New York State's Wasteland Film Festival.
 tags: print design, illustration
+hide_title: true
 ---
 
-%figure
-  = lazy_image_tag "/assets/images/work/wastelands-banner.png", 1000, 516, "Poster Heading Detail"
+- content_for :custom_styles do
+  :scss
+    .body {
+      padding-top: 255px;
+      background: url("/assets/images/work/wastelands-border.png") 50% 5px repeat-x;
+
+      @media (max-width: 750px) {
+        padding-top: 125px;
+        background-size: 250px 102px;
+      }
+    }
+
+%figure.figure--tight
+  = lazy_image_tag "/assets/images/work/wastelands-logo.png", 1750, 278, "Event Logo and Tagline"
 
 %figure.is--right.is--padded
   = lazy_image_tag "/assets/images/work/wastelands-flyer.png", 500, 833, "Poster"
 
 %p
-  Our love of progressive politics is equaled by our affection for well-produced
-  entertainment. That&rsquo;s why we couldn&rsquo;t say no to
+  My love of progressive politics is equaled by my affection for well-produced
+  entertainment. That&rsquo;s why I couldn&rsquo;t say no to
   = link_to "Peace Action New York State", "http://www.panys.org/"
-  when they approached us about doing the promotional flyers for their second
+  when they approached me about doing the promotional flyers for their second
   annual end-of-summer film festival. The festival,
   = succeed "," do
     %em Wastelands: The Environmental Casualties of War
