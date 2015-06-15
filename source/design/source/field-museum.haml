@@ -5,9 +5,63 @@ description: Bringing the museum experience to the browser.
 tags: web design, research, responsive design, front end development
 url: http://fieldmuseum.org
 featured: true
-thumbnail: /assets/images/work/thumbnails/?????
-published: false
+thumbnail: /assets/images/work/thumbnails/field-thumb.jpg
+hide_title: true
 ---
+
+- content_for :custom_styles do
+  :scss
+    $color: #7e816a;
+
+    .body {
+      background-color: #f7f6ea;
+      background-image: url("/assets/images/work/field-bg.svg");
+      background-position: 100% 50%;
+      background-size: 900px 555px;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: $color;
+
+      @media (max-width: 1000px) {
+        background-size: 500px 308px;
+        background-position: 100% 65%;
+      }
+
+      @media (max-width: 600px) {
+        background-size: 310px 191px;
+        background-position: 100% 75%;
+      }
+
+      a {
+        color: #83a812;
+
+        &:hover,
+        &:focus {
+          color: darken(#83a812, 10%);
+        }
+      }
+    }
+
+    .figure--mockup {
+      background: #fff;
+    }
+
+    .article__footer {
+      background: #fff;
+    }
+
+    .figure--bleed.figure--tight {
+      background: #83a812;
+      padding: 15px;
+
+      img {
+        width: auto !important;
+        max-width: 250px !important;
+      }
+    }
+
+%figure.figure--bleed.figure--tight.text--centered
+  = lazy_image_tag "/assets/images/work/field-logo.svg", 250, 91, "The Field Museum"
 
 %p
   In my role as Design Director at Table XI I had the opportunity to lead the
@@ -20,8 +74,13 @@ published: false
   Our design team coordinated a series of stakeholder interviews and surveys. On
   site interviews were conducted with museum attendees. Thorough investigation
   of other destination based educational entertainment was completed and a
-  pouring over of the current site&rsquo;s analytics was undertaken to understand the
-  current weak points in the site&rsquo;s content, organization and design.
+  pouring over of the current site&rsquo;s analytics was undertaken to
+  understand the current weak points in the site&rsquo;s content, organization
+  and design.
+
+%figure.figure--bleed
+  = lazy_image_tag "/assets/images/work/field-sitemap.png", 1750, 481, "The pages of the sitemap"
+  %figcaption.figure__caption It&rsquo;s not easy to organize 1,000s of pages of content.
 
 %p
   With the research in place, we transitioned towards using our findings to
@@ -50,8 +109,14 @@ published: false
   browsing the previous site, and worked hard to reduce the possibility of
   getting lost in the museum&rsquo;s deep content archives.
 
-%figure.figure--bleed
-  = lazy_image_tag "/assets/images/work/field-responsive.jpg", 1508, 531, "The Field Website Across Breakpoints"
+.text--centered
+  %figure.figure--mockup.figure--browser
+    = lazy_image_tag "/assets/images/work/field-browser.jpg", 1750, 1054, "The Field Museum Website on a wide screen"
+    %figcaption.figure__caption http://www.gradesaver.com/the-great-gatsby
+  %figure.figure--mockup.figure--tablet
+    = lazy_image_tag "/assets/images/work/field-tablet.jpg", 800, 921, "The Field Museum Website on a tablet"
+  %figure.figure--mockup.figure--phone
+    = lazy_image_tag "/assets/images/work/field-phone.jpg", 600, 979, "The Field Museum Website on a phone"
 
 %p
   Much effort was given to the site&rsquo;s responsive design as we found the
@@ -70,7 +135,7 @@ published: false
 %h3 Collaborators
 
 %dl
-  %dt Completed in my role as Design Director at Table XI
-  %dd= link_to "Website", "http://www.tablexi.com"
+  %dt Completed in my role as Design Director at
+  %dd= link_to "Table XI", "http://www.tablexi.com"
   %dt Developer
   %dd= link_to "CAXY", "http://www.caxy.com"

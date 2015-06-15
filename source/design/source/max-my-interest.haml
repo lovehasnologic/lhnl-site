@@ -1,14 +1,19 @@
 ---
 title: Max My Interest
-date: 2014-10-01
+date: 2013-10-01
 description: Helping cash investors better protect and optimize their assets.
 tags: web design, research, responsive design, front end development, identity development
 url: http://maxmyinterest.com
 featured: true
-thumbnail: /assets/images/work/thumbnails/?????
+thumbnail: /assets/images/work/thumbnails/max-thumb.png
 hide_title: true
-published: false
 ---
+
+%figure.text--centered.maxLogo
+  = lazy_image_tag "/assets/images/work/max-logo.png", 500, 182, "Max Logo"
+
+%figure.figure
+  = lazy_image_tag "/assets/images/work/max-dashboard.jpg", 1500, 878, "Max Dashboard"
 
 %p
   For cash investors, optimizing and protecting their investments has been a
@@ -38,6 +43,15 @@ published: false
   extent, turned a time-consuming and manual process into something you no
   longer needed to think about.
 
+.text--centered
+  %figure.figure--mockup.figure--browser
+    = lazy_image_tag "/assets/images/work/max-browser.jpg", 1750, 1040, "Max Website on a wide screen"
+    %figcaption.figure__caption http://maxmyinterest.com/
+  %figure.figure--mockup.figure--tablet
+    = lazy_image_tag "/assets/images/work/max-tablet.jpg", 800, 936, "Max Website on a tablet"
+  %figure.figure--mockup.figure--phone
+    = lazy_image_tag "/assets/images/work/max-phone.jpg", 600, 999, "Max Website on a phone"
+
 %p
   Once the site was launched, we found that the easiest way to get people
   excited about the project was to have them speak to the company&rsquo;s
@@ -59,5 +73,5 @@ published: false
 %h3 Collaborators
 
 %dl
-  %dt Completed in my role as Design Director at Table XI
-  %dd= link_to "Website", "http://www.tablexi.com"
+  %dt Completed in my role as Design Director at
+  %dd= link_to "Table XI", "http://www.tablexi.com"

@@ -5,10 +5,46 @@ description: Improving the study experience for millions of students worldwide.
 tags: web design, responsive design, front end development
 url: http://gradesaver.com
 featured: true
-thumbnail: /assets/images/work/thumbnails/?????
+thumbnail: /assets/images/work/thumbnails/gradesaver.jpg
 hide_title: true
-published: false
 ---
+
+- content_for :custom_styles do
+  :scss
+    .body {
+      position: relative;
+
+      &:before {
+        position: absolute;
+        z-index: 500;
+        top: 9px;
+        right: 0;
+        left: 0;
+        height: 25px;
+        content: "";
+        background: linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,0));
+      }
+
+      a {
+        color: #d43641;
+
+        &:hover,
+        &:focus {
+          color: darken(#d43641, 20%);
+        }
+      }
+    }
+
+    .figure--tight {
+      border-top: 9px solid #343434;
+
+      img {
+        display: block;
+      }
+    }
+
+%figure.figure--tight.figure--bleed
+  = lazy_image_tag "/assets/images/work/gs-banner.jpg", 1750, 260, "Gradesaver Banner"
 
 %p
   Gradesaver has been a client of Table XI through multiple revisions of their
@@ -17,6 +53,15 @@ published: false
   came time to upgrade the backend platform powering the site, we used the
   opportunity to update the front end as well to better stand out to, and
   connect with, their user base.
+
+.text--centered
+  %figure.figure--mockup.figure--browser
+    = lazy_image_tag "/assets/images/work/gs-home-browser.jpg", 1750, 962, "Gradesaver Website on a wide screen"
+    %figcaption.figure__caption http//gradesaver.com/
+  %figure.figure--mockup.figure--tablet
+    = lazy_image_tag "/assets/images/work/gs-home-tablet.jpg", 800, 917, "Gradesaver Website on a tablet"
+  %figure.figure--mockup.figure--phone
+    = lazy_image_tag "/assets/images/work/gs-home-phone.jpg", 600, 965, "Gradesaver Website on a phone"
 
 %p
   Most important was ensuring that the site had a strong, responsive foundation.
@@ -32,6 +77,15 @@ published: false
   ensured that regardless of device, however they wanted to access the
   site&rsquo;s content, they&rsquo;d have the best experience possible.
 
+.text--centered
+  %figure.figure--mockup.figure--browser
+    = lazy_image_tag "/assets/images/work/gs-studyguide-browser.jpg", 1750, 971, "Gradesaver Study Guide on a wide screen"
+    %figcaption.figure__caption http://www.gradesaver.com/the-great-gatsby
+  %figure.figure--mockup.figure--tablet
+    = lazy_image_tag "/assets/images/work/gs-studyguide-tablet.jpg", 800, 952, "Gradesaver Study Guide on a tablet"
+  %figure.figure--mockup.figure--phone
+    = lazy_image_tag "/assets/images/work/gs-studyguide-phone.jpg", 600, 965, "Gradesaver Study Guide on a phone"
+
 %p
   Performance was also key, as the site needs to load quickly at a massive
   scale. Working with the development team, we prioritized performance during
@@ -42,5 +96,5 @@ published: false
 %h3 Collaborators
 
 %dl
-  %dt Completed in my role as Design Director at Table XI
-  %dd= link_to "Website", "http://www.tablexi.com"
+  %dt Completed in my role as Design Director at
+  %dd= link_to "Table XI", "http://www.tablexi.com"

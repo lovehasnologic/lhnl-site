@@ -1,15 +1,42 @@
 ---
 title: New Season New&nbsp;City
 date: 2012-08-01
-description: Elizabeth Weiss needed a discovery platform for the families of minor league hockey players. We worked with her to build it.
+description: Elizabeth Weiss needed a discovery platform for the families of minor league hockey players. I worked with her to build it.
 tags: web design, responsive design, research, front end development, cms development, identity development
 featured: true
 thumbnail: /assets/images/work/thumbnails/newseasonnewcity-thumb.jpg
 hide_title: true
 ---
 
-%figure.figure--bleed.figure--tight
-  = lazy_image_tag "/assets/images/work/nsnc-slide.jpg", 1000, 399, "New Season New City Website Banner"
+- content_for :custom_styles do
+  :scss
+    .body {
+      position: relative;
+      padding-top: 30px;
+      background: #f1f3f3 url("/assets/images/work/newseason-bg.png");
+
+      &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 14px;
+        content: "";
+        background: url("/assets/images/work/newseason-lines.png");
+      }
+    }
+
+    .article__footer {
+      background: #fff;
+    }
+
+    .pageHeader {
+      border-bottom: 9px solid #343434;
+    }
+
+
+%figure.text--centered.figure--tight
+  = lazy_image_tag "/assets/images/work/newseason-logo.png", 500, 157, "New Season New City Logo"
 
 %p
   Elizabeth Weiss is the wife of a minor league hockey player. As such, she
@@ -20,9 +47,8 @@ hide_title: true
   a resource for the Hockey Nomads crisscrossing the country, powered by
   recommendations coming directly from the group it was targeting.
 
-%figure
-  = lazy_image_tag "/assets/images/work/newseason-1.jpg", 1000, 321, "Detail of the team picker"
-  %figcaption Team Selection (Detail)
+%figure.figure--mockup.figure--browser
+  = lazy_image_tag "/assets/images/work/newseason-home.jpg", 1500, 1083, "New Season New City Home Page"
 
 %p
   At its heart, the site is a recommendation engine powered by the community.
@@ -35,14 +61,12 @@ hide_title: true
   their name and begin filtering the businesses in that region based on your
   interests.
 
-%figure
-  = lazy_image_tag "/assets/images/work/newseason-2.jpg", 1000, 363, "Detail of the business listings"
-  %figcaption Business Listing (Detail)
+%figure.figure--mockup.figure--browser
+  = lazy_image_tag "/assets/images/work/newseason-listing.jpg", 1000, 363, "Detail of the business listings"
 
 %p
-  We worked with Elizabeth to perfect the browsing process. From there, we
-  developed a visual identity for the site and built out a back end to support
+  I worked with Elizabeth to perfect the browsing process. From there, a visual
+  identity was developed for the site and a back end was built out to support
   the community being targeted. We also made sure the site was flexible enough
   so that it could slowly be scaled to additional leagues (and eventually be
-  scaled out to additional sports as well). We&rsquo;re excited to see what the
-  future holds for New Season New City.
+  scaled out to additional sports as well).

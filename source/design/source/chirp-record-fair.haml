@@ -9,11 +9,83 @@ thumbnail: /assets/images/work/thumbnails/chirp-recordfair-thumb.jpg
 hide_title: true
 ---
 
-%figure.figure--bleed.figure--tight
-  = lazy_image_tag "/assets/images/work/chirp-recordfair-slide1.jpg", 1500, 610, "CHIRP Record Fair Website Banner"
+- content_for :custom_styles do
+  :scss
+    $body-color: #544f47;
 
-%figure.is--right.is--padded
-  = lazy_image_tag "/assets/images/work/chirp-recordfair-ipad.jpg", 500, 651, "The website loading on an iPad"
+    .body {
+      background-color: #f7f7f7;
+      background-image: url("/assets/images/work/chirp-recordfair-digger.png"), url("/assets/images/work/chirp-recordfair-bg.jpg");
+      background-position: 100% 100%, 0 0;
+      background-attachment: fixed, fixed;
+      background-repeat: no-repeat, repeat;
+      color: $body-color;
+    }
+
+    .pageHeader {
+      border-bottom: 9px solid #343434;
+    }
+
+    .figure--mockup {
+      background: #fff;
+    }
+
+    .figure--stroked {
+      border: 9px solid $body-color;
+      background: $body-color;
+      color: #fefa0f;
+
+      &.figure--bleed {
+        border-left: 0;
+        border-right: 0;
+      }
+
+      figcaption {
+        opacity: 1;
+        padding-top: 9px;
+      }
+
+      img {
+        display: block;
+      }
+    }
+
+    .article__footer {
+      background: $body-color;
+      color: #fff;
+
+      a {
+        color: #fefa0f;
+
+        &:hover,
+        &:focus {
+          color: #fff;
+        }
+
+        &:after {
+          color: #fff;
+        }
+      }
+    }
+
+%figure.figure--bleed.figure--tight
+  = lazy_image_tag "/assets/images/work/chirp-recordfair-title.png", 1750, 215, "CHIRP Record Fair Website Banner"
+
+%p
+  CHIRP&rsquo;s bi-annual record fair is one of the best in the country and is
+  something that music fans are always looking forward to. A room full of vinyl,
+  food, music, trivia, games, friends and more makes for a wonderful afternoon
+  of crate digging and geeking out. The event needed a website that was equally
+  as fun, but more importantly, informative.
+
+.text--centered
+  %figure.figure--mockup.figure--browser
+    = lazy_image_tag "/assets/images/work/chirp-recordfair-browser.jpg", 1500, 940, "Homepage on a wide screen"
+    %figcaption.figure__caption http://recordfair.chirpradio.org/
+  %figure.figure--mockup.figure--tablet
+    = lazy_image_tag "/assets/images/work/chirp-recordfair-tablet.jpg", 893, 954, "Homepage on a tablet"
+  %figure.figure--mockup.figure--phone
+    = lazy_image_tag "/assets/images/work/chirp-recordfair-phone.jpg", 581, 890, "Homepage on a phone"
 
 %p
   It&rsquo;s the billed &ldquo;Other Delights&rdquo; that really sets the annual
@@ -21,17 +93,16 @@ hide_title: true
   of vinyl is fun, but anyone can gather a bunch of record vendors and buyers
   together in the same place. The Chicago Independent Radio Project separates
   its record fair from the rest with loads of goodies: DJs, games, toy and
-  clothing vendors, food and beer from local outlets,, poster makers and more.
-  It was this last category that became our inspiration, as we decided to see
-  how well we could pull off emulating a poster in a responsive website. We did
-  this through the addition of offset color blocks and misregistered headlines,
+  clothing vendors, food and beer from local outlets, poster makers and more. It
+  was this last category that became our inspiration, as I decided to see how
+  well I could pull off emulating a poster in a responsive website. I did this
+  through the addition of offset color blocks and misregistered headlines,
   printer marks at the top and bottom of the page and even live page slugs that
   show the name of the document and the time it was created&hellip; all while
   failing gracefully in less advanced browsers.
 
-%figure
-  = lazy_image_tag "/assets/images/work/chirp-recordfair-footer.jpg", 1000, 225, "Printer marks on the footer"
-  %figcaption Site Footer Detail (showing printer marks and page slug)
+%figure.figure--bleed.figure--stroked
+  = lazy_image_tag "/assets/images/work/chirp-recordfair-slide2.jpg", 1500, 675, "Page detail"
 
 %p
   While the front end looks great, the back end is where the magic happens. We
@@ -41,6 +112,6 @@ hide_title: true
   accounts to RSVP to the fair, automatically cross-posts to the CHIRP Radio
   event calendar and makes all entry data accessible to the rest of the network.
 
-%figure
-  = lazy_image_tag "/assets/images/work/chirp-recordfair-slide2.jpg", 1500, 675, "Page detail"
-
+%figure.figure--stroked
+  = lazy_image_tag "/assets/images/work/chirp-recordfair-footer.jpg", 1000, 225, "Printer marks on the footer"
+  %figcaption Site Footer Detail (showing printer marks and page slug)

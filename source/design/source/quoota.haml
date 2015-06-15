@@ -1,25 +1,94 @@
 ---
 title: Quoota
 date: 2012-09-01
-description: How do you simplify the sales process? You make it dead simple to track the process and encourage continuous improvement. That's what we helped Quoota achieve.
+description: How do you simplify the sales process? You make it dead simple to track and encourage continuous improvement. That's what I helped Quoota achieve.
 tags: web design, responsive design, research, front end development
 featured: true
 thumbnail: /assets/images/work/thumbnails/quoota-thumb.jpg
+hide_title: true
 ---
+
+- content_for :custom_styles do
+  :scss
+    .body {
+      position: relative;
+      background-color: #edf2f1;
+      background-image: url("/assets/images/work/quoota-bars.png"), url("/assets/images/work/quoota-bg.jpg");
+      background-repeat: no-repeat, repeat;
+      background-attachment: fixed;
+      background-position: left top, left top;
+      box-shadow: inset 0 0 0 10px rgba(255,255,255,0.5);
+
+      &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 40px;
+        content: "";
+        background: rgba(255,255,255,.25);
+
+        @media (max-width: 800px) {
+          height: 20px;
+        }
+      }
+
+      a {
+        color: #ff4401;
+
+        &:hover,
+        &:focus {
+          color: #343434;
+        }
+      }
+    }
+
+    .pageHeader {
+      border-bottom: 9px solid #343434;
+    }
+
+    .article__footer {
+      background: #fff;
+    }
+
+    .figure--quoota {
+      background: rgba(255,255,255,.5);
+      margin: 1em -10px;
+      max-width: 1020px !important;
+
+      img {
+        margin: 10px 10px 0;
+      }
+
+      figcaption {
+        padding-bottom: .5em;
+      }
+    }
+
+
+%figure.text--centered
+  = lazy_image_tag "/assets/images/work/quoota-logo.png", 300, 113, "Quoota Logo"
 
 %p
   Quoota is a tool that arose from the need founder James Jordan saw for a tool
   that was easy to use and understand and could help maintain and improve the
   sales process for small businesses. With an understanding of the need and the
-  market, he called on us to help him realize his vision. That began with some
+  market, he called to help him realize his vision. That began with some
   serious content strategy. The goal was to simplify a process that is anything
-  but simple. We needed to work around the jargon, make connections in seemingly
-  unconnected data and sort through what was necessary for those who wanted to
-  sell their services better, but didn&rsquo;t know how.
+  but simple. Working with Annie Swank, we worked around the jargon, made
+  connections in seemingly unconnected data and sorted through what was
+  necessary for those who wanted to sell their services better, but didn&rsquo;t
+  know how.
 
-%figure
-  = lazy_image_tag "/assets/images/work/quoota-responsive.jpg", 1500, 675, "Responsive view of the tracking page"
-  %figcaption Track your progress from anywhere, on any device
+.text--centered
+  %figure.figure--mockup.figure--browser
+    = lazy_image_tag "/assets/images/work/quoota-browser.jpg", 1381, 810, "Wide view of the tracking page"
+
+  %figure.figure--mockup.figure--tablet
+    = lazy_image_tag "/assets/images/work/quoota-tablet.jpg", 813, 937, "Tablet view of the tracking page"
+
+  %figure.figure--mockup.figure--phone
+    = lazy_image_tag "/assets/images/work/quoota-phone.jpg", 605, 942, "Phone view of the tracking page"
 
 %p
   During the process, we thought about the hours we spent playing Mario Kart as
@@ -29,7 +98,7 @@ thumbnail: /assets/images/work/thumbnails/quoota-thumb.jpg
   found a universal need to continue to improve. We took what we learned from
   those experiences and applied them here as a basic motivational tool.
 
-%figure
+%figure.figure--quoota
   = lazy_image_tag "/assets/images/work/quoota-signup.jpg", 1000, 633, "Signup Process Screenshot"
   %figcaption Signup Process (Step 2)
 
@@ -44,7 +113,7 @@ thumbnail: /assets/images/work/thumbnails/quoota-thumb.jpg
   your weekly goal, but we also show you how you&rsquo;re doing relative to what
   you had accomplished one week prior.
 
-%figure
+%figure.figure--quoota
   = lazy_image_tag "/assets/images/work/quoota-tracking.jpg", 1000, 760, "Task Tracking Screenshot"
   %figcaption Task Tracking (Detail)
 
@@ -55,7 +124,7 @@ thumbnail: /assets/images/work/thumbnails/quoota-thumb.jpg
   your results from a week prior, we build a sense of competition with yourself
   that will motivate you to continually improve.
 
-%figure
+%figure.figure--quoota
   = lazy_image_tag "/assets/images/work/quoota-history.jpg", 1000, 572, "Sales History Screenshot"
   %figcaption Sales History
 
@@ -64,3 +133,5 @@ thumbnail: /assets/images/work/thumbnails/quoota-thumb.jpg
 %dl
   %dt Developer
   %dd= link_to "3Binary", "http://3binary.com/"
+  %dt Content Strategy
+  %dd= link_to "Annie Swank", "https://www.linkedin.com/profile/view?id=134640760"

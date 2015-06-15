@@ -1,7 +1,7 @@
 ---
 title: Direction Tour Marketing
 date: 2013-02-01
-description: When Direction Tour Marketing called us up for a new website we could have simply re-skinned the old one and called it a day. That's not how we work.
+description: When Direction Tour Marketing called up for a new website I could have simply re-skinned the old one and called it a day. That’s not how I work.
 tags: web design, responsive design, research, front end development, cms development
 url: http://directiontourmarketing.com/
 featured: true
@@ -9,24 +9,83 @@ thumbnail: /assets/images/work/thumbnails/direction-thumb.jpg
 hide_title: true
 ---
 
+- content_for :custom_styles do
+  :scss
+    $green: #068e34;
+
+    .body {
+      background: #eceeda url("/assets/images/work/direction-watermark.png") -100px 105% no-repeat;
+      background-attachment: fixed;
+
+      a {
+        color: $green;
+
+        &:hover,
+        &:focus {
+          color: lighten($green, 10%);
+        }
+      }
+
+      p:first-of-type:first-letter {
+        color: $green;
+      }
+    }
+
+    .pageHeader {
+      border-bottom: 9px solid $green;
+    }
+
+    figure {
+      background: #fff;
+    }
+
+    .figure--tight {
+      border-bottom: 9px solid $green;
+
+      img {
+        display: block;
+      }
+    }
+
+    .figure--border {
+      border: 9px solid #fff;
+      border-radius: 9px;
+      box-shadow: 0 0 9px rgba(0,0,0,.5);
+
+      figcaption {
+        padding-top: .25em;
+      }
+
+      img {
+        display: block;
+      }
+    }
+
+    .article__footer {
+      background: #fff;
+      box-shadow: 0 0 9px rgba(0,0,0,.5);
+    }
+
 %figure.figure--bleed.figure--tight
-  = lazy_image_tag "/assets/images/work/direction-slide.jpg", 1500, 675, "Direction Website Banner"
+  = lazy_image_tag "/assets/images/work/direction-banner.jpg", 1750, 292, "Direction Tour Marketing"
 
 %p
   Direction Tour Marketing is part of an overwhelmingly visual industry, and
   they needed to update their old website to better fit into this highly visual
-  world. When we got the call, we could have simply re-skinned their old site,
-  but that&rsquo;s not how we like to work. We took the opportunity to sit down
-  with their team to look at how they did their work, and then we identified
+  world. When I got the call, I could have simply re-skinned their old site,
+  but that&rsquo;s not how I like to work. I took the opportunity to sit down
+  with their team to look at how they did their work, and then identified
   ways that the new website could make their job easier. The new Direction site
   isn&rsquo;t just a great looking brochure website; it&rsquo;s a tool that they
   use in their daily business.
 
-%figure
-  = lazy_image_tag "/assets/images/work/direction-slide-2.jpg", 1500, 595, "Homepage Hero"
-
-%figure
-  = lazy_image_tag "/assets/images/work/direction-slide-3.jpg", 1500, 595, "Case Study Overview"
+.text--centered
+  %figure.figure--mockup.figure--browser
+    = lazy_image_tag "/assets/images/work/direction-browser.jpg", 1750, 949, "Direction Website on a wide screen"
+  %figure.figure--mockup.figure--tablet
+    = lazy_image_tag "/assets/images/work/direction-tablet.jpg", 800, 901, "Direction Website on a tablet"
+  %figure.figure--mockup.figure--phone
+    = lazy_image_tag "/assets/images/work/direction-phone.jpg", 600, 921, "Direction Website on a phone"
 
 %p
   Direction&rsquo;s old site was a bear to manage, so we started by setting up a
@@ -40,7 +99,7 @@ hide_title: true
   upgrading it from an old (and slow) Excel file.
 
 
-%figure
+%figure.figure--border
   = lazy_image_tag "/assets/images/work/direction-detail.jpg", 1000, 450, "Detail view of a case study page"
   %figcaption Case Study (detail)
 

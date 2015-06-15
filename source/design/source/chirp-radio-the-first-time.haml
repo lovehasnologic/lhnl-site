@@ -5,10 +5,49 @@ description: A celebration of music, stories and new experiences, presented by C
 tags: web design, responsive design, identity development, print design
 url: http://firsttime.chirpradio.org/
 featured: true
-thumbnail: /assets/images/work/thumbnails/???
+thumbnail: /assets/images/work/thumbnails/firsttime-thumb.jpg
 hide_title: true
-published: false
 ---
+
+- content_for :custom_styles do
+  :scss
+    .body {
+      	background-color: #f1f0ed;
+      	background-image: url("/assets/images/work/firsttime-circles.png"), url("/assets/images/work/firsttime-bg.jpg");
+      	background-repeat: no-repeat, repeat;
+      	background-position: 115% 0, 50% 0;
+      	color: #000;
+      	position: relative;
+
+      	@media (max-width: 800px) {
+        	padding-top: 15px;
+      	}
+
+      	&:after {
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	right: 0;
+        	height: 60px;
+        	content: "";
+        background: url("/assets/images/work/firsttime-border.jpg") 50% 0 repeat-x;
+
+        	@media (max-width: 800px) {
+          	height: 30px;
+        	}
+      	}
+    }
+
+    	.figure--mockup {
+      background: #fff;
+    	}
+
+    	.article__footer {
+      	background: rgba(255,255,255,.75);
+    	}
+
+%figure.figure--bleed
+  = lazy_image_tag "/assets/images/work/firsttime-banner.png", 1750, 400, "The First Time Logo"
 
 %p
   I&rsquo;ve been working with CHIRP Radio for years, from their start as an
@@ -36,6 +75,10 @@ published: false
   points of digital type. This served as the inspiration for the event&rsquo;s
   identity.
 
+%figure
+  = lazy_image_tag "/assets/images/work/firsttime-print.jpg", 1750, 1278, "Poster, Program Cover and Postcard for the April 2012 First Time event"
+  %figcaption.figure__caption The poster, program cover and postcard for the April 2012 First Time event
+
 %p
   The posters, postcards and programs are digitally set, and combined with true
   wood textures. This makes it easy to maintain and update the materials
@@ -49,6 +92,15 @@ published: false
   framework that is more than just a poster in the browser. It&rsquo;s made of
   textures and letterforms that seem as if they were pressed directly into this
   flexible page.
+
+.text--centered
+  %figure.figure--mockup.figure--browser
+    = lazy_image_tag "/assets/images/work/firsttime-browser.jpg", 1750, 1054, "The First Time Website on a wide screen"
+    %figcaption.figure__caption http://firsttime.chirpradio.org/
+  %figure.figure--mockup.figure--tablet
+    = lazy_image_tag "/assets/images/work/firsttime-tablet.jpg", 800, 921, "The First Time Website on a tablet"
+  %figure.figure--mockup.figure--phone
+    = lazy_image_tag "/assets/images/work/firsttime-phone.jpg", 600, 979, "The First Time Website on a phone"
 
 %p
   If you haven&rsquo;t yet been to an event I can&rsquo;t encourage you strongly

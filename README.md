@@ -113,6 +113,23 @@ In the design section, case studies can include additional frontmatter that is s
 - `thumbnail`: Relative path, from `source` where the thumbnail for the image 
   list can be found.
 
+### Custom Portfolio CSS
+
+On work pages, you can use the `:custom_styles` block and an `:scss` filter to
+render out custom inline CSS for that page, as such.
+
+```
+---
+frontmatter: here
+---
+
+- content_for :custom_styles do
+  :scss
+    .selector {
+      ... styles ...
+    }
+```
+
 # Deployment
 
 The site is deployed using the [Middleman Deploy](https://github.com/middleman-contrib/middleman-deploy)
@@ -127,27 +144,16 @@ built files to your server.
 
 **Code Cleanup**
 
-- [ ] Better case study designs
 - [ ] Re-examine patterns for better long term re-use
 - [ ] Refactor out !important madness
 - [ ] Rebuild Sample Images in Portfolio for new site
 - [ ] Verify Twitter Cards
 - [ ] Verify Facebook Cards
-- [ ] Change case, where appropriate, from "us" to "me"
 - [ ] Sticky Footer (via Flexbox)
 
 **Blog Articles**
 
-- [x] View Source vs. Github Source
 - [ ] new site optimizations
 - [ ] CMS Wrapup update (SS, CMS, MM)
 - [ ] Dev/Design integration
 - [ ] Fluid typography
-
-**Design Case Studies**
-
-- [ ] Max
-- [ ] Medill
-- [ ] Field Museum
-- [ ] Gradesaver
-- [ ] CHIRP: The First Time

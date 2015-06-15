@@ -8,8 +8,32 @@ thumbnail: /assets/images/work/thumbnails/hanson-thumb.jpg
 hide_title: true
 ---
 
-%figure.figure--bleed.figure--tight
-  = lazy_image_tag "/assets/images/work/hanson-slide-1.jpg", 1500, 557, "Hanson Website Banner"
+- content_for :custom_styles do
+  :scss
+    .body {
+      background: #000;
+      color: #fff;
+
+      a {
+        color: #d8452a;
+
+        &:hover,
+        &:focus {
+          color: #999;
+        }
+      }
+    }
+
+    .article__footer {
+      background: #343434;
+    }
+
+    figure {
+      color: #343434;
+    }
+
+%figure.figure--tight.text--centered
+  = lazy_image_tag "/assets/images/work/hanson-band.jpg", 505, 348, "Hanson"
 
 %p
   = link_to "Launch Pad Lab", "http://launchpadlab.com/"
@@ -22,9 +46,8 @@ hide_title: true
   years. Now they needed a new look to match their new album&hellip; and they
   needed it quickly.
 
-%figure
-  = lazy_image_tag "/assets/images/work/hanson-home.jpg", 1000, 587, "Homepage Mockup"
-  %figcaption Home Page
+%figure.figure--mockup.figure--browser
+  = lazy_image_tag "/assets/images/work/hanson-home.jpg", 1440, 862, "Homepage"
 
 %p
   With the input of the band, and working closely with the development team, we
@@ -35,13 +58,11 @@ hide_title: true
   we&rsquo;d ever done. The team couldn&rsquo;t have been happier with the
   results.
 
-%figure
-  = lazy_image_tag "/assets/images/work/hanson-calendar.jpg", 1000, 587, "Calendar Mockup"
-  %figcaption Tour Calendar
+%figure.figure--mockup.figure--browser
+  = lazy_image_tag "/assets/images/work/hanson-tour.jpg", 1440, 862, "Tour Page"
 
-%figure
-  = lazy_image_tag "/assets/images/work/hanson-blog.jpg", 1000, 587, "Blog Mockup"
-  %figcaption Blog Page
+%figure.figure--mockup.figure--browser
+  = lazy_image_tag "/assets/images/work/hanson-blog.jpg", 1440, 862, "Blog Page"
 
 %h3 Collaborators
 
