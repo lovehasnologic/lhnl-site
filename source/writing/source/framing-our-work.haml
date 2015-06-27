@@ -1,0 +1,129 @@
+---
+title: Framing Our Work
+date: 2015-06-27
+description: I've got opinions on Bootstrap, Foundation, and front-end development frameworks in general.
+tags: code, process, tools
+---
+
+%p
+  I&rsquo;ve never held my tongue when it comes to CSS Frameworks. While it
+  would be easy for me to write another &ldquo;Why Bootstrap Is Bad&rdquo;
+  article, it&rsquo;d come off as just more noise in the wind. It would also be
+  a bit disingenous, as I&rsquo;ve recently discovered.
+
+%h2 A Fragile Foundation
+
+%p
+  None of my arguments against
+  = link_to "Bootstrap", "http://getbootstrap.com"
+  (and similar frameworks like
+  = succeed ")" do
+    = link_to "Foundation", "http://foundation.zurb.com"
+  are unique. They tend to be bigger than the author needs, adding bloat to the
+  code base. They enforce naming and organization conventions on your project
+  that may run counter to how the team is best suited to working. When present,
+  it becomes a struggle to fit the entirety of your site into their one-size
+  fits all constraints. As design agnostic as they try to be, they all end up
+  setting a look and feel for your project in the design decisions they have
+  made.
+
+%p
+  These are all valid complaints, but the more that I think about it, the
+  complaints are misguided. Each of these complaints could be minimized through
+  smarter use of the framework. Targeted, thoughtful use of a pre-defined
+  framework is slower than adding a line to your gem file and pulling the
+  framework into a css and js manifest file, yes, but if a framework is just
+  thrown at a project with little thought to the use cases, benefits, and how it
+  fits into a larger process, then is it really the framework&rsquo;s fault?
+  Seems to me that lazy development is to blame.
+
+%h2 Taking the Good With the Bad
+
+%p
+  Even in my most cynical moments I don&rsquo;t feel as if all frameworks are
+  terrible tools of the lazy. As quick prototyping tools, they can serve to help
+  you get ideas to a browser quickly. If I had my choice between a hastily
+  thrown together Bootstrap wireframe or a well thought out and sweat over
+  Sketch mockup, I&rsquo;ll take the wires in the browser every day of the week.
+  The closer you can get to your final output, the more accurate the feedback
+  will be. The faster you can get that feedback, the more time you have to
+  address it.
+
+%p
+  Every front-end framework I&rsquo;ve seen can also serve as an excellent
+  learning tool. The thought and care that is put into them, from the
+  compartmentalization of concerns to their organizational approach, from their
+  use of the niceties of precompilers like Less and Sass to how they document
+  the library, each provides great insight into a well thought out design system
+  that thinks less about pages and more about the relationship of the pieces
+  throughout. When I was first working towards more efficient Sass authoring I
+  spent a lot of time studying Foundation. I dug through the framework&rsquo;s
+  online documentation along with the source code. I looked at how a single
+  variable could impact multiple components. I explored how components fit
+  together like pieces of a puzzle. I practiced writing documentation for my own
+  Sass that would be as useful to another dev as Foundation&rsquo;s
+  documentation was to its users. I never used Foundation on one of my projects,
+  but it served me greatly in my work.
+
+%h2 Real World Website Building
+
+%p
+  I recently spent part of the month working with the team at a friend&rsquo;s
+  startup. They were building out a new version of their platform, working from
+  designs that were custom visuals around components from the Bootstrap system.
+  They were looking for some guidance on how best to integrate the design over
+  the top of Bootstrap. To me, this meant a few things:
+
+%ul
+  %li
+    Use Bootstrap classes and markup patterns exclusively, where possible
+  %li
+    Understand Bootstrap&rsquo;s naming conventions so that custom markup would
+    follow the same, consistent pattern
+  %li
+    Make extended use of Bootstrap&rsquo;s massive variable and mixin set
+  %li
+    Be comfortable enough with the framework to know when you need to write your
+    own components
+
+%p
+  Having been so framework averse in my own work, this was an exciting
+  challenge, and one I took very seriously. Due to the limited time of my
+  engagement, I had to ensure any recommendations I made would be maintainable
+  when I wasn&rsquo;t reviewing pull requests and answering questions in the
+  office. I&rsquo;m pretty happy with the approach we ended up taking and I
+  wanted to share.
+
+%ul
+  %li
+    In the manifest, we load the Bootstrap variables, then a file that we can
+    use to override those default values. We follow that with all the individual
+    Bootstrap source component partials. Then we load matching Bootstrap
+    component partials with any additional styles we can&rsquo;t update using
+    our variable overrides and then wrap up the manifest with any custom
+    component partials that we add.
+  %li
+    When building a new component, we determine if it has a direct Bootstrap
+    parallel. If so, we update the variables to get the default component as
+    close to the given design as possible. If it&rsquo;s still not an exact
+    match, we&rsquo;ll add a matching partial to our own set of files and add
+    the needed properties there to finish the design. This is also where we will
+    add additional component variants that don&rsquo;t exist in the framework.
+  %li
+    If there&rsquo;s not a direct parallel, we don&rsquo;t fight the framework.
+    We&rsquo;ll create a new, custom component. We use a Bootstrap inspired BEM
+    naming system and keep the amount of properties in a single selector as low
+    as makes sense.
+
+%p
+  This has worked great. The organization of our manifest file will allow us to
+  start pulling out pieces of the framework that aren&rsquo;t needed as the
+  design begins to solidify. By analyzing the organization of Bootstrap the team
+  has gotten comfortable in both customizing it and adding new components on top
+  of it. Because we are spending less time fighting the framework the morale of
+  the team is higher and work is moving quickly on the new version of their
+  platform. Most importantly, the team is now spending less time talking about
+  implementation and more time talking about the interaction and interface of
+  the new platform. You still won&rsquo;t find me reaching for a framework as I
+  begin new projects, but it&rsquo;s been great to see how Bootstrap could
+  successfully be integrated in a project beyond a simple prototype phase.
