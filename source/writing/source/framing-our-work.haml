@@ -41,7 +41,7 @@ tags: code, process, tools
 
 %p
   Even in my most cynical moments I don&rsquo;t feel as if all frameworks are
-  terrible tools of the lazy. As quick prototyping tools, they can serve to help
+  terrible tools of the lazy. As quick prototyping tools they can serve to help
   you get ideas to a browser quickly. If I had my choice between a hastily
   thrown together Bootstrap wireframe or a well thought out and sweat over
   Sketch mockup, I&rsquo;ll take the wires in the browser every day of the week.
@@ -56,23 +56,25 @@ tags: code, process, tools
   use of the niceties of precompilers like Less and Sass to how they document
   the library, each provides great insight into a well thought out design system
   that thinks less about pages and more about the relationship of the pieces
-  throughout. When I was first working towards more efficient Sass authoring I
-  spent a lot of time studying Foundation. I dug through the framework&rsquo;s
-  online documentation along with the source code. I looked at how a single
-  variable could impact multiple components. I explored how components fit
-  together like pieces of a puzzle. I practiced writing documentation for my own
-  Sass that would be as useful to another dev as Foundation&rsquo;s
-  documentation was to its users. I never used Foundation on one of my projects,
-  but it served me greatly in my work.
+  throughout.
+%p
+  When I was first working towards making my Sass more efficient I spent a lot
+  of time studying Foundation. I dug through the framework&rsquo;s online
+  documentation and source code. I looked at how a single variable could impact
+  multiple components. I explored how components fit together like pieces of a
+  puzzle. I practiced writing documentation for my own Sass that would be as
+  useful to another dev as Foundation&rsquo;s documentation was to its users. I
+  never used Foundation on one of my projects, but it served me greatly in my
+  work.
 
 %h2 Real World Website Building
 
 %p
   I recently spent part of the month working with the team at a friend&rsquo;s
   startup. They were building out a new version of their platform, working from
-  designs that were custom visuals around components from the Bootstrap system.
-  They were looking for some guidance on how best to integrate the design over
-  the top of Bootstrap. To me, this meant a few things:
+  designs that were custom designs based on Bootstrap components. They were
+  looking for some guidance on how best to integrate the design over the top of
+  Bootstrap. To me, this meant a few things:
 
 %ul
   %li
@@ -90,18 +92,67 @@ tags: code, process, tools
   Having been so framework averse in my own work, this was an exciting
   challenge, and one I took very seriously. Due to the limited time of my
   engagement, I had to ensure any recommendations I made would be maintainable
-  when I wasn&rsquo;t reviewing pull requests and answering questions in the
-  office. I&rsquo;m pretty happy with the approach we ended up taking and I
-  wanted to share.
+  when I was no longer there answering questions and reviewing pull requests.
+  I&rsquo;m pretty happy with the approach we ended up taking and I wanted to
+  share. Our manifest looked like this.
 
+:code
+  # lang: scss
+  // -----------------------------------------------------------------------------
+  // !-- Variables
+  // -----------------------------------------------------------------------------
+
+  // Load Bootstrap Variables
+  @import "../../bower_components/bootstrap/less/variables";
+
+  // Overide Bootstrap Variables
+  @import "variables/_bs-overrides";
+
+  // Add Application Variables
+  @import "variables/_app";
+
+  // -----------------------------------------------------------------------------
+  // !-- Bootstrap Source
+  // -----------------------------------------------------------------------------
+
+  // TODO: Determine if any components can be removed from CSS that aren't being
+  // used.
+
+  // Core mixins
+  @import "../../bower_components/bootstrap/less/mixins.less";
+
+  // Reset and dependencies
+  @import "../../bower_components/bootstrap/less/normalize.less";
+  @import "../../bower_components/bootstrap/less/print.less";
+  @import "../../bower_components/bootstrap/less/glyphicons.less";
+
+  // ... etc ...
+
+  // -----------------------------------------------------------------------------
+  // !-- General Styles
+  // -----------------------------------------------------------------------------
+
+  @import "partials/_base";
+  @import "partials/_helper-classes";
+
+  // -----------------------------------------------------------------------------
+  // !-- Bootstrap Expansion
+  // -----------------------------------------------------------------------------
+
+  @import "partials/_alerts";
+  @import "partials/_buttons";
+
+  // ... etc ...
+
+  // -----------------------------------------------------------------------------
+  // !-- New Components
+  // -----------------------------------------------------------------------------
+
+  @import "partials/_cards";
+  @import "partials/_chart";
+
+  // ... etc ...
 %ul
-  %li
-    In the manifest, we load the Bootstrap variables, then a file that we can
-    use to override those default values. We follow that with all the individual
-    Bootstrap source component partials. Then we load matching Bootstrap
-    component partials with any additional styles we can&rsquo;t update using
-    our variable overrides and then wrap up the manifest with any custom
-    component partials that we add.
   %li
     When building a new component, we determine if it has a direct Bootstrap
     parallel. If so, we update the variables to get the default component as
